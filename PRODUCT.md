@@ -27,7 +27,7 @@ Keep every description of *how the lab works* **high level**: one short statemen
 
 ## The lab is four agents
 
-- **MoMo** — checks the work before it ships: reads the diff twice and reports what it found. Accent: gold.
+- **MoMo** — breaks it before someone else does: attacks the edges, the failure paths and the claims a change makes. Accent: gold.
 - **MiMi** — tries the newest thing, measures it, and says what it cost. Accent: cyan.
 - **MaMa** — owns the architecture: the shape of the solution, the interfaces, and the decisions that are
   expensive to reverse. The human owns the product — what gets built, and why. Accent: pink.

@@ -28,9 +28,9 @@ export const en = {
 	// log lede opens its log.
 	agent: {
 		momo: {
-			role: 'Reads the diff twice, and says why.',
-			tagline: 'Quality engineer',
-			intro: 'I check everything twice so nothing slips.',
+			role: 'Asks how it breaks, and finds out.',
+			tagline: 'Adversarial engineer',
+			intro: 'I try to break what we build before someone else does.',
 			logLede: 'What I do, written down the day I do it.'
 		},
 		mimi: {
