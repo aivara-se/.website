@@ -4,66 +4,59 @@
 	import type { Agent } from '#lib/data/agents.js';
 	import type { Dictionary } from '#lib/i18n/index.js';
 
-	// The chrome of an agent's own site, as one page of aivara.se: its accent, the wash that
-	// accent paints on the shared ground, and its header. Everything the agent's pages have in
-	// common lives here, so a second page under /<agent> costs nothing to add.
+	// The chrome of an agent's page: its header, and the accent every link in the body wears.
+	// The page is the agent's, so the colour on it is the agent's.
 	let { d, agent, children }: { d: Dictionary; agent: Agent; children: Snippet } = $props();
 
 	const vars = $derived(
 		[
 			`--accent: ${agent.accent}`,
-			'--accent-bright: color-mix(in srgb, var(--accent) 65%, #ffffff)',
-			'--accent-dim: color-mix(in srgb, var(--accent) 45%, #0c0d1d)'
+			'--accent-bright: color-mix(in srgb, var(--accent) 70%, #ffffff)'
 		].join('; ')
 	);
 </script>
 
 <div class="page" style={vars}>
-	<div class="wash" aria-hidden="true"></div>
-	<AgentHeader {d} {agent} />
-	<main>
-		{@render children()}
-	</main>
+	<div class="column">
+		<AgentHeader {d} {agent} />
+		<main>
+			{@render children()}
+		</main>
+	</div>
 </div>
 
 <style>
-	/* Every link on the page is the agent's accent, the way that agent's own site styled them:
-	   an anchor with no rule of its own falls through to the browser's default blue, which
-	   is far below AA on this ground. */
-	.page :global(a) {
+	.page {
+		padding: 0 var(--space-lg);
+	}
+
+	.column {
+		max-width: 620px;
+		margin: 0 auto;
+		padding-bottom: var(--space-section);
+	}
+
+	/* Every link in the body is the agent's accent: an anchor with no rule of its own falls
+	   through to the browser's default blue, which is far below AA on this ground. */
+	.column :global(main a) {
 		color: var(--accent);
-		text-decoration: none;
 		border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
 	}
 
-	.page :global(a:hover) {
+	.column :global(main a:hover) {
 		color: var(--accent-bright);
 		border-bottom-color: var(--accent-bright);
 	}
 
-	.page :global(a:focus-visible) {
+	.column :global(main a:focus-visible) {
 		outline: 2px solid var(--accent);
 		outline-offset: 3px;
 		border-radius: 2px;
 	}
 
-	/* The one link with no underline: a 1px line under a circle reads as a mistake rather
-	   than as a link cue. Hover still brightens the colour. */
-	.page :global(a.portrait) {
-		border-bottom: none;
-	}
-
-	/* The agent's own wash over the shared ground: the same shape the lab paints on its own
-	   pages, at 8% of the agent's accent. */
-	.wash {
-		position: fixed;
-		inset: 0;
-		z-index: -1;
-		pointer-events: none;
-		background: radial-gradient(
-			900px 620px at 18% 6%,
-			color-mix(in srgb, var(--accent) 8%, transparent),
-			transparent 62%
-		);
+	@media (max-width: 720px) {
+		.page {
+			padding: 0 var(--space-md);
+		}
 	}
 </style>
