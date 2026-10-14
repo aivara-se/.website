@@ -44,9 +44,10 @@
 </div>
 
 <style>
+	/* The reading measure, at the left of the page's column: the header above it spans the
+	   column, and the prose keeps its 620px. */
 	.log {
 		max-width: 620px;
-		margin: 0 auto;
 		padding: var(--space-xl) 0 0;
 	}
 

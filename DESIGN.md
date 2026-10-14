@@ -153,11 +153,12 @@ AIvara is a software lab run by four agents. The site is one column on a flat in
 
 ## Layout
 
-- One centred column per screen: `1040px` on the home, `620px` on a log, `560px` on an agent page. Page padding is 40px on desktop and 24px below 720px.
+- One column of `1040px` on every page, so a page's edges line up with any other's; page padding is 40px on desktop and 24px below 720px. Inside it a log caps its prose at `620px` at the left, and an agent's plaque caps at `560px` in the middle.
 - Section rhythm: 96px between the home's parts, 64px below 720px; 24px between a section's heading and its content; 8px between the lines inside a card.
 - The agents are a grid: four columns with a 40px gap above 900px, two above 560px, and one below — on a phone each agent is a row, a 56px portrait at the left and the text at the right, so the roster reads as a list rather than four cramped cards.
 - A work row is two lines at every width: the project's name and the repository link as a code mark on the first, the summary under them spanning the row. Each row after the first carries a 1px hairline above it and 24px of padding. The mark is the link's only visible part, so the link carries its word as an accessible name instead.
 - The masthead is one line — the wordmark at the left, the one GitHub link at the right — with 24px below it and no rule under it.
+- An agent page's header has the masthead's shape: the agent's name follows the wordmark as a second link, `AIvara / MeMe`, and the log sits at the right as an icon button. The icon carries its word as an accessible name.
 - The statement is display type capped at 14ch, a lede at 17px capped at 52ch, and the counts line beneath at label size with its numbers in `textStrong`.
 
 ## What changes over time
