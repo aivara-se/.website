@@ -13,9 +13,9 @@
 
 <header class="head">
 	<nav class="crumbs" aria-label={d.nav.label}>
-		<a href={home}>{d.title}</a>
+		<a class="lab" href={home}>{d.title}</a>
 		<span class="sep" aria-hidden="true">/</span>
-		<a href={agent.path}>{agent.name}</a>
+		<a class="agent" href={agent.path}>{agent.name}</a>
 	</nav>
 
 	<a class="log" href={agent.logPath} aria-label={d.agentPage.log} title={d.agentPage.log}>
@@ -48,42 +48,55 @@
 		padding: var(--space-md) 0 0;
 	}
 
+	/* The trail reads as a trail: the lab's name is the quiet one at label size, the page's own
+	   name the loud one at name size. Both wear the agent's accent, each at its own strength,
+	   because the page is the agent's. */
 	.crumbs {
 		display: flex;
 		align-items: baseline;
 		gap: var(--space-xs);
-		font-family: var(--font-heading);
-		font-size: 17px;
-		font-weight: 600;
-		letter-spacing: -0.01em;
 	}
 
 	.crumbs a {
-		color: var(--accent);
 		border-bottom: none;
 	}
 
-	.crumbs a:hover {
+	.lab {
+		font-size: 13.5px;
+		font-weight: 500;
+		color: color-mix(in srgb, var(--accent) 55%, transparent);
+	}
+
+	.lab:hover {
 		color: var(--accent-bright);
 	}
 
 	.sep {
-		color: var(--tertiary);
-		font-weight: 400;
+		font-size: 13.5px;
+		color: color-mix(in srgb, var(--accent) 35%, transparent);
 	}
 
-	/* The log link is an icon, so its word lives in the label; the box is what makes it a
-	   button rather than a mark floating in the corner. */
+	.agent {
+		font-family: var(--font-heading);
+		font-size: 17px;
+		font-weight: 600;
+		letter-spacing: -0.01em;
+		color: var(--accent);
+	}
+
+	.agent:hover {
+		color: var(--accent-bright);
+	}
+
+	/* The log link is an icon, so its word lives in the label; a mark in the corner needs no
+	   box around it. */
 	.log {
 		display: inline-flex;
 		padding: 6px;
-		border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-		border-radius: var(--radius-sm);
 		color: var(--accent);
 	}
 
 	.log:hover {
-		border-color: var(--accent-bright);
 		color: var(--accent-bright);
 	}
 
