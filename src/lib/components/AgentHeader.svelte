@@ -18,17 +18,17 @@
 		<!-- a page of lines: the log is what the agent wrote down -->
 		<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
 			<path
-				d="M4 2h8v12H4z"
+				d="M1 1h14v14H1z"
 				fill="none"
 				stroke="currentColor"
-				stroke-width="1.4"
-				stroke-linejoin="round"
+				stroke-width="2"
+				stroke-linejoin="miter"
 			/>
 			<path
-				d="M6.2 5.6h3.6M6.2 8h3.6M6.2 10.4h2"
+				d="M5 6h6M5 10h6"
 				fill="none"
 				stroke="currentColor"
-				stroke-width="1.4"
+				stroke-width="2"
 				stroke-linecap="round"
 			/>
 		</svg>
