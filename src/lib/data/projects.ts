@@ -4,7 +4,6 @@ export interface Project {
 	slug: string;
 	name: string;
 	repo: string;
-	language: string;
 	summary: string;
 }
 
@@ -32,9 +31,6 @@ function parseProject(value: unknown, index: number): Project {
 	if (!isNonEmptyString(entry.repo)) {
 		throw new Error(`${where} (${entry.slug}): missing repo`);
 	}
-	if (!isNonEmptyString(entry.language)) {
-		throw new Error(`${where} (${entry.slug}): missing language`);
-	}
 	if (!isNonEmptyString(entry.summary)) {
 		throw new Error(`${where} (${entry.slug}): missing summary`);
 	}
@@ -43,7 +39,6 @@ function parseProject(value: unknown, index: number): Project {
 		slug: entry.slug,
 		name: entry.name,
 		repo: entry.repo,
-		language: entry.language,
 		summary: entry.summary
 	};
 }

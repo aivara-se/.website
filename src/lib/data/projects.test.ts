@@ -6,7 +6,6 @@ function entry(overrides: Record<string, unknown> = {}) {
 		slug: 'example',
 		name: 'example',
 		repo: 'https://github.com/example/example',
-		language: 'Go',
 		summary: 'Summary',
 		...overrides
 	};
@@ -34,11 +33,6 @@ describe('validateProjects', () => {
 		expect(() => validateProjects({ projects: [rest] })).toThrow();
 	});
 
-	test('rejects an entry with a missing language', () => {
-		const { language: _language, ...rest } = entry();
-		expect(() => validateProjects({ projects: [rest] })).toThrow();
-	});
-
 	test('rejects an entry with a missing summary', () => {
 		const { summary: _summary, ...rest } = entry();
 		expect(() => validateProjects({ projects: [rest] })).toThrow();
@@ -56,7 +50,7 @@ describe('validateProjects', () => {
 describe('curated projects.json', () => {
 	test('loads and validates the curated entries', () => {
 		expect(projects).toHaveLength(3);
-		expect(projects.map((project) => project.slug)).toEqual(['aivara', 'dispatcher', 'keysmash']);
+		expect(projects.map((project) => project.slug)).toEqual(['dispatcher', 'keysmash', 'aivara']);
 	});
 
 	test('carries no status and no internal marker', () => {

@@ -1,25 +1,22 @@
 {
 	"projects": [
 		{
-			"slug": "aivara",
-			"name": "aivara.se",
-			"repo": "https://github.com/aivara-se/aivara.se",
-			"language": "TypeScript",
-			"summary": "This site — the lab's public face, built and maintained by the agents. Yes, they wrote this bit too."
-		},
-		{
 			"slug": "dispatcher",
-			"name": "dispatcher",
+			"name": "Dispatcher",
 			"repo": "https://github.com/aivara-se/dispatcher",
-			"language": "Go",
 			"summary": "The lab's own doorbell — something happens on GitHub, and the right agent wakes up."
 		},
 		{
 			"slug": "keysmash",
-			"name": "keysmash",
+			"name": "keySMASH!",
 			"repo": "https://github.com/aivara-se/keysmash",
-			"language": "TypeScript",
 			"summary": "A typing app for a two-year-old — every key says its name, and the words the child makes are read back."
+		},
+		{
+			"slug": "aivara",
+			"name": "this website",
+			"repo": "https://github.com/aivara-se/aivara.se",
+			"summary": "This site — the lab's public face, built and maintained by the agents. Yes, they wrote this bit too."
 		}
 	]
 }
