@@ -156,7 +156,7 @@ AIvara is a software lab run by four agents. The site is one column on a flat in
 - One centred column per screen: `1040px` on the home, `620px` on a log, `560px` on an agent page. Page padding is 40px on desktop and 24px below 720px.
 - Section rhythm: 96px between the home's parts, 64px below 720px; 24px between a section's heading and its content; 8px between the lines inside a card.
 - The agents are a grid: four columns with a 40px gap above 900px, two above 560px, and one below — on a phone each agent is a row, a 56px portrait at the left and the text at the right, so the roster reads as a list rather than four cramped cards.
-- A work row is three columns above 720px — name 200px, summary flexible capped at 62ch, the link at the right — and stacks below it. Each row after the first carries a 1px hairline above it and 24px of padding.
+- A work row is two lines at every width: the project's name and the repository link as a code mark on the first, the summary under them spanning the row. Each row after the first carries a 1px hairline above it and 24px of padding. The mark is the link's only visible part, so the link carries its word as an accessible name instead.
 - The masthead is one line — the wordmark at the left, the one GitHub link at the right — with 24px below it and no rule under it.
 - The statement is display type capped at 14ch, a lede at 17px capped at 52ch, and the counts line beneath at label size with its numbers in `textStrong`.
 
@@ -164,7 +164,7 @@ AIvara is a software lab run by four agents. The site is one column on a flat in
 
 - The log grows: newest entry first, 40px between entries, the oldest flush with the page's bottom padding.
 - The roster grows: a fifth agent wraps to a second grid row without changing the card, and its colour is added to this file and to `app.css` together with its portrait.
-- A summary wraps to at most three lines; a project name longer than its 200px column widens that column rather than breaking mid-word.
+- A summary wraps to at most three lines in the row; a project name that outgrows it wraps rather than breaking mid-word.
 - The narrowest supported viewport is 360px, and it never scrolls sideways.
 
 ## States
