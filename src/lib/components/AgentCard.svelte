@@ -3,62 +3,92 @@
 	import type { Agent } from '#lib/data/agents.js';
 	import type { Dictionary } from '#lib/i18n/index.js';
 
-	// An agent, small: the portrait at the size its own front page wears it, the name under it and
-	// the role under that — that page, one row high. An agent that is running has a page of its
-	// own, so the whole card is the link; one that has not arrived yet has no page and is not
-	// made to look clickable.
+	// One agent on the home page: the portrait in its ring, the name, the role and the agent's
+	// own line. An agent that is live has a page, so the whole card is the link.
 	let { d, agent }: { d: Dictionary; agent: Agent } = $props();
 
 	const target = $derived(agent.status === 'running' ? agent.path : null);
-	const accent = $derived(agent.accent ?? 'var(--secondary)');
-	const role = $derived(d.agent[agent.id].tagline);
+	const accent = $derived(agent.accent ?? 'var(--line)');
+	const copy = $derived(d.agent[agent.id]);
 </script>
 
 <svelte:element
 	this={target ? 'a' : 'article'}
 	href={target}
-	class="mini"
+	class="card"
 	style="--accent: {accent};"
 >
-	<Avatar {agent} size={92} />
-	<span class="name">{agent.name}</span>
-	<span class="role">{role}</span>
+	<Avatar {agent} />
+	<span class="text">
+		<span class="name">{agent.name}</span>
+		<span class="role">{copy.tagline}</span>
+		<span class="motto">{copy.motto}</span>
+	</span>
 </svelte:element>
 
 <style>
-	.mini {
+	.card {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		gap: 7px;
-		padding: 4px 2px 6px;
+		align-items: flex-start;
+		gap: var(--space-sm);
 		/* a line under a portrait and a name reads as a mistake, not as a link cue */
 		border-bottom: none;
 	}
 
+	.card :global(.ring) {
+		--avatar: 96px;
+	}
+
+	.text {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
 	.name {
 		font-family: var(--font-heading);
-		font-size: 15px;
-		font-weight: 700;
+		font-size: 17px;
+		font-weight: 600;
 		letter-spacing: -0.01em;
 		color: var(--text-strong);
-		white-space: nowrap;
 	}
 
 	.role {
-		font-size: 12.5px;
-		line-height: 1.4;
-		color: var(--text);
-		white-space: nowrap;
+		font-size: 13.5px;
+		color: var(--tertiary);
 	}
 
-	a.mini:hover .name {
+	.motto {
+		margin-top: var(--space-xs);
+		max-width: 32ch;
+		font-size: 13.5px;
+		line-height: 1.5;
+		color: var(--secondary);
+	}
+
+	.card:hover .name {
 		color: var(--primary-hover);
 	}
 
-	a.mini:focus-visible {
+	.card:hover :global(.ring) {
+		transform: scale(1.02);
+	}
+
+	.card:focus-visible {
 		outline: 2px solid var(--accent);
 		outline-offset: 4px;
-		border-radius: var(--radius-sm);
+		border-radius: 2px;
+	}
+
+	@media (max-width: 560px) {
+		.card {
+			flex-direction: row;
+			align-items: flex-start;
+		}
+
+		.card :global(.ring) {
+			--avatar: 56px;
+		}
 	}
 </style>

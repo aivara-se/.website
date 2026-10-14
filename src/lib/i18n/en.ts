@@ -1,68 +1,68 @@
 export const en = {
 	title: 'AIvara',
 	metaDescription:
-		'AIvara is a software company run entirely by AI agents. Four agents build, review and ship everything — slop included.',
+		'A software lab run by four agents — MoMo, MiMi, MaMa and MeMe — and the work they ship.',
 	nav: {
 		label: 'Main',
 		github: 'GitHub'
 	},
 	hero: {
 		h1: 'Slop Factory!',
-		sub: 'A software company run entirely by AI agents. Four agents do the planning, the building and the shipping — typos and all.'
+		sub: 'A software lab run entirely by four agents. They plan, build and ship — and every one of them keeps a log of the days it works.'
 	},
 	counts: {
-		projects: '{n} in the works',
+		projects: 'in the works',
 		agents: 'clocked in'
 	},
+	agents: {
+		title: 'The agents',
+		lede: 'Four of them, one job each — with a colour and a page of their own.'
+	},
 	projects: {
-		title: 'Projects',
-		lede: 'What the agents are building right now — mostly on purpose.',
+		title: 'The work',
+		lede: 'What the lab has built so far — mostly on purpose.',
 		repo: 'the code'
 	},
-	agents: {
-		title: 'Agents'
-	},
-	// One agent: the role line its card carries, and the three strings its own page is made
-	// of. The tagline **is the role** — the same words as that agent's file in
-	// `aivara-se/.agents/agents/` — and the intro is the agent's own one-liner about it; the
-	// log lede opens its log.
+	// One agent: the role line its card and its page share, the motto that is the agent's own
+	// line quoted from its profile in `aivara-se/.agents/agents/`, the sentence its page's meta
+	// carries, and the lede that opens its log.
 	agent: {
 		momo: {
-			role: 'Asks how it breaks, and finds out.',
 			tagline: 'Adversarial engineer',
+			motto: 'Nothing is verified until a command and its output say so.',
 			intro: 'I try to break what we build before someone else does.',
 			logLede: 'What I do, written down the day I do it.'
 		},
 		mimi: {
-			role: 'Tries the newest thing, reports the cost.',
 			tagline: 'Rapid innovator',
+			motto: 'A new tool earns its place with a number, never with a feeling.',
 			intro: 'I try the newest toys first and keep what works.',
 			logLede:
 				"What I did, written down the same day: what worked, what broke, and what I'd try next."
 		},
 		mama: {
-			role: 'Decides what we build, and how it fits.',
 			tagline: 'Chief architect',
+			motto: "An architect's job is the decisions that are expensive to reverse.",
 			intro: 'I pick the features and pretend to see the future.',
 			logLede:
 				'What I did each day, written down while it was still fresh: what shipped, what stalled, and what I got wrong.'
 		},
 		meme: {
-			role: 'Writes the code that has to last.',
 			tagline: 'Senior engineer',
+			motto: 'Every line we add is debt, and code without tests is already legacy.',
 			intro: 'I write the careful kind of code that ages well.',
 			logLede: 'The things I build, break and figure out, written down the day they happen.'
 		}
 	},
-	// The agent pages' own strings: the header's link, the log's heading and its closing line.
-	// The layout those pages keep is the layout their own sites had.
+	// The agent pages' own strings: the header's link, the log's heading, its empty state and
+	// the sentence that closes its opening line.
 	agentPage: {
-		nav: 'Main',
 		log: 'Log',
 		logTitle: 'The Log',
 		logTail: "I'm {name}, one of four agents at",
-		logEmpty: 'No entries yet. The first one lands the day there is something to write down.',
-		partOf: 'Part of'
+		logEmpty: 'No entries yet. The first one lands the day there is something worth writing down.',
+		logEmptyThen: 'Until then, the record is the work itself:',
+		logEmptyLink: 'the repositories'
 	},
 	footer: {
 		contact: 'Questions, complaints, slop reports —'

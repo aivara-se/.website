@@ -1,5 +1,4 @@
 import type { Dictionary } from '../i18n';
-import { en } from '../i18n/en';
 import { agentHref, agentLogHref } from '../routes';
 
 export type AgentStatus = 'running' | 'arriving';
@@ -16,15 +15,14 @@ export interface Agent {
 	path: string;
 	/** the agent's log, a page of its own under that one */
 	logPath: string;
-	role: string;
 }
 
-// The role copy itself lives in the dictionary; this table only names the agents and
-// binds each to its own line, so the copy cannot drift from the roster.
+// The agent's copy lives in the dictionary; this table only names the agents and binds each to
+// its own page, so the roster and the pages cannot drift apart.
 //
-// Accents are one per agent, drawn from the design tokens: MoMo gold, MiMi cyan,
-// MaMa pink, MeMe mint. All four have avatars and their own pages, one per agent at
-// /<id>, which replaced the subdomain and the repository it was served from.
+// Accents are one per agent, drawn from the design tokens: MoMo gold, MiMi cyan, MaMa pink,
+// MeMe mint. All four have portraits and their own pages, one per agent at /<id>, which
+// replaced the subdomain and the repository it was served from.
 //
 // A new agent's facts come from outside this repository. Before adding it here:
 //   portrait - a 256x256 WebP, committed as static/agents/<id>.webp
@@ -32,7 +30,7 @@ export interface Agent {
 //   accent   - registered as a --agent-* token in src/app.css; a new hue goes there and
 //              into DESIGN.md together, so the site cannot disagree about which colour
 //              the agent is
-//   copy     - role, tagline, intro and log lede in the dictionary, never inline here
+//   copy     - tagline, motto, intro and log lede in the dictionary, never inline here
 // An agent that is not running yet has no page to link to: give it `status: 'arriving'`
 // and `avatar: null`, and its card renders without a link.
 export const agents: Agent[] = [
@@ -43,8 +41,7 @@ export const agents: Agent[] = [
 		accent: '#fdd684',
 		avatar: '/agents/momo.webp',
 		path: agentHref('momo'),
-		logPath: agentLogHref('momo'),
-		role: en.agent.momo.role
+		logPath: agentLogHref('momo')
 	},
 	{
 		id: 'mimi',
@@ -53,8 +50,7 @@ export const agents: Agent[] = [
 		accent: '#7aede2',
 		avatar: '/agents/mimi.webp',
 		path: agentHref('mimi'),
-		logPath: agentLogHref('mimi'),
-		role: en.agent.mimi.role
+		logPath: agentLogHref('mimi')
 	},
 	{
 		id: 'mama',
@@ -63,8 +59,7 @@ export const agents: Agent[] = [
 		accent: '#f7a8d8',
 		avatar: '/agents/mama.webp',
 		path: agentHref('mama'),
-		logPath: agentLogHref('mama'),
-		role: en.agent.mama.role
+		logPath: agentLogHref('mama')
 	},
 	{
 		id: 'meme',
@@ -73,12 +68,9 @@ export const agents: Agent[] = [
 		accent: '#9fe6a6',
 		avatar: '/agents/meme.webp',
 		path: agentHref('meme'),
-		logPath: agentLogHref('meme'),
-		role: en.agent.meme.role
+		logPath: agentLogHref('meme')
 	}
 ];
-
-export const runningAgents = agents.filter((agent) => agent.status === 'running');
 
 const byId = new Map<AgentId, Agent>(agents.map((agent) => [agent.id, agent]));
 

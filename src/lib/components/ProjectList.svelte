@@ -2,9 +2,9 @@
 	import type { Project } from '#lib/data/projects.js';
 	import type { Dictionary } from '#lib/i18n/index.js';
 
-	// The projects, as they are: one row each, every one the same weight. No status, no filters,
-	// and no project singled out above the others.
-	let { d, projects, level = 2 }: { d: Dictionary; projects: Project[]; level?: 1 | 2 } = $props();
+	// The work: one row per project, every one the same weight. No status, no filters, and no
+	// project singled out above the others.
+	let { d, projects }: { d: Dictionary; projects: Project[] } = $props();
 
 	function summary(project: Project): string {
 		const entry = (d.project as Record<string, { summary: string } | undefined>)[project.slug];
@@ -12,75 +12,85 @@
 	}
 </script>
 
-<section id="projects" class="section" aria-labelledby="projects-heading">
-	<svelte:element this={'h' + level} id="projects-heading" class="title">
-		{d.projects.title}
-	</svelte:element>
+<section id="projects" class="section" aria-labelledby="work-heading">
+	<h2 id="work-heading">{d.projects.title}</h2>
 	<p class="lede">{d.projects.lede}</p>
 
-	<div class="rows">
+	<ul class="rows">
 		{#each projects as project (project.slug)}
-			<div class="row">
-				<div class="lead">
-					<span class="name">{project.name}</span>
-					<span class="desc">{summary(project)}</span>
-				</div>
-				<div class="right">
+			<li class="row">
+				<span class="name">{project.name}</span>
+				<span class="summary">{summary(project)}</span>
+				<span class="meta">
+					<span class="language">{project.language}</span>
 					<a href={project.repo}>{d.projects.repo}</a>
-				</div>
-			</div>
+				</span>
+			</li>
 		{/each}
-	</div>
+	</ul>
 </section>
 
 <style>
 	.rows {
-		margin-top: 10px;
+		margin: var(--space-md) 0 0;
+		padding: 0;
+		list-style: none;
 	}
 
 	.row {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 14px;
-		padding: 15px 0;
-		border-bottom: 1px solid var(--border);
-		font-size: 14px;
+		display: grid;
+		grid-template-columns: 200px minmax(0, 1fr) auto;
+		gap: var(--space-md);
+		align-items: baseline;
+		padding: var(--space-md) 0;
 	}
 
-	.lead {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: baseline;
-		gap: 8px;
+	.row + .row {
+		border-top: 1px solid var(--line);
 	}
 
 	.name {
 		font-family: var(--font-heading);
-		font-size: 15px;
-		font-weight: 500;
+		font-size: 17px;
+		font-weight: 600;
+		letter-spacing: -0.01em;
 		color: var(--text-strong);
 	}
 
-	.desc {
+	.summary {
+		max-width: 62ch;
 		font-size: 13.5px;
+		line-height: 1.5;
 		color: var(--secondary);
 	}
 
-	.right {
+	.meta {
 		display: flex;
-		align-items: center;
-		gap: 14px;
-		font-size: 12.5px;
+		align-items: baseline;
+		gap: var(--space-sm);
+		font-size: 12px;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
 		color: var(--tertiary);
 		white-space: nowrap;
 	}
 
+	.meta a {
+		color: var(--tertiary);
+	}
+
+	.meta a:hover {
+		color: var(--primary-hover);
+	}
+
 	@media (max-width: 720px) {
 		.row {
-			align-items: flex-start;
-			flex-direction: column;
-			gap: 8px;
+			grid-template-columns: 1fr;
+			gap: var(--space-xs);
+		}
+
+		.meta {
+			margin-top: var(--space-xs);
 		}
 	}
 </style>

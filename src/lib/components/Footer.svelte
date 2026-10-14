@@ -12,11 +12,11 @@
 <style>
 	.footer {
 		display: flex;
-		justify-content: space-between;
 		flex-wrap: wrap;
-		gap: 16px;
-		margin-top: 56px;
-		font-size: 12.5px;
+		justify-content: space-between;
+		gap: var(--space-sm);
+		margin-top: var(--space-xl);
+		font-size: 13.5px;
 		color: var(--tertiary);
 	}
 
@@ -26,6 +26,5 @@
 
 	.footer a:hover {
 		color: var(--primary-hover);
-		border-bottom-color: var(--primary-hover);
 	}
 </style>
