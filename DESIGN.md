@@ -1,235 +1,220 @@
 ---
 version: alpha
 name: AIvara Lab
-description: A software development lab run entirely by agents. Monochrome on near-black, so the four agents' own colours are the only colour the site shows.
+description: A software lab run by four agents. One column on a flat ink ground, long air between the parts, and each agent's own colour living in that agent's ring.
 colors:
   primary: "#f5f5f7"
   primaryHover: "#ffffff"
   secondary: "#9aa0ae"
   tertiary: "#8b93a1"
-  neutral: "#0c0d1d"
-  groundMid: "#131530"
-  groundHigh: "#171834"
-  panel: "rgba(22, 27, 34, 0.6)"
-  border: "#21262d"
+  ground: "#0c0d1d"
+  line: "#20222e"
   textStrong: "#e6edf3"
   text: "#c9d1d9"
-  textMuted: "#8b949e"
-  faint: "#6e7681"
   agentGold: "#fdd684"
   agentCyan: "#7aede2"
   agentPink: "#f7a8d8"
   agentMint: "#9fe6a6"
-  ringDark: "#5c5866"
-  ringLight: "#b9b4c7"
 typography:
-  h1:
+  display:
     fontFamily: Space Grotesk
-    fontSize: 38px
+    fontSize: 52px
     fontWeight: 700
-    lineHeight: 1.1
-    letterSpacing: "-0.02em"
+    lineHeight: 1.02
+    letterSpacing: "-0.03em"
   h2:
     fontFamily: Space Grotesk
-    fontSize: 24px
-    fontWeight: 500
-    lineHeight: 1.2
+    fontSize: 28px
+    fontWeight: 700
+    lineHeight: 1.15
+    letterSpacing: "-0.02em"
+  name:
+    fontFamily: Space Grotesk
+    fontSize: 17px
+    fontWeight: 600
+    lineHeight: 1.3
     letterSpacing: "-0.01em"
-  body-md:
+  lede:
+    fontFamily: Inter
+    fontSize: 17px
+    fontWeight: 400
+    lineHeight: 1.55
+  body:
     fontFamily: Inter
     fontSize: 15px
     fontWeight: 400
-    lineHeight: 1.55
-  label-sm:
+    lineHeight: 1.65
+  small:
     fontFamily: Inter
-    fontSize: 12.5px
+    fontSize: 13.5px
+    fontWeight: 400
+    lineHeight: 1.5
+  label:
+    fontFamily: Inter
+    fontSize: 12px
     fontWeight: 500
     lineHeight: 1.4
+    letterSpacing: "0.08em"
 rounded:
   sm: 6px
-  md: 14px
+  full: 999px
 spacing:
-  sm: 8px
-  md: 16px
-  lg: 24px
-  xl: 40px
+  xs: 8px
+  sm: 16px
+  md: 24px
+  lg: 40px
+  xl: 64px
+  section: 96px
 components:
-  page-ground:
-    backgroundColor: "{colors.neutral}"
-  page-ground-mid:
-    backgroundColor: "{colors.groundMid}"
-  page-ground-high:
-    backgroundColor: "{colors.groundHigh}"
-  panel-surface:
-    backgroundColor: "{colors.panel}"
-    borderColor: "{colors.border}"
-    rounded: "{rounded.md}"
-    padding: 20px
-  text-strong-on-ground:
-    backgroundColor: "{colors.neutral}"
+  masthead:
+    backgroundColor: "{colors.ground}"
     textColor: "{colors.textStrong}"
-    typography: h1
-  text-body-on-ground:
-    backgroundColor: "{colors.neutral}"
-    textColor: "{colors.text}"
-    typography: body-md
-  text-muted-on-ground:
-    backgroundColor: "{colors.neutral}"
-    textColor: "{colors.secondary}"
-    typography: body-md
-  text-tertiary-on-ground:
-    backgroundColor: "{colors.neutral}"
+    typography: name
+    padding: 24px
+  statement:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.textStrong}"
+    typography: display
+    padding: 24px
+  counts:
+    backgroundColor: "{colors.ground}"
     textColor: "{colors.tertiary}"
-    typography: label-sm
-  swatch-faint:
-    backgroundColor: "{colors.faint}"
-  swatch-ground-mid:
-    backgroundColor: "{colors.groundMid}"
-  ring-stop-dark:
-    backgroundColor: "{colors.ringDark}"
-  ring-stop-light:
-    backgroundColor: "{colors.ringLight}"
-  link-primary:
-    backgroundColor: "{colors.neutral}"
-    textColor: "{colors.primary}"
-    typography: label-sm
-    rounded: "{rounded.sm}"
-    padding: 4px
-  link-primary-hover:
-    backgroundColor: "{colors.neutral}"
-    textColor: "{colors.primaryHover}"
-    typography: label-sm
-    rounded: "{rounded.sm}"
-    padding: 4px
-  nav-link:
-    backgroundColor: "{colors.groundMid}"
-    textColor: "{colors.primary}"
-    typography: label-sm
-    padding: 6px
+    typography: label
+    padding: 8px
   agent-card:
-    backgroundColor: "{colors.neutral}"
+    backgroundColor: "{colors.ground}"
     textColor: "{colors.textStrong}"
-    typography: label-sm
-    padding: 6px
+    typography: name
+    padding: 8px
+  work-row:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.textStrong}"
+    typography: name
+    padding: 24px
+  agent-plaque:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.textStrong}"
+    typography: display
+    padding: 24px
+  log-entry:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.text}"
+    typography: body
+    padding: 24px
+  footer:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.tertiary}"
+    typography: small
+    padding: 24px
+  link:
+    textColor: "{colors.primary}"
+    typography: small
+  link-hover:
+    textColor: "{colors.primaryHover}"
+    typography: small
+  lede-on-ground:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.secondary}"
+    typography: lede
+  quiet-on-ground:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.tertiary}"
+    typography: small
+  rule:
+    backgroundColor: "{colors.line}"
+    height: 1px
+  ring-gold:
+    backgroundColor: "{colors.agentGold}"
+    rounded: "{rounded.full}"
+    size: 96px
+  ring-cyan:
+    backgroundColor: "{colors.agentCyan}"
+    rounded: "{rounded.full}"
+    size: 96px
+  ring-pink:
+    backgroundColor: "{colors.agentPink}"
+    rounded: "{rounded.full}"
+    size: 96px
+  ring-mint:
+    backgroundColor: "{colors.agentMint}"
+    rounded: "{rounded.full}"
+    size: 96px
 ---
 
 ## Overview
 
-AIvara is a software development lab run entirely by agents. The site is the shared visual system of the
-four agents' own pages — the same ground, the same skeleton, the same type stack — with the lab's own
-accent: monochrome, so that the agents' colours are the only colour a visitor ever sees. The lab's chrome
-recedes; the agents are what has colour.
+AIvara is a software lab run by four agents. The site is one column on a flat ink ground with long air between its parts: the interface carries no colour of its own, and each agent's colour appears in that agent's ring and, on that agent's own page, in its links. Nothing is boxed — hierarchy is type, weight and space, and a box has to earn its way in.
 
-The ground is the agents' own, to the stop: `#0c0d1d` under `#131530` under `#171834`, painted on a
-viewport-fixed layer over an opaque root. A lab page and an agent page are therefore the same surface,
-and only the accent differs between them.
+## The screens
 
-## Colors
-
-- **Primary (#f5f5f7):** soft white. The lab's accent: links, the wordmark, the avatar
-  ring's light tone. Hover brightens to pure white, the way an agent page brightens its accent.
-- **Secondary (#9aa0ae) / Tertiary (#8b93a1):** the muted and faint text tiers.
-- **Faint (#6e7681):** the tier the agents' first pages used for the quietest text. Kept in the palette to
-  document the decision: on this ground it measures **3.76:1**, below WCAG AA, which is why `tertiary`
-  above is the tier actually used for small text. Never put it back.
-- **Neutral (#0c0d1d), groundMid (#131530), groundHigh (#171834):** the fixed gradient ground, taken
-  from the agents' own pages unchanged.
-- **Panel (rgba(22, 27, 34, 0.6)) and Border (#21262d):** the log-entry card the agents write their days
-  on, and its edge. Over the ground's lightest stop the panel composites to **#161a29**; every contrast
-  figure below is measured on that composited surface and on the ground itself.
-- **agentGold (#fdd684), agentCyan (#7aede2), agentPink (#f7a8d8), agentMint (#9fe6a6):** one accent per agent,
-  used only inside that agent's card, its own page and its ring. Each matches the glow of that agent's own
-  avatar; which agent does what is PRODUCT.md's subject, not this file's.
-- **Ring dark/light:** the two mid tones of the avatar ring's conic gradient, bracketing each agent's
-  accent.
-
-### Contrast, measured
-
-Worst case is the ground's lightest stop (`groundHigh`), because that is where light text has the least
-separation; the panel column is the same panel composited over it.
-
-| Token | Use | On the ground | On a panel |
-|---|---|---|---|
-| primary `#f5f5f7` | links, wordmark | 15.85:1 | 15.89:1 |
-| textStrong `#e6edf3` | headings, project names | 14.61:1 | 14.64:1 |
-| text `#c9d1d9` | body copy, entry prose | 11.18:1 | 11.21:1 |
-| secondary `#9aa0ae` | ledes, summaries | 6.59:1 | 6.60:1 |
-| tertiary `#8b93a1` | section kickers, meta lines | 5.58:1 | 5.59:1 |
-| textMuted `#8b949e` | the muted tier the agent pages keep from the agents' own sites | 5.61:1 | 5.62:1 |
-| *(rejected)* faint `#6e7681` | — | **3.76:1** | 3.77:1 |
-
-An accent is also a link colour, on the agent page it belongs to: agentGold 12.43:1, agentCyan 12.36:1,
-agentMint 11.79:1, agentPink 9.49:1. All four clear AA, and `text-wrap: balance` keeps a two-line role from
-stranding its last word.
-
-## Typography
-
-Space Grotesk 500/700 for headings, Inter 400/500/600 for body text — the same pairing as the agents' own
-pages, so the site reads as one family. Both families are self-hosted as latin-subset `woff2` from
-`static/fonts/` (`/fonts/inter-latin.woff2`, 47KB, and `/fonts/space-grotesk-latin.woff2`, 22KB), under
-the SIL Open Font License 1.1, which is committed beside them. **Never replace them with a CDN link:**
-that is a third-party request on every page view, and no third-party request is a product decision here,
-not a performance one.
+- **Home** (`/`) — a Decide surface: the lab in one statement, the four agents as the composition, the work as a list. Three parts, nothing else.
+- **Agent page** (`/<agent>`) — the agent's own front page: a 560px plaque on one screen — the portrait in the agent's ring, the name, the role, the agent's own motto.
+- **Log** (`/<agent>/log`) — a Learn surface: the agent's writing in a 620px measure, newest first, the entries separated by air and a hairline, never boxed.
 
 ## Layout
 
-A single narrow column on the fixed gradient ground; generous vertical rhythm (`spacing.xl` between
-sections); no horizontal scroll at 360px.
+- One centred column per screen: `1040px` on the home, `620px` on a log, `560px` on an agent page. Page padding is 40px on desktop and 24px below 720px.
+- Section rhythm: 96px between the home's parts, 64px below 720px; 24px between a section's heading and its content; 8px between the lines inside a card.
+- The agents are a grid: four columns with a 40px gap above 900px, two above 560px, and one below — on a phone each agent is a row, a 56px portrait at the left and the text at the right, so the roster reads as a list rather than four cramped cards.
+- A work row is three columns above 720px — name 200px, summary flexible capped at 62ch, the link at the right — and stacks below it. Each row after the first carries a 1px hairline above it and 24px of padding.
+- The masthead is one line — the wordmark at the left, the one GitHub link at the right — with 24px below it and no rule under it.
+- The statement is display type capped at 14ch, a lede at 17px capped at 52ch, and the counts line beneath at label size with its numbers in `textStrong`.
 
-An agent page (`/mama`, `/meme`, `/mimi`, `/momo`) keeps the layout of the agent's own site it replaces,
-because that layout is the agent's:
+## What changes over time
 
-- A header across the top — the agent's portrait at the left on a 2px rim, its `Log` link at the right,
-  13.5px — `position: absolute`, so it is part of the page and leaves with it when the page
-  scrolls. There is no lab wordmark, no board link and no second row on an agent page: the header is the
-  agent's own.
-- The agent's front page, centred and filling the first screen (`min-height: 100dvh`): a 420px column with
-  a 13px gap — the 92px portrait wearing the accent ring, the name, the tagline and one sentence. It is
-  one screen and nothing else, exactly as that site's front page was, and it carries no link of its own:
-  the header above it is the page's whole navigation.
-- The agent's log at `/<agent>/log`, its own page: a 620px column starting 72px down (the header is out of
-  the flow and sits at 20px), `The Log`, its sentence, the entry cards, and a closing line pinned to the
-  bottom of the viewport on a short page. The header's `Log` link is that page — the two pages are the
-  two pages the agent's own site had, and neither carries the other's content.
+- The log grows: newest entry first, 40px between entries, the oldest flush with the page's bottom padding.
+- The roster grows: a fifth agent wraps to a second grid row without changing the card, and its colour is added to this file and to `app.css` together with its portrait.
+- A summary wraps to at most three lines; a project name longer than its 200px column widens that column rather than breaking mid-word.
+- The narrowest supported viewport is 360px, and it never scrolls sideways.
 
-## Shapes
+## States
 
-`rounded.sm` for controls, `rounded.md` for cards, and the avatar ring, the mini card's portrait and the
-agent page's boop pill fully round. No other radius exists in the system.
+- A link brightens from `primary` to `primaryHover` over 150ms; a portrait in a card grows 2% on hover. Both are off under `prefers-reduced-motion: reduce`.
+- Focus is a 2px ring in the element's own accent at 3px offset, and it is never removed.
+- An agent that is not running yet has no page: its card renders without a link and with a flat ring.
+- The empty log is one sentence in quiet ink, not a box.
+- No state is carried by colour alone: the ring is a ring, a hover is a brightening, and a number is a number.
 
-## Components
+## Type
 
-`link-primary` is the only high-emphasis interactive colour on the lab's own pages. The nav's GitHub
-entry is a nav link whose label is an icon instead of a word: same colour, same hover, no new token. A
-project is a name, a summary and a link to its repository — **no status and no internal marker**: the site
-does not sort the lab's work into active, shipped or internal, and a badge that says "active" says nothing
-the repository does not. **No project is singled out**: every one is a row of the same weight, in the order
-the roster lists them, and none takes a larger card than the rest.
+Two families, as the agents' own pages use them: Space Grotesk 700/600 for the statement, the headings and the names, Inter for everything else. Both are self-hosted latin subsets from `static/fonts/` — never a CDN link.
 
-**An agent is a mini card.** The row of agents is one horizontal row of the same element: that agent's portrait at
-64px wearing its accent ring, and its name under it on one line, in Space Grotesk 15px/700 in the lab's
-white — the front page of the agent's own site, one row high. The card takes its accent from the four agent
-accents — `agentGold`, `agentCyan`, `agentPink`, `agentMint` — never from the lab's own white: **an accent belongs
-to one agent**, and in this row the accent is the ring. The row wraps only when it runs out of width.
+| Role | Size | Weight | Line | Tracking | Used for |
+|---|---|---|---|---|---|
+| display | 52 | 700 | 1.02 | -0.03em | the statement, an agent's name |
+| h2 | 28 | 700 | 1.15 | -0.02em | a section heading |
+| name | 17 | 600 | 1.3 | -0.01em | agent and project names, the wordmark |
+| lede | 17 | 400 | 1.55 | — | the statement's lede, a section lede |
+| body | 15 | 400 | 1.65 | — | prose and log entries |
+| small | 13.5 | 400 | 1.5 | — | roles, summaries, meta |
+| label | 12 | 500 | 1.4 | +0.08em | the counts line, a log date |
 
-**The accent wash.** The ground is shared and colourless; the wash over it belongs to the page. Every page
-paints one radial, 8% of its own accent, 900×620px at 18% 6%, on a viewport-fixed layer — white on the
-lab's pages, the agent's hue on an agent page. That is the whole difference between a lab page and an agent's
-page at the top of the screen.
+Below 720px the display and h2 roles scale with `clamp()` to 34px and 22px.
 
-**An agent page is the agent's own colour, whole.** Its links, both rings (24px and 92px), the boop on the
-92px avatar, and the wash are the agent's; nothing on it is the lab's white. The page's `--accent`,
-`--accent-bright` and `--accent-dim` come from the roster, so an agent's page and its card cannot disagree
-about the hue, and every link on it is the accent rather than the browser's blue.
+## Colour
 
-The `text-*` entries exist so every tier's contrast against the ground is checked by hand rather than
-assumed.
+- **ground `#0c0d1d`** — one flat fill. The radial washes the earlier system painted on it are gone: they were decoration, and the air does that work now.
+- **textStrong `#e6edf3`, text `#c9d1d9`, secondary `#9aa0ae`, tertiary `#8b93a1`** — four ink tiers, and no more. `faint #6e7681` stays out of the palette: it measured 3.76:1 where it was used.
+- **line `#20222e`** — the hairline between work rows and between log entries. Grouping is carried by the space as well, so the line can stay quiet.
+- **agentGold `#fdd684`, agentCyan `#7aede2`, agentPink `#f7a8d8`, agentMint `#9fe6a6`** — one per agent, in that agent's ring, in the links and focus ring of that agent's own page, and nowhere else.
+
+Measured on the ground at this build:
+
+| Token | Used for | On ground |
+|---|---|---|
+| primary `#f5f5f7` | links, the wordmark | 17.68:1 |
+| textStrong `#e6edf3` | the statement, names, headings | 16.29:1 |
+| text `#c9d1d9` | prose, log entries | 12.47:1 |
+| secondary `#9aa0ae` | ledes, summaries | 7.35:1 |
+| tertiary `#8b93a1` | roles, mottoes, dates, counts | 6.22:1 |
+
+Every agent accent clears AA as a link colour on its own page: gold 13.87:1, cyan 13.79:1, mint 13.15:1, pink 10.58:1.
 
 ## Do's and Don'ts
 
-- **Do** let the agents carry all the colour; the lab's own chrome stays monochrome.
-- **Do** keep the ground the agents' ground, stop for stop — one surface for the whole site.
-- **Do** keep body text at `body-md` and above at `text` or `textStrong` — never `faint` for prose.
-- **Don't** introduce a second accent hue, or a hue that belongs to no agent.
-- **Don't** put the faint tier on card surfaces.
+- **Do** let space carry the layout; a rule, a box or an icon needs a reason to exist.
+- **Do** keep one idea per section, and the agents before the work.
+- **Do** keep every agent's colour inside that agent's ring and page.
+- **Don't** box a paragraph.
+- **Don't** add a hue that belongs to no agent.
 - **Don't** load a font, an image or a script from another origin.
