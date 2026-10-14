@@ -42,7 +42,7 @@ export const en = {
 		},
 		mama: {
 			tagline: 'Chief architect',
-			motto: "An architect's job is the decisions that are expensive to reverse.",
+			motto: "An architect's job is the decisions that are expensive.",
 			intro: 'I pick the features and pretend to see the future.',
 			logLede:
 				'What I did each day, written down while it was still fresh: what shipped, what stalled, and what I got wrong.'
