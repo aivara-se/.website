@@ -1,6 +1,5 @@
 <script lang="ts">
 	import AgentStrip from './AgentStrip.svelte';
-	import Counts from './Counts.svelte';
 	import Hero from './Hero.svelte';
 	import ProjectList from './ProjectList.svelte';
 	import Seo from './Seo.svelte';
@@ -16,8 +15,7 @@
 <Seo path={href('home')} title={d.title} description={d.metaDescription} />
 
 <Shell {d}>
-	<Hero {d} />
-	<Counts {d} {projects} {agents} />
+	<Hero {d} {projects} {agents} />
 	<AgentStrip {d} {agents} />
 	<ProjectList {d} {projects} />
 </Shell>

@@ -1,18 +1,17 @@
 <script lang="ts">
 	import type { Agent } from '#lib/data/agents.js';
 
-	// The portrait a card and a ring draw. The lab's cards leave the alt text empty because
-	// the agent's name sits beside the image; only a page that shows the portrait alone needs
-	// to name it, and those pages draw their own avatar.
-	let { agent, size = 40 }: { agent: Agent; size?: number } = $props();
+	// The portrait a card and a plaque draw: the image inside a ring in the agent's colour.
+	// The size belongs to the container — it sets `--avatar` — so a card can shrink the
+	// portrait on a phone without a second component.
+	let { agent }: { agent: Agent } = $props();
 
-	const arriving = $derived(agent.status === 'arriving');
-	const accent = $derived(agent.accent ?? 'var(--ring-dark)');
+	const accent = $derived(agent.accent ?? 'var(--line)');
 </script>
 
-<span class="ring" class:arriving style="--size: {size}px; --accent: {accent};" aria-hidden="true">
+<span class="ring" class:flat={!agent.avatar} style="--accent: {accent};" aria-hidden="true">
 	{#if agent.avatar}
-		<img src={agent.avatar} alt="" width={size - 6} height={size - 6} />
+		<img src={agent.avatar} alt="" />
 	{:else}
 		<span class="initial">{agent.name.slice(0, 1)}</span>
 	{/if}
@@ -22,23 +21,17 @@
 	.ring {
 		display: inline-flex;
 		flex: 0 0 auto;
-		width: var(--size);
-		height: var(--size);
-		padding: 3px;
+		width: var(--avatar, 40px);
+		height: var(--avatar, 40px);
+		padding: 2px;
+		border: 2px solid var(--accent);
 		border-radius: 50%;
-		background: conic-gradient(
-			from 210deg,
-			var(--ring-dark),
-			var(--accent),
-			var(--ring-light),
-			var(--ring-dark)
-		);
-		animation: float 6s ease-in-out infinite;
+		transition: transform 0.15s;
 	}
 
-	.ring.arriving {
-		background: var(--ring-dark);
-		animation: none;
+	/* An agent with no portrait yet: the ring is a plain line, not a colour. */
+	.ring.flat {
+		border-color: var(--line);
 	}
 
 	.ring img {
@@ -47,7 +40,7 @@
 		height: 100%;
 		border-radius: 50%;
 		object-fit: cover;
-		background: var(--neutral);
+		background: var(--ground);
 	}
 
 	.initial {
@@ -57,27 +50,17 @@
 		width: 100%;
 		height: 100%;
 		border-radius: 50%;
-		background: var(--neutral);
+		background: var(--ground);
 		color: var(--secondary);
 		font-family: var(--font-heading);
-		font-size: calc(var(--size) * 0.4);
-		font-weight: 700;
+		font-size: calc(var(--avatar, 40px) * 0.4);
+		font-weight: 600;
 		line-height: 1;
-	}
-
-	@keyframes float {
-		0%,
-		100% {
-			transform: translateY(0);
-		}
-		50% {
-			transform: translateY(-6px);
-		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
 		.ring {
-			animation: none;
+			transition: none;
 		}
 	}
 </style>

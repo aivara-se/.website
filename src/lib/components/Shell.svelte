@@ -4,32 +4,34 @@
 	import TopBar from './TopBar.svelte';
 	import type { Dictionary } from '#lib/i18n/index.js';
 
+	// The lab's own pages: one column, the masthead above and the footer below.
 	let { d, children }: { d: Dictionary; children: Snippet } = $props();
 </script>
 
-<div class="wash" aria-hidden="true"></div>
-
-<div class="shell">
-	<TopBar {d} />
-	<main>
-		{@render children()}
-	</main>
-	<Footer {d} />
+<div class="page">
+	<div class="column">
+		<TopBar {d} />
+		<main>
+			{@render children()}
+		</main>
+		<Footer {d} />
+	</div>
 </div>
 
 <style>
-	/* The lab's own wash over the shared ground: the same shape the agent pages paint with
-	   their agent's accent, at the lab's white. The ground itself is in app.css, because it is
-	   the one thing every page shares. */
-	.wash {
-		position: fixed;
-		inset: 0;
-		z-index: -1;
-		pointer-events: none;
-		background: radial-gradient(
-			900px 620px at 18% 6%,
-			color-mix(in srgb, var(--primary) 8%, transparent),
-			transparent 62%
-		);
+	.page {
+		padding: 0 var(--space-lg);
+	}
+
+	.column {
+		max-width: 1040px;
+		margin: 0 auto;
+		padding-bottom: var(--space-section);
+	}
+
+	@media (max-width: 720px) {
+		.page {
+			padding: 0 var(--space-md);
+		}
 	}
 </style>

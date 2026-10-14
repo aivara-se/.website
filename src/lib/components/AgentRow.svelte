@@ -3,37 +3,35 @@
 	import type { Agent } from '#lib/data/agents.js';
 	import type { Dictionary } from '#lib/i18n/index.js';
 
-	// The agents, laid out horizontally and spread across the width the section has: `space-around`
-	// gives every card the same room on both sides, so no card sits flush against an edge.
-	//
-	// Four 92px portraits do not fit one line on a phone (4 × 96px of card beats the 342px the
-	// shell has at 390px), so under 720px the row is a deliberate 2×2 instead of a flex wrap —
-	// wrapping on its own gives three cards and then a stray fourth.
+	// Four of them, side by side while there is room; one column on a phone, so each agent
+	// reads as a line of the roster rather than a cramped card.
 	let { d, agents }: { d: Dictionary; agents: Agent[] } = $props();
 </script>
 
-<div class="row">
+<div class="roster">
 	{#each agents as agent (agent.id)}
 		<AgentCard {d} {agent} />
 	{/each}
 </div>
 
 <style>
-	.row {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: flex-start;
-		justify-content: space-around;
-		gap: 20px;
-		margin-top: 18px;
+	.roster {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: var(--space-lg);
+		margin-top: var(--space-md);
 	}
 
-	@media (max-width: 720px) {
-		.row {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			justify-items: center;
-			gap: 24px 12px;
+	@media (max-width: 900px) {
+		.roster {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 560px) {
+		.roster {
+			grid-template-columns: 1fr;
+			gap: var(--space-md);
 		}
 	}
 </style>
