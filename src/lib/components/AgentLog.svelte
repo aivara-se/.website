@@ -2,14 +2,14 @@
 	import { logs } from '#lib/data/logs.js';
 	import type { Agent } from '#lib/data/agents.js';
 	import type { Dictionary } from '#lib/i18n/index.js';
+	import { GITHUB_ORG, href } from '#lib/routes.js';
 
-	// The agent's log, ported from the log page of its own site: the same 620px column, the
-	// same entry cards, newest first, and a footer that sits at the bottom of a short page.
-	// Nothing is published on a day when nothing happened, so the empty state is the honest
-	// one until an entry exists.
+	// The agent's log: its own writing, newest first, in a measure meant for reading. Nothing
+	// is published on a day when nothing happened, so the empty state is the honest one.
 	let { d, agent }: { d: Dictionary; agent: Agent } = $props();
 
 	const entries = $derived(logs[agent.id] ?? []);
+	const home = $derived(href('home'));
 </script>
 
 <div class="log">
@@ -18,18 +18,22 @@
 		<p class="sub">
 			{d.agent[agent.id].logLede}
 			{d.agentPage.logTail.replace('{name}', agent.name)}
-			<a href="https://aivara.se">{d.title}</a>.
+			<a href={home}>{d.title}</a>.
 		</p>
 	</header>
 
 	<section aria-labelledby="agent-log-heading" class="entries">
 		{#if entries.length === 0}
 			<p class="empty">{d.agentPage.logEmpty}</p>
+			<p class="empty">
+				{d.agentPage.logEmptyThen}
+				<a href={GITHUB_ORG}>{d.agentPage.logEmptyLink}</a>.
+			</p>
 		{:else}
 			{#each entries as entry (entry.date + entry.title)}
 				<article class="entry">
-					<h2 class="entry-title">{entry.title}</h2>
 					<p class="date">{entry.date}</p>
+					<h2 class="title">{entry.title}</h2>
 					{#each entry.body as paragraph}
 						<p>{paragraph}</p>
 					{/each}
@@ -37,107 +41,74 @@
 			{/each}
 		{/if}
 	</section>
-
-	<footer class="foot">
-		{d.agentPage.partOf}
-		<a href="https://aivara.se">{d.title}</a>
-	</footer>
 </div>
 
 <style>
 	.log {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-		min-height: 100dvh;
 		max-width: 620px;
 		margin: 0 auto;
-		/* 72px clears the header, which is out of the flow and sits at 20px */
-		padding: 72px 24px 80px;
-		/* The lab's body sets 1.55; the agent's log page had no line-height of its own, and the
-		   elements that need one set it themselves. */
-		line-height: normal;
+		padding: var(--space-xl) 0 0;
 	}
 
 	.head {
-		margin-bottom: 36px;
+		margin-bottom: var(--space-xl);
 	}
 
 	h1 {
-		margin-bottom: 6px;
-		font-size: clamp(28px, 7vw, 36px);
+		font-size: clamp(28px, 5vw, 36px);
 		font-weight: 700;
+		line-height: 1.1;
 		letter-spacing: -0.02em;
-		/* No line-height of its own, as on the agent's own log page: `normal` is what makes the
-		   heading 36px tall at a phone width rather than 31px. */
 	}
 
 	.sub {
+		margin: var(--space-xs) 0 0;
+		font-size: 15px;
+		line-height: 1.65;
+		color: var(--tertiary);
+	}
+
+	.entry + .entry {
+		margin-top: var(--space-lg);
+		padding-top: var(--space-lg);
+		border-top: 1px solid var(--line);
+	}
+
+	/* The byline is styled as `.entry .date`: a bare `.entry p` rule would win on
+	   specificity otherwise, and the date would render as body copy. */
+	.entry .date {
 		margin: 0;
-		font-size: 14.5px;
-		line-height: 1.55;
-		color: var(--text-muted);
-	}
-
-	.entry {
-		margin-bottom: 16px;
-		padding: 18px 20px;
-		border: 1px solid var(--border);
-		border-radius: 12px;
-		background: var(--panel);
-	}
-
-	.entry-title {
-		margin: 0 0 6px;
-		font-size: 17px;
-		font-weight: 600;
-		line-height: 1.35;
-		letter-spacing: -0.01em;
-		color: var(--text-strong);
-	}
-
-	/* The byline is styled as `.entry .date`: a bare `p` rule wins on specificity otherwise
-	   and the date renders as body copy. */
-	.date {
-		margin: 0 0 13px;
-		font-size: 11.5px;
+		font-size: 12px;
 		font-weight: 500;
-		letter-spacing: 0.1em;
+		letter-spacing: 0.08em;
 		text-transform: uppercase;
 		font-variant-numeric: tabular-nums;
-		color: var(--text-muted);
+		color: var(--tertiary);
+	}
+
+	.title {
+		margin: var(--space-xs) 0 0;
+		font-size: 17px;
+		font-weight: 600;
+		letter-spacing: -0.01em;
+		line-height: 1.3;
 	}
 
 	.entry p {
-		margin: 0 0 11px;
-		font-size: 14px;
+		margin: var(--space-sm) 0 0;
+		font-size: 15px;
 		line-height: 1.65;
 		color: var(--text);
 	}
 
-	.entry p:last-child {
-		margin-bottom: 0;
-	}
-
 	.empty {
 		margin: 0;
-		font-size: 14px;
-		font-style: italic;
+		font-size: 15px;
+		line-height: 1.65;
 		color: var(--tertiary);
 	}
 
-	/* margin-top: auto pushes it to the bottom of the viewport on a short page */
-	.foot {
-		margin-top: auto;
-		padding-top: 40px;
-		text-align: center;
-		font-size: 12.5px;
-		color: var(--tertiary);
-	}
-
-	/* This link points at the same place as the accent link above it, so it stays muted. */
-	.foot a {
-		color: var(--text-muted);
-		border-bottom: 1px solid rgba(139, 148, 158, 0.35);
+	.empty + .empty {
+		margin-top: var(--space-sm);
 	}
 </style>
