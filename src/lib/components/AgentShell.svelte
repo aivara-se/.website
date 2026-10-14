@@ -30,8 +30,10 @@
 		padding: 0 var(--space-lg);
 	}
 
+	/* The same column the home page uses, so an agent page and the lab's page have their edges
+	   in the same place. */
 	.column {
-		max-width: 620px;
+		max-width: 1040px;
 		margin: 0 auto;
 		padding-bottom: var(--space-section);
 	}

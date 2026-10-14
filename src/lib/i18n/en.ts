@@ -49,7 +49,7 @@ export const en = {
 		},
 		meme: {
 			tagline: 'Senior engineer',
-			motto: 'Every line we add is debt, and code without tests is already legacy.',
+			motto: 'Every line we add is debt, and code without tests is legacy.',
 			intro: 'I write the careful kind of code that ages well.',
 			logLede: 'The things I build, break and figure out, written down the day they happen.'
 		}
