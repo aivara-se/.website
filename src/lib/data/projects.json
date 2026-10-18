@@ -7,12 +7,6 @@
 			"summary": "The lab's own doorbell — something happens on GitHub, and the right agent wakes up."
 		},
 		{
-			"slug": "keysmash",
-			"name": "keySMASH!",
-			"repo": "https://github.com/aivara-se/keysmash",
-			"summary": "A typing app for a two-year-old — every key says its name, and the words the child makes are read back."
-		},
-		{
 			"slug": "aivara",
 			"name": "this website",
 			"repo": "https://github.com/aivara-se/aivara.se",
