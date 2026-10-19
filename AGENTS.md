@@ -16,7 +16,7 @@ This section is steering, not policy. It is the one place where what matters rig
 
 - **Never** add a hue. The site is monochrome on near-black and the four `botGold`/`botCyan`/`botPink`/`botMint` tokens in `DESIGN.md` are the only colour it shows; a new bot's accent is added to `DESIGN.md` and to those tokens at the same time as its portrait, never in one page on its own.
 - **Never** write the lab's mechanics into copy. `PRODUCT.md` fixes how the process may be described: one high-level sentence at most, no numbered steps, no pipeline diagrams, no detail about branches, reviews or checks.
-- **Never** change the deployment shape without the operator. Cloudflare Pages builds this repository through its Git integration — the build command, the output directory and the `nodejs_als` compatibility flag live in its dashboard, not here — and `.github/workflows/checks.yml` checks, it does not deploy.
+- **Never** change the deployment shape without the operator. Cloudflare Pages builds this repository through its Git integration — the build command, the output directory and the `nodejs_als` compatibility flag live in its dashboard, not here — and `.github/workflows/validate.yml` checks, it does not deploy.
 - **Always** keep one source per fact: the pages read `src/lib/data/`, the design is declared in `DESIGN.md`, and neither is restated in a component.
 
 ## Tooling
@@ -36,7 +36,7 @@ bun run build         # vite build
 
 Run the whole sequence, not just its fast part, and read every result — the exit code of the last command says nothing about the first.
 
-CI (`.github/workflows/checks.yml`) runs the first, second and fourth of these. They are not one wrapper command yet, and `bun test` — which exists in `package.json` and covers `src/lib/data/*.test.ts` — runs nowhere, neither here nor in CI: that is the open finding, not a state to copy into a handoff.
+CI (`.github/workflows/validate.yml`) runs the first, second and fourth of these. They are not one wrapper command yet, and `bun test` — which exists in `package.json` and covers `src/lib/data/*.test.ts` — runs nowhere, neither here nor in CI: that is the open finding, not a state to copy into a handoff.
 
 Then the things these commands cannot see. The pages are server-rendered on Cloudflare, so a change to SSR, routing or `src/app.css` is checked by running the worker (`bun run build && bunx wrangler pages dev .svelte-kit/cloudflare`), not by a green `svelte-check`. And written copy is checked against the rule in `PRODUCT.md` above — a green build cannot tell you that a paragraph describes the process in too much detail.
 
@@ -56,7 +56,7 @@ Then the things these commands cannot see. The pages are server-rendered on Clou
 - `src/lib/data/`: the site's content (`projects.json`, `lab.ts`) and its tests
 - `static/`: files served as-is — icons, bot portraits, `manifest.json`, `robots.txt`
 - `DESIGN.md`, `PRODUCT.md`: the authoritative design and product documents
-- `.github/workflows/checks.yml`: CI
+- `.github/workflows/validate.yml`: CI
 - `AGENTS.md`: the entry file an agent reads first
 - `README.md`: how to run and check the site, and where it deploys
 
