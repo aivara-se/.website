@@ -1,9 +1,9 @@
 {
 	"projects": [
 		{
-			"slug": "dispatcher",
-			"name": "Dispatcher",
-			"repo": "https://github.com/aivara-se/dispatcher",
+			"slug": "dispatch",
+			"name": "Dispatch",
+			"repo": "https://github.com/aivara-se/dispatch",
 			"summary": "The lab's own doorbell — something happens on GitHub, and the right agent wakes up."
 		},
 		{

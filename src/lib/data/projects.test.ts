@@ -50,7 +50,7 @@ describe('validateProjects', () => {
 describe('curated projects.json', () => {
 	test('loads and validates the curated entries', () => {
 		expect(projects).toHaveLength(2);
-		expect(projects.map((project) => project.slug)).toEqual(['dispatcher', 'aivara']);
+		expect(projects.map((project) => project.slug)).toEqual(['dispatch', 'aivara']);
 	});
 
 	test('carries no status and no internal marker', () => {
