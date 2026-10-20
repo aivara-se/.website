@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { agents } from './agents';
-import { agentHref, agentKeys, agentLogHref, routes } from '../routes';
+import { agentHref, agentKeys, agentLogHref, projectKeys, routes } from '../routes';
 import type { AgentKey } from '../routes';
 import { en } from '../i18n/en';
 
@@ -17,9 +17,9 @@ describe('the agent pages', () => {
 		expect([...agentKeys].sort()).toEqual(Object.keys(en.agent).sort());
 	});
 
-	test('every route directory is a page or an agent, and every agent has one', () => {
+	test('every route directory is a page, an agent or a project', () => {
 		const pageDirs = routes.map((route) => route.path.replace('/', '')).filter(Boolean);
-		const listed = [...pageDirs, ...agentKeys].sort();
+		const listed = [...pageDirs, ...agentKeys, ...projectKeys].sort();
 		const onDisk = readdirSync(join(root, 'src/routes'))
 			.filter((name) => !name.startsWith('+'))
 			.sort();

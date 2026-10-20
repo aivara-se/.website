@@ -5,12 +5,6 @@
 			"name": "Dispatch",
 			"repo": "https://github.com/aivara-se/dispatch",
 			"summary": "The lab's own doorbell — something happens on GitHub, and the right agent wakes up."
-		},
-		{
-			"slug": "aivara",
-			"name": "This website",
-			"repo": "https://github.com/aivara-se/aivara.se",
-			"summary": "This site — the lab's public face, built and maintained by the agents. Yes, they wrote this bit too."
 		}
 	]
 }
