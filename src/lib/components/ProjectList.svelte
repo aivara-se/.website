@@ -19,20 +19,24 @@
 	<ul class="rows">
 		{#each projects as project (project.slug)}
 			<li class="row">
-				<span class="name">{project.name}</span>
-				<span class="summary">{summary(project)}</span>
-				<a class="repo" href={project.repo} aria-label={d.projects.repo} title={d.projects.repo}>
+				<!-- The whole row is the link: the name, the summary and the mark belong to one
+				     anchor, so a click anywhere in the row opens the repository. -->
+				<a class="link" href={project.repo} aria-label={`${project.name} — ${d.projects.repo}`}>
+					<span class="name">{project.name}</span>
+					<span class="summary">{summary(project)}</span>
 					<!-- a code mark: the repository is where the work itself can be read -->
-					<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
-						<path
-							d="M6 3 1 8l5 5M10 3l5 5-5 5"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.4"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						/>
-					</svg>
+					<span class="repo" aria-hidden="true">
+						<svg viewBox="0 0 16 16" width="16" height="16" focusable="false">
+							<path
+								d="M6 3 1 8l5 5M10 3l5 5-5 5"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.4"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+					</span>
 				</a>
 			</li>
 		{/each}
@@ -46,16 +50,24 @@
 		list-style: none;
 	}
 
-	.row {
+	/* The hairline sits on the link itself, so the row's whole box — divider included — is the
+	   click target. */
+	.row + .row .link {
+		border-top: 1px solid var(--line);
+	}
+
+	/* The anchor covers the row's padding too, so the padded row is the click target. */
+	.link {
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) auto;
 		gap: var(--space-xs) var(--space-md);
 		align-items: baseline;
 		padding: var(--space-md) 0;
+		border-bottom: none;
 	}
 
-	.row + .row {
-		border-top: 1px solid var(--line);
+	.link:hover .name {
+		color: var(--primary-hover);
 	}
 
 	.name {
@@ -64,6 +76,7 @@
 		font-weight: 600;
 		letter-spacing: -0.01em;
 		color: var(--text-strong);
+		transition: color 0.15s;
 	}
 
 	/* The summary takes the row under the name and the mark, at every width. */
@@ -76,19 +89,15 @@
 	}
 
 	/* The mark is placed on the name's line rather than after the summary, so the DOM keeps its
-	   reading order — name, summary, link — and the picture keeps the name and its mark together.
-	   An icon's word lives in its label, and a 1px line under a mark reads as a mistake, not as
-	   a link cue. */
+	   reading order — name, summary, mark — and the picture keeps the name and its mark together. */
 	.repo {
 		grid-column: 2;
 		grid-row: 1;
 		display: inline-flex;
-		border-bottom: none;
 		color: var(--tertiary);
 	}
 
-	.repo:hover {
-		border-bottom: none;
+	.link:hover .repo {
 		color: var(--primary-hover);
 	}
 
