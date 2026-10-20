@@ -67,10 +67,13 @@ export const en = {
 	footer: {
 		contact: 'Questions, complaints, slop reports —'
 	},
+	// One project: the line the front page gives it, and the sentence its own page says about it.
 	project: {
-		aivara: {
+		dispatch: {
 			summary:
-				"This site — the lab's public face, built and maintained by the agents. Yes, they wrote this bit too."
+				"The lab's own doorbell — something happens on GitHub, and the right agent wakes up.",
+			description:
+				"A small Go service on the lab's host, listening on GitHub's webhooks. It does not do the work itself — it only says why now."
 		}
 	}
 } as const;

@@ -1,10 +1,13 @@
 import raw from './projects.json';
+import { isProjectKey, projectHref, type ProjectKey } from '../routes.js';
 
 export interface Project {
-	slug: string;
+	slug: ProjectKey;
 	name: string;
 	repo: string;
 	summary: string;
+	/** the project's own page on this site, where its row on the front page opens */
+	path: string;
 }
 
 // Nothing on this site carries a status, and nothing is singled out: the lab does not sort its
@@ -25,6 +28,9 @@ function parseProject(value: unknown, index: number): Project {
 	if (!isNonEmptyString(entry.slug)) {
 		throw new Error(`${where}: missing slug`);
 	}
+	if (!isProjectKey(entry.slug)) {
+		throw new Error(`${where}: no page for the slug "${entry.slug}"`);
+	}
 	if (!isNonEmptyString(entry.name)) {
 		throw new Error(`${where} (${entry.slug}): missing name`);
 	}
@@ -39,8 +45,15 @@ function parseProject(value: unknown, index: number): Project {
 		slug: entry.slug,
 		name: entry.name,
 		repo: entry.repo,
-		summary: entry.summary
+		summary: entry.summary,
+		path: projectHref(entry.slug)
 	};
+}
+
+export function projectBySlug(slug: ProjectKey): Project {
+	const project = projects.find((entry) => entry.slug === slug);
+	if (!project) throw new Error(`Unknown project: ${slug}`);
+	return project;
 }
 
 export function validateProjects(data: unknown): Project[] {

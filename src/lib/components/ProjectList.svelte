@@ -20,15 +20,15 @@
 		{#each projects as project (project.slug)}
 			<li class="row">
 				<!-- The whole row is the link: the name, the summary and the mark belong to one
-				     anchor, so a click anywhere in the row opens the repository. -->
-				<a class="link" href={project.repo} aria-label={`${project.name} — ${d.projects.repo}`}>
-					<span class="name">{project.name}</span>
+				     anchor, so a click anywhere in the row opens the project's own page. -->
+				<a class="link" href={project.path} aria-labelledby={`project-${project.slug}`}>
+					<span class="name" id={`project-${project.slug}`}>{project.name}</span>
 					<span class="summary">{summary(project)}</span>
-					<!-- a code mark: the repository is where the work itself can be read -->
-					<span class="repo" aria-hidden="true">
+					<!-- an arrow: the row goes on to the project's page, not off the site -->
+					<span class="mark" aria-hidden="true">
 						<svg viewBox="0 0 16 16" width="16" height="16" focusable="false">
 							<path
-								d="M6 3 1 8l5 5M10 3l5 5-5 5"
+								d="M2.5 8h11M9 3.5 13.5 8 9 12.5"
 								fill="none"
 								stroke="currentColor"
 								stroke-width="1.4"
@@ -90,18 +90,18 @@
 
 	/* The mark is placed on the name's line rather than after the summary, so the DOM keeps its
 	   reading order — name, summary, mark — and the picture keeps the name and its mark together. */
-	.repo {
+	.mark {
 		grid-column: 2;
 		grid-row: 1;
 		display: inline-flex;
 		color: var(--tertiary);
 	}
 
-	.link:hover .repo {
+	.link:hover .mark {
 		color: var(--primary-hover);
 	}
 
-	.repo svg {
+	.mark svg {
 		display: block;
 	}
 </style>

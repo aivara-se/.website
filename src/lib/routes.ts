@@ -58,3 +58,35 @@ export function agentHref(key: AgentKey): string {
 export function agentLogHref(key: AgentKey): string {
 	return `${agentHref(key)}log/`;
 }
+
+// A project's own page, the way each agent has one. The key is the project's slug, and the path
+// is its address on this site: a row on the front page opens /<project>/ instead of leaving for
+// the repository. A project's sub-pages, when it grows one, hang under this path the way an
+// agent's log hangs under /<agent>/.
+export type ProjectKey = 'dispatch';
+
+export const projectKeys = ['dispatch'] as const satisfies readonly ProjectKey[];
+
+export interface ProjectRoute {
+	key: ProjectKey;
+	path: string;
+}
+
+export const projectRoutes: readonly ProjectRoute[] = projectKeys.map((key) => ({
+	key,
+	path: `/${key}/`
+}));
+
+const projectsByKey = new Map<ProjectKey, ProjectRoute>(
+	projectRoutes.map((route) => [route.key, route])
+);
+
+export function projectHref(key: ProjectKey): string {
+	const route = projectsByKey.get(key);
+	if (!route) throw new Error(`Unknown project key: ${key}`);
+	return route.path;
+}
+
+export function isProjectKey(value: string): value is ProjectKey {
+	return (projectKeys as readonly string[]).includes(value);
+}
