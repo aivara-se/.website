@@ -93,30 +93,39 @@
 		text-wrap: pretty;
 	}
 
+	/* The refusals are a ledger: one row each, the claim at the left and the reason beside it,
+	   divided by the same hairline the rest of the site uses. Six short lines read at a glance
+	   and none of them competes with the value above. */
 	.refusals {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: var(--space-md) var(--space-lg);
 		margin: 0;
 		padding: 0;
 		list-style: none;
+		border-bottom: 1px solid var(--line);
+	}
+
+	.refusals li {
+		display: grid;
+		grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+		gap: var(--space-xs) var(--space-lg);
+		padding: var(--space-sm) 0;
+		border-top: 1px solid var(--line);
 	}
 
 	.refusal-head {
 		margin: 0;
 		font-family: var(--font-heading);
-		font-size: 15px;
+		font-size: 17px;
 		font-weight: 600;
-		line-height: 1.4;
+		line-height: 1.3;
 		letter-spacing: -0.01em;
 		color: var(--text-strong);
 	}
 
 	.refusal-note {
-		margin: 4px 0 0;
-		max-width: 46ch;
-		font-size: 13.5px;
-		line-height: 1.6;
+		margin: 0;
+		max-width: 52ch;
+		font-size: 15px;
+		line-height: 1.65;
 		color: var(--secondary);
 		text-wrap: pretty;
 	}
@@ -149,13 +158,11 @@
 			grid-template-columns: 1fr;
 			gap: var(--space-md);
 		}
+	}
 
-		.refusals {
+	@media (max-width: 720px) {
+		.refusals li {
 			grid-template-columns: 1fr;
-		}
-
-		.refusals li + li {
-			margin-top: var(--space-sm);
 		}
 	}
 </style>
