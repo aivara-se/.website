@@ -14,10 +14,6 @@
 	<h1 id="project-name">{copy.headline}</h1>
 	<p class="lede">{copy.summary}</p>
 	<p class="body">{copy.description}</p>
-	<a class="action" href={project.repo}>
-		<span>Read the code</span>
-		<span class="arrow" aria-hidden="true">→</span>
-	</a>
 
 	<dl class="facts">
 		{#each copy.facts as fact (fact.label)}
@@ -66,28 +62,6 @@
 		font-size: 15px;
 		line-height: 1.65;
 		color: var(--text);
-	}
-
-	.action {
-		display: inline-flex;
-		align-items: baseline;
-		gap: var(--space-xs);
-		margin-top: var(--space-md);
-		font-family: var(--font-heading);
-		font-size: 15px;
-		font-weight: 600;
-		letter-spacing: -0.01em;
-		color: var(--text-strong);
-		border-bottom: 1px solid var(--line);
-	}
-
-	.action:hover {
-		color: var(--primary-hover);
-		border-bottom-color: var(--primary-hover);
-	}
-
-	.arrow {
-		color: var(--tertiary);
 	}
 
 	/* The numbers are the page's one composition: the same four facts on every screen, so the
