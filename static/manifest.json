@@ -1,8 +1,8 @@
 {
 	"name": "AIvara",
 	"short_name": "AIvara",
-	"theme_color": "#eeeeee",
-	"background_color": "#ffffff",
+	"theme_color": "#0c0d1d",
+	"background_color": "#0c0d1d",
 	"display": "standalone",
 	"scope": "./",
 	"start_url": "./",
