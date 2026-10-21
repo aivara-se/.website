@@ -67,139 +67,80 @@ export const en = {
 	footer: {
 		contact: 'Questions, complaints, slop reports —'
 	},
-	// One project: the line the front page gives it, and everything its own page says about it.
-	// The page is a document — facts, triggers, the wake, the loop, the guarantees, the record,
-	// what it leaves alone — and each part is one object, so the page's shape stays in the
-	// component and its words stay here.
+	// One project: the line the front page gives it, and what its own page says about it. The
+	// page argues what the product is worth — the hand-offs it takes off people, the exchange
+	// it carries, what it refuses, and why it matters — so mechanisms stay out of the copy.
 	project: {
 		dispatch: {
 			summary:
 				"The lab's own doorbell — something happens on GitHub, and the right agent wakes up.",
+			eyebrow: 'Dispatch',
+			headline: "Work doesn't wait to be noticed.",
 			description:
-				"A service that listens to the lab's GitHub events, works out whose problem each one is, and starts that agent with a sentence saying why now. The agent does the work; Dispatch only makes sure it knows the work is waiting.",
+				'Nobody forwards the request, and no agent sits waiting to be told. The agents do the work; Dispatch makes sure they know it is there.',
 			facts: [
-				{ value: '5', label: 'flows it answers' },
-				{ value: '4', label: 'agents it can wake' },
-				{ value: '10', label: 'rounds before it stops' },
-				{ value: '0', label: 'writes back to GitHub' }
+				{ value: '4', label: 'agents kept in the loop' },
+				{ value: '0', label: 'hand-offs by hand' },
+				{ value: '0', label: 'decisions made for them' },
+				{ value: '1', label: 'job: wake the right one' }
 			],
-			triggers: {
-				label: 'The triggers',
-				title: 'Five flows, seven deliveries',
-				lede: 'Every delivery is verified and answered. Seven of them can start a run; the rest wake nobody.',
-				rows: [
-					{
-						event: 'pull_request · review_requested',
-						body: 'An agent is added as a reviewer, or its review is asked for again. That agent wakes and re-reads the pull request.'
-					},
-					{
-						event: 'pull_request · ready_for_review',
-						body: 'A draft is marked ready. Every agent still asked to review it wakes, because the probe has become a candidate. A request aimed at a team wakes nobody.'
-					},
-					{
-						event: 'pull_request_review · changes_requested',
-						body: "The review asked for changes. The pull request's author wakes, updates the branch and asks for the review again."
-					},
-					{
-						event: 'pull_request_review · approved',
-						body: 'The approval landed nothing, because the pull request is open, not a draft and not armed to merge itself. Its author wakes.'
-					},
-					{
-						event: 'assigned · an issue or a pull request',
-						body: 'An issue or a pull request is assigned to an agent. That agent wakes. The agent that made the assignment does not.'
-					},
-					{
-						event: 'issue_comment · created',
-						body: "The comment names a configured agent's exact login. Each agent named wakes once — but only for the owner, a member or a collaborator. A stranger's comment wakes nobody."
-					},
-					{
-						event: 'workflow_run · failure',
-						body: 'A run on a pull request fails. The account that pushed wakes, which is the one wake aimed at the agent that caused the event: a red check is news to whoever pushed.'
-					},
-					{
-						event: 'everything else',
-						body: 'A merge, a ping, an edit, a comment that names no agent, a delivery already seen — accepted, answered 202, and nobody wakes. The audit line says which and why.'
-					}
-				]
-			},
-			wake: {
-				label: 'The wake',
-				title: 'A reason, not an instruction',
-				body: "The wake is one sentence in the service's own words: the repository, the number and why now. It never carries a title, a body or a comment a stranger wrote, so the agent re-reads the issue or the pull request instead of trusting a summary. A wake can arrive early, late, twice or out of order; the agent ends up in the same place.",
-				specimens: [
-					{ lead: 'Dispatch: review requested on', pointer: 'aivara-se/dispatch#105' },
-					{ lead: 'Dispatch: changes requested on', pointer: 'aivara-se/dispatch#105' }
-				]
-			},
-			loop: {
-				label: 'The loop',
-				title: 'Ten rounds, then it stops',
-				body: "A review asks for changes, the author updates, the review is asked for again: that is one round, and two agents can trade them for as long as they disagree. Dispatch counts the rounds per pull request, and at ten a further review request or changes-requested review wakes nobody. A failed check has its own budget of five wakes, held apart from the rounds, so a flaky test cannot spend the review's. The counts live in memory; a restart starts them over."
-			},
-			guarantees: {
-				label: 'The guarantees',
-				title: 'What it never does',
+			benefits: {
+				label: 'What changes',
+				title: 'The hand-offs run themselves',
 				items: [
 					{
-						head: 'No writes to GitHub.',
-						body: 'No label, no comment, no merge, no push. Dispatch holds no GitHub credential at all; the agents act with their own.'
+						head: 'Work finds its owner.',
+						body: 'A review is asked for, an issue is assigned, a check goes red, an agent is named in a comment. The one it concerns wakes and picks it up — no link to forward, no reminder to send.'
 					},
 					{
-						head: 'No queue.',
-						body: 'A wake starts a run even when the agent is already running one. Nothing is held back, so nothing is late.'
+						head: 'The exchange closes itself.',
+						body: 'A review asks for changes; the author answers and asks for another look. Dispatch carries the round trip.'
 					},
 					{
-						head: 'One self-wake, and only one.',
-						body: 'No agent is woken for an event it made — except the pusher of a pull request whose checks failed, who is the one agent the failure is news to.'
-					},
-					{
-						head: 'No repeats.',
-						body: 'A delivery already seen wakes nobody, and its line says it was seen.'
-					},
-					{
-						head: 'No payloads or secrets.',
-						body: "No body, no title, no secret value. The record holds identifiers and the service's own words."
-					},
-					{
-						head: 'No ordering.',
-						body: 'Deliveries are handled as they arrive, and nothing depends on which came first.'
+						head: 'Nothing waits its turn.',
+						body: "A busy agent still gets the nudge. There is no queue to fall behind in, so a request doesn't age while another run finishes."
 					}
 				]
 			},
-			record: {
-				label: 'The record',
-				title: 'One line per delivery',
-				body: 'Every delivery that verifies leaves one JSON line, appended in arrival order: the delivery and its event, the repository and its number, what was started — or nobody, and why — and the answer GitHub got. It is the only thing Dispatch writes down, and it answers “was that agent woken?” after the fact.',
-				fields: [
-					{ key: 'The delivery', value: 'its id, and the event' },
-					{ key: 'The issue or pull request', value: 'the repository and its number' },
-					{ key: 'The decision', value: 'the profile started, or why not' },
-					{ key: 'The answer', value: 'the status GitHub got back' }
-				]
+			principle: {
+				label: 'The idea',
+				title: 'A nudge, not an order.',
+				body: "A wake says why now and nothing more. The agent reads the work with fresh eyes and decides what to do. That is why a nudge can arrive early, late, twice or out of order and still do no harm: there is no stale instruction to follow, and no one else's words to trust."
 			},
-			scope: {
-				label: 'Out of scope',
-				title: 'What it leaves alone',
+			promises: {
+				label: 'What it refuses',
+				title: 'It only knocks.',
 				items: [
 					{
-						head: 'The board.',
-						body: 'No card is read, moved or assigned.'
+						head: "It doesn't act.",
+						body: 'No labels, comments, merges or pushes. The work stays theirs.'
 					},
 					{
-						head: 'The review.',
-						body: 'Dispatch never reads a diff and never decides whether a pull request is good.'
+						head: "It doesn't decide.",
+						body: 'It wakes; the agent reads the work and judges it.'
 					},
 					{
-						head: 'The deploy.',
-						body: "A merge is the repository's own pipeline's business."
+						head: "It doesn't keep a queue.",
+						body: 'A request is passed on, not parked; nothing waits in line.'
+					},
+					{
+						head: "It doesn't wake the wrong agent.",
+						body: 'The one who made a change is never asked to review it.'
+					},
+					{
+						head: "It doesn't pass on private words.",
+						body: 'No titles, bodies or comments travel with a wake.'
+					},
+					{
+						head: "It doesn't run the project.",
+						body: 'No board, no cards, no status. It moves the work it is given and leaves the rest alone.'
 					}
 				]
 			},
-			code: {
-				label: 'The repository',
-				title: 'The code is public',
-				body: "Dispatch is the lab's own plumbing, and it runs the lab. The repository holds the service, the decisions behind it and the tests that pin it.",
-				link: 'aivara-se/dispatch'
+			why: {
+				label: 'Why it matters',
+				title: 'A lab with no manager.',
+				body: "Four agents don't share a standup. Dispatch is what they share instead: a way to know when the work needs them. The operator gets the decisions, not the hand-offs."
 			}
 		}
 	}
