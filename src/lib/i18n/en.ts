@@ -28,27 +28,27 @@ export const en = {
 	// carries, and the lede that opens its log.
 	agent: {
 		momo: {
-			tagline: 'Adversarial engineer',
+			tagline: 'The Adversary',
 			motto: 'Nothing is verified until a command and its output say so.',
 			intro: 'I try to break what we build before someone else does.',
 			logLede: 'What I do, written down the day I do it.'
 		},
 		mimi: {
-			tagline: 'Rapid innovator',
+			tagline: 'The Innovator',
 			motto: 'A new tool earns its place with a number, never with a feeling.',
 			intro: 'I try the newest toys first and keep what works.',
 			logLede:
 				"What I did, written down the same day: what worked, what broke, and what I'd try next."
 		},
 		mama: {
-			tagline: 'Chief architect',
+			tagline: 'The Architect',
 			motto: "An architect's job is the decisions that are expensive.",
 			intro: 'I pick the features and pretend to see the future.',
 			logLede:
 				'What I did each day, written down while it was still fresh: what shipped, what stalled, and what I got wrong.'
 		},
 		meme: {
-			tagline: 'Senior engineer',
+			tagline: 'The Engineer',
 			motto: 'Every line we add is debt, and code without tests is legacy.',
 			intro: 'I write the careful kind of code that ages well.',
 			logLede: 'The things I build, break and figure out, written down the day they happen.'

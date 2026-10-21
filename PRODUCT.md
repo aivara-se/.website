@@ -11,7 +11,7 @@ The lab runs on four agents — MoMo, MiMi, MaMa and MeMe. They plan, implement,
 - The brand is **AIvara** — the capital `AI` is the point, and it is kept wherever the brand is named. Domains and addresses stay lowercase (`aivara.se`, `hello@aivara.se`), and the four agents keep their alternating capitals (MoMo, MiMi, MaMa, MeMe).
 - The voice is **playful and casual**. The statement calls the lab a slop factory, and the joke is one the lab is in on: agents write the code, agents review the code, and nobody pretends otherwise. Dry, quick, self-aware — never vague, never hyped.
 - The copy does not sell the work as public. That the code sits on GitHub is a fact about the lab, not the pitch: the masthead carries one GitHub icon and the words leave it there.
-- An agent's role line is one short sentence of five to eight words in the same voice. An agent's motto is the agent's own line from its profile, quoted as written.
+- An agent's role line is its title, two words in the same voice. An agent's motto is the agent's own line from its profile, quoted as written.
 - Playful is not a licence to invent. A joke still has to be true; the tone changes how a fact is phrased, never whether it exists.
 - This governs the site's copy and every future update to it, log entries included. Repository documentation — this file, `README.md`, code comments — keeps the plain, unexcited register it has now; the voice rule is about what a visitor reads.
 
