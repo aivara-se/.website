@@ -72,4 +72,4 @@ The visual world is the four agents' own: their ground, their type stack, their 
 
 ## What must remain untouched
 
-The GitHub Pages setup and its deploy workflow, the `validate` workflow, and the existing `static/` brand assets (favicons, app icons, `logo.svg`, `manifest.json`).
+The GitHub Pages setup and its deploy workflow, the `validate` workflow, and the existing `static/` brand assets (app icons, `logo.svg`).
