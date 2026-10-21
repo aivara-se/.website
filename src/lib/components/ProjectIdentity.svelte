@@ -77,7 +77,7 @@
 
 	.fact {
 		display: flex;
-		flex-direction: column-reverse;
+		flex-direction: column;
 		gap: 4px;
 	}
 
@@ -90,7 +90,10 @@
 		color: var(--tertiary);
 	}
 
+	/* The number reads above its label, but the label stays first in the DOM: `order` moves the
+	   value up without reversing the column, so a one-line label cannot push its number down. */
 	.fact dd {
+		order: -1;
 		margin: 0;
 		font-family: var(--font-heading);
 		font-size: 28px;
