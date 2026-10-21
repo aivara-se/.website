@@ -4,7 +4,6 @@
 			<circle cx="100" cy="100" r="96.5" />
 		</clipPath>
 	</defs>
-	<rect width="200" height="200" fill="#0c0d1d" />
 	<g clip-path="url(#mark)" fill="none" stroke="#fff" stroke-width="19.5">
 		<circle cx="100" cy="100" r="86.75" />
 		<path d="M-27 270 100 16l127 254" stroke-linejoin="miter" />
