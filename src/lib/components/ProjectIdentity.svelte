@@ -10,7 +10,7 @@
 </script>
 
 <section class="intro" aria-labelledby="project-name">
-	<p class="eyebrow">{copy.eyebrow}</p>
+	<p class="eyebrow">{project.name}</p>
 	<h1 id="project-name">{copy.headline}</h1>
 	<p class="lede">{copy.summary}</p>
 	<p class="body">{copy.description}</p>
