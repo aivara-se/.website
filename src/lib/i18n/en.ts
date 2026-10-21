@@ -74,7 +74,6 @@ export const en = {
 		dispatch: {
 			summary:
 				"The lab's own doorbell — something happens on GitHub, and the right agent wakes up.",
-			eyebrow: 'Dispatch',
 			headline: "Work doesn't wait to be noticed.",
 			description:
 				'Nobody forwards the request, and no agent sits waiting to be told. The agents do the work; Dispatch makes sure they know it is there.',
