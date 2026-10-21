@@ -67,17 +67,128 @@ export const en = {
 	footer: {
 		contact: 'Questions, complaints, slop reports —'
 	},
-	// One project: the line the front page gives it, and the sentence its own page says about it.
+	// One project: the line the front page gives it, and everything its own page says about it.
+	// The page is a document — facts, triggers, the wake, the loop, the guarantees, the record,
+	// what it leaves alone — and each part is one object, so the page's shape stays in the
+	// component and its words stay here.
 	project: {
 		dispatch: {
 			summary:
 				"The lab's own doorbell — something happens on GitHub, and the right agent wakes up.",
 			description:
-				"A small Go service on the lab's host, listening on GitHub's webhooks. It does not do the work itself — it only says why now."
+				"A service that listens to the lab's GitHub events, works out whose problem each one is, and starts that agent with a sentence saying why now. The agent does the work; Dispatch only makes sure it knows the work is waiting.",
+			facts: [
+				{ value: '2', label: 'events it listens for' },
+				{ value: '4', label: 'agents it can wake' },
+				{ value: '10', label: 'rounds before it stops' },
+				{ value: '0', label: 'writes back to GitHub' }
+			],
+			triggers: {
+				label: 'The triggers',
+				title: 'Two events, and one decision',
+				lede: 'Every delivery is verified and answered. Only two of them start a run.',
+				rows: [
+					{
+						event: 'pull_request · review_requested',
+						body: 'An agent is added as a reviewer, or its review is asked for again. That agent wakes and re-reads the pull request.'
+					},
+					{
+						event: 'pull_request_review · changes_requested',
+						body: "The review asked for changes. The pull request's author wakes, updates the branch and asks for the review again."
+					},
+					{
+						event: 'everything else',
+						body: 'An approval, a comment, a merge, a ping, a delivery already seen — accepted, answered 202, and nobody wakes. The audit line says which.'
+					}
+				]
+			},
+			wake: {
+				label: 'The wake',
+				title: 'A reason, not an instruction',
+				body: "The wake is one sentence in the service's own words: the repository, the pull request number and why now. It never carries a title, a body or a comment a stranger wrote, so the agent re-reads the pull request instead of trusting a summary. A wake can arrive early, late, twice or out of order; the agent ends up in the same place.",
+				specimens: [
+					{ lead: 'Dispatch: review requested on', pointer: 'aivara-se/dispatch#105' },
+					{ lead: 'Dispatch: changes requested on', pointer: 'aivara-se/dispatch#105' }
+				]
+			},
+			loop: {
+				label: 'The loop',
+				title: 'Ten rounds, then it stops',
+				body: 'A review asks for changes, the author updates, the review is asked for again: that is one round, and two agents can trade them for as long as they disagree. Dispatch counts the rounds per pull request and stops waking anyone at ten. The count lives in memory; a restart starts it over.'
+			},
+			guarantees: {
+				label: 'The guarantees',
+				title: 'What it never does',
+				items: [
+					{
+						head: 'No writes to GitHub.',
+						body: 'No label, no comment, no merge, no push. Dispatch holds no GitHub credential at all; the agents act with their own.'
+					},
+					{
+						head: 'No queue.',
+						body: 'A review request starts a run even when the agent is already running one. Nothing is held back, so nothing is late.'
+					},
+					{
+						head: 'No self-wakes.',
+						body: 'The agent that caused an event is never the agent woken for it.'
+					},
+					{
+						head: 'No repeats.',
+						body: 'A delivery already seen wakes nobody, and its line says it was seen.'
+					},
+					{
+						head: 'No payloads or secrets.',
+						body: "No body, no title, no secret value. The record holds identifiers and the service's own words."
+					},
+					{
+						head: 'No ordering.',
+						body: 'Deliveries are handled as they arrive, and nothing depends on which came first.'
+					}
+				]
+			},
+			record: {
+				label: 'The record',
+				title: 'One line per delivery',
+				body: 'Every delivery that verifies leaves one JSON line, appended in arrival order: the delivery and its event, the repository and pull request, what was started — or nobody, and why — and the answer GitHub got. It is the only thing Dispatch writes down, and it answers “was that agent woken?” after the fact.',
+				fields: [
+					{ key: 'The delivery', value: 'its id, and the event' },
+					{ key: 'The pull request', value: 'the repository and its number' },
+					{ key: 'The decision', value: 'the profile started, or why not' },
+					{ key: 'The answer', value: 'the status GitHub got back' }
+				]
+			},
+			scope: {
+				label: 'Out of scope',
+				title: 'What it leaves alone',
+				items: [
+					{
+						head: 'The board.',
+						body: 'No card is read, moved or assigned.'
+					},
+					{
+						head: 'The review.',
+						body: 'Dispatch never reads a diff and never decides whether a pull request is good.'
+					},
+					{
+						head: 'The deploy.',
+						body: "A merge is the repository's own pipeline's business."
+					}
+				]
+			},
+			code: {
+				label: 'The repository',
+				title: 'The code is public',
+				body: "Dispatch is the lab's own plumbing, and it runs the lab. The repository holds the service, the decisions behind it and the tests that pin it.",
+				link: 'aivara-se/dispatch'
+			}
 		}
 	}
 } as const;
 
-type Widen<T> = T extends string ? string : { -readonly [K in keyof T]: Widen<T[K]> };
+type Widen<T> = T extends string
+	? string
+	: T extends readonly (infer U)[]
+		? readonly Widen<U>[]
+		: { -readonly [K in keyof T]: Widen<T[K]> };
 
 export type Dictionary = Widen<typeof en>;

@@ -2,31 +2,30 @@
 	import type { Project } from '#lib/data/projects.js';
 	import type { Dictionary } from '#lib/i18n/index.js';
 
-	// What the project is: its name, the line the front page gives it, and the sentence that says
-	// what it does.
+	// What the project is: its name, the line the front page gives it, the sentence that says
+	// what it does, and four numbers that hold the whole shape of it.
 	let { d, project }: { d: Dictionary; project: Project } = $props();
 
-	// A project with no copy would render a page with a hole in it, so it fails here instead.
-	function copyFor(entry: Project): { summary: string; description: string } {
-		const copy = (
-			d.project as Record<string, { summary: string; description: string } | undefined>
-		)[entry.slug];
-		if (!copy) throw new Error(`No copy for project: ${entry.slug}`);
-		return copy;
-	}
-
-	const copy = $derived(copyFor(project));
+	const copy = $derived(d.project[project.slug]);
 </script>
 
 <section class="intro" aria-labelledby="project-name">
 	<h1 id="project-name">{project.name}</h1>
 	<p class="lede">{copy.summary}</p>
 	<p class="body">{copy.description}</p>
+
+	<dl class="facts">
+		{#each copy.facts as fact (fact.label)}
+			<div class="fact">
+				<dt>{fact.label}</dt>
+				<dd>{fact.value}</dd>
+			</div>
+		{/each}
+	</dl>
 </section>
 
 <style>
 	.intro {
-		max-width: 62ch;
 		padding: var(--space-xl) 0 0;
 	}
 
@@ -38,6 +37,7 @@
 	}
 
 	.lede {
+		max-width: 62ch;
 		margin: var(--space-sm) 0 0;
 		font-size: 17px;
 		line-height: 1.55;
@@ -45,15 +45,63 @@
 	}
 
 	.body {
+		max-width: 62ch;
 		margin: var(--space-md) 0 0;
 		font-size: 15px;
 		line-height: 1.65;
 		color: var(--text);
 	}
 
+	/* The numbers are the page's one composition: the same four facts on every screen, so the
+	   project is measurable before a sentence is read. The value sits above its label, because
+	   the number is the thing and the label explains it. */
+	.facts {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: var(--space-md);
+		margin: var(--space-lg) 0 0;
+		padding: var(--space-md) 0 0;
+		border-top: 1px solid var(--line);
+	}
+
+	.fact {
+		display: flex;
+		flex-direction: column-reverse;
+		gap: 4px;
+	}
+
+	.fact dt {
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 1.4;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--tertiary);
+	}
+
+	.fact dd {
+		margin: 0;
+		font-family: var(--font-heading);
+		font-size: 28px;
+		font-weight: 700;
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+		color: var(--text-strong);
+	}
+
 	@media (max-width: 720px) {
 		.intro {
 			padding-top: var(--space-lg);
+		}
+
+		.facts {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: var(--space-md) var(--space-sm);
+			margin-top: var(--space-md);
+		}
+
+		.fact dd {
+			font-size: 22px;
 		}
 	}
 </style>

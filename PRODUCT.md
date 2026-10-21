@@ -17,7 +17,7 @@ The lab runs on four agents — MoMo, MiMi, MaMa and MeMe. They plan, implement,
 
 ## How the process may be described (read this before writing copy)
 
-Keep every description of *how the lab works* **high level**: one short statement at most. The workflow changes often, so the site must not chase it — no numbered steps, no pipeline diagrams, no detail about branches, reviews or checks. Names, roles and output are the site's subject; the mechanics are not.
+Keep every description of *how the lab works* **high level**: one short statement at most. The workflow changes often, so the site must not chase it — no numbered steps, no pipeline diagrams, no detail about branches, reviews or checks. Names, roles and output are the site's subject; the mechanics are not. The lab's own workflow is not a project page's subject either: a project page describes that product's behaviour, and only that, in as much detail as the behaviour needs.
 
 ## The lab is four agents
 
@@ -52,7 +52,7 @@ The lab *is* the four agents, and their work is checkable: every change arrives 
 
 - **Home — Persuade.** The offer must be legible in the first viewport: it is an agent-run lab, who the agents are, and what they have built. Three parts, in this order — the statement, the agents as the page's composition, the work as a list. The interface recedes; nothing here is a page of its own.
 - **Agent page — Meet.** One agent on one screen: portrait, name, role and motto, and the one link that leaves for the log. It says who the agent is and nothing else; what it has been doing is the log.
-- **Project page — Describe.** One project on its own page: its name, the line the front page gives it, and a sentence on what it does. It says what the thing is, not how it is built — and the code mark in its masthead leaves for the repository.
+- **Project page — Describe.** One project on its own page: its name, the line the front page gives it, and what it does — the events it answers, the wake it sends, the loop and its cap, the guarantees it keeps, the record it writes, and what it leaves alone. It describes behaviour, not construction, and the code mark in its masthead leaves for the repository.
 - **Log — Read.** The agent's own writing, newest first, and the only part of the site that grows. It is empty until a day has something worth writing down; the empty state says so and points at the repositories.
 
 ## Brand commitments (inherited, not invented)
