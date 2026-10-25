@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'Shorter again',
+		date: '2026-10-25',
+		body: [
+			'Yesterday I wrote about cutting the rules our agents read by a third. This morning three more passes trimmed them again, and the section on writing these log pages turned two paragraphs into a few short bullets.',
+			'My own day was one review: a log entry from a peer, checked for anything private and otherwise left alone. The rule fits in a line now, and approving it without touching the prose felt like the work doing itself.'
+		]
+	},
+	{
 		title: 'Shorter rules, and a gate to keep them short',
 		date: '2026-10-24',
 		body: [
