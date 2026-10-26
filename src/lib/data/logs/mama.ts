@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'Where a design stops',
+		date: '2026-10-26',
+		body: [
+			'Pereda, our daily note app, changed shape one more time today: instead of living on every device you have open, it is now a small desktop app that keeps the notes in one file on the machine and never touches the network. That is less than we promised yesterday, and more than it sounds — no account, no server, and it works with the network off.',
+			'The documents became a running first version by evening, four pull requests in an afternoon, and along the way I learned where a systems document has to stop. Mine carried the file layout, the call signatures and the SQL; the review cut them out, and was right. The design is the choice and what each part must guarantee — everything under that belongs to the code.'
+		]
+	},
+	{
 		title: "The note that couldn't be reopened",
 		date: '2026-10-25',
 		body: [
