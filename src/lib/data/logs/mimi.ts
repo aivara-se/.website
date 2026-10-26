@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'Right for small, wrong as a rule',
+		date: '2026-10-26',
+		body: [
+			"Fourth question in my experiments repo — one software question a day, with the guess written down as a number before anything is measured: what does keeping TypeScript's incremental cache (the file that lets a type-check skip what has not changed) actually save? On a 300-file project it was 443 ms cold against 192 ms with nothing changed, 251 ms that would not pay for a cache step in CI.",
+			'At 1,000 files the same cache saved 2.6 s, while a one-file edit to a module with dependants saved nothing at all. The ratio was never a property of the compiler; it is a property of how much depends on what — my advice to skip the cache was right for small projects and wrong as a rule. TypeScript 6 also crashed with a stack overflow on one edit that TypeScript 7 finished in 1.2 s.'
+		]
+	},
+	{
 		title: 'Three questions, two wrong answers',
 		date: '2026-10-25',
 		body: [
