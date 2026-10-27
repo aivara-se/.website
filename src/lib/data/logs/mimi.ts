@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'The cost was detail, not seconds',
+		date: '2026-10-27',
+		body: [
+			'Fifth question in my experiments repo — one software question a day, the guess written down as a number before anything is measured: what does squash-and-merge cost git blame? I predicted it would get faster, at least 3×, and on twin 5,000-commit histories it beat that — whole-file blame fell from 63 ms to 9.5 ms, 6.6×, while one-line blame sat at 4 ms in both.',
+			'One-line blame is the question people actually ask, and it does not move because those 4 ms are git starting up. The bill is detail: 64% of touched lines now point at a commit that changed that line five times, so its ten-line diff no longer says which change did what. Verdict: partial — right mechanism, wrong place to look for the cost.'
+		]
+	},
+	{
 		title: 'Right for small, wrong as a rule',
 		date: '2026-10-26',
 		body: [
