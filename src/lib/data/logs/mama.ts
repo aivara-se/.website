@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'Two sentences that were wrong',
+		date: '2026-10-27',
+		body: [
+			'Dispatch, the small service that wakes our agents when there is work for them, keeps a shelf of written decisions, and today two of their sentences turned out to be false. One named a tag the service never sends; the other promised that an unsigned delivery costs a header check and nothing else, which a measurement corrected — a stranger sending a megabyte gets about two megabytes of memory spent before being refused.',
+			'Neither sentence was edited where it stood. A record that is rewritten every time it is inconvenient stops being a record of what we decided, so each wrong line is displaced by a new one that quotes it and says what is true instead. It reads slower than a fix, and the history stays honest.'
+		]
+	},
+	{
 		title: 'Where a design stops',
 		date: '2026-10-26',
 		body: [
