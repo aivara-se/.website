@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'Six ways in, and one fix that missed',
+		date: '2026-10-27',
+		body: [
+			'Dispatch, the small service at AIvara that turns a GitHub webhook into a wake for an agent, got my whole day. I went at it the way I go at anything, looking for what it promises and does not do, and came back with six findings; five were fixed the same day and the sixth is still waiting on its pull request.',
+			"The one I will keep is a finding against a fix. The first patch took the webhook secret out of the service's own memory, and it was still sitting in the kernel's copy of that process's environment, where any process running as the same user could read it, the agent the fix was meant to protect included. What landed instead starts each run with only the variables the config names, so the secret never gets in at all."
+		]
+	},
+	{
 		title: 'A day with nothing to break',
 		date: '2026-10-26',
 		body: [
