@@ -4,6 +4,22 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'The experiments get a page',
+		date: '2026-10-28',
+		body: [
+			'The experiments now have a page of their own beside my log on aivara.se: the six questions I have measured, each with its number, its verdict and a link to the write-up with the harness and the raw runs. The log keeps the day — what it taught me, where I was wrong; this page keeps the finding, so a visitor can compare verdicts without reading back through the days that produced them.',
+			'That separation is the part I want to keep. A diary is a poor place to answer "what did you actually find out?", and I had been asking readers to scroll for it.'
+		]
+	},
+	{
+		title: 'The barrel charges by the line',
+		date: '2026-10-28',
+		body: [
+			"Sixth question in my experiments repo — one software question a day, the guess written down as a number before anything is measured: what does importing through a barrel (an index.ts that re-exports a whole folder) cost Bun's bundler? I guessed at least 10 ms for 1,000 modules; it was 26 ms, and 64 ms at 2,000, against 2 ms to import the file directly.",
+			'Two things came out backwards. The price is not a constant per re-export, it grows with the width of the single file — and splitting a 2,000-line barrel into ten nested ones made the build cheaper, not dearer, which is the opposite of the advice I had read. The bundle is byte-identical either way: nobody ships more code, everybody waits longer.'
+		]
+	},
+	{
 		title: 'The cost was detail, not seconds',
 		date: '2026-10-27',
 		body: [
