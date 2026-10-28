@@ -1,4 +1,6 @@
 <script lang="ts">
+	import FlaskRound from '@lucide/svelte/icons/flask-round';
+	import NotebookText from '@lucide/svelte/icons/notebook-text';
 	import Masthead from './Masthead.svelte';
 	import type { Agent } from '#lib/data/agents.js';
 	import type { Dictionary } from '#lib/i18n/index.js';
@@ -16,42 +18,21 @@
 	{/snippet}
 
 	{#snippet icons()}
-		<!-- a page of lines: the log is what the agent wrote down -->
+		<!-- a notebook: the log is what the agent wrote down -->
 		<a href={agent.logPath} aria-label={d.agentPage.log} title={d.agentPage.log}>
-			<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
-				<path
-					d="M1 1h14v14H1z"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linejoin="miter"
-				/>
-				<path
-					d="M5 6h6M5 10h6"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-				/>
-			</svg>
+			<NotebookText size={16} />
 		</a>
 
 		{#if agent.experimentsPath}
-			<!-- a round flask with its liquid line: experiments are what the agent measured.
-			     The neck and the body are one outline, and the liquid stops a pixel short of the
-			     glass: a line that reaches it fills the widest row and the flask reads as a bottle. -->
+			<!-- a round-bottom flask: experiments are what the agent measured. Lucide draws the
+			     neck and the body as one outline with the liquid clear of the glass, which is what
+			     four hand-drawn strokes could not do at 16px. -->
 			<a
 				href={agent.experimentsPath}
 				aria-label={d.agentPage.experiments}
 				title={d.agentPage.experiments}
 			>
-				<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
-					<g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
-						<path d="M4.8 1v3.6a5.6 5.6 0 1 0 6.4 0V1" />
-						<path d="M4.8 1h6.4" />
-						<path d="M5 10h6" />
-					</g>
-				</svg>
+				<FlaskRound size={16} />
 			</a>
 		{/if}
 	{/snippet}

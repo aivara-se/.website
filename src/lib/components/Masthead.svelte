@@ -72,8 +72,9 @@
 		color: var(--primary-hover);
 	}
 
+	/* The icons arrive as components that draw their own strokes, so the masthead only places
+	   them: the box and the colour are its, the drawing is theirs. */
 	.masthead nav :global(svg) {
 		display: block;
-		fill: currentColor;
 	}
 </style>

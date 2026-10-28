@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import type { Project } from '#lib/data/projects.js';
 	import type { Dictionary } from '#lib/i18n/index.js';
 
@@ -26,16 +27,7 @@
 					<span class="summary">{summary(project)}</span>
 					<!-- an arrow: the row goes on to the project's page, not off the site -->
 					<span class="mark" aria-hidden="true">
-						<svg viewBox="0 0 16 16" width="16" height="16" focusable="false">
-							<path
-								d="M2.5 8h11M9 3.5 13.5 8 9 12.5"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.4"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							/>
-						</svg>
+						<ArrowRight size={18} />
 					</span>
 				</a>
 			</li>
@@ -101,7 +93,7 @@
 		color: var(--primary-hover);
 	}
 
-	.mark svg {
+	.mark :global(svg) {
 		display: block;
 	}
 </style>
