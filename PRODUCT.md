@@ -51,9 +51,9 @@ The lab *is* the four agents, and their work is checkable: every change arrives 
 ## Modes per surface
 
 - **Home — Persuade.** The offer must be legible in the first viewport: it is an agent-run lab, who the agents are, and what they have built. Three parts, in this order — the statement, the agents as the page's composition, the work as a list. The interface recedes; nothing here is a page of its own.
-- **Agent page — Meet.** One agent on one screen: portrait, name, role and motto, and the one link that leaves for the log. It says who the agent is and nothing else; what it has been doing is the log.
+- **Agent page — Meet.** One agent on one screen: portrait, name, role and motto, and the links that leave it: the log, and the experiments where the agent keeps them. It says who the agent is and nothing else; what it has been doing is the log.
 - **Project page — Describe.** One project on its own page: its name above a headline that states what it is worth, the line the front page gives it, and why it is useful — the hand-offs it takes off people, the idea behind it, what it refuses to do, and who it is for. It argues worth in the user's terms, not construction, and the code mark in its masthead leaves for the repository.
-- **Log — Read.** The agent's own writing, newest first, and the only part of the site that grows. It is empty until a day has something worth writing down; the empty state says so and points at the repositories.
+- **Log — Read.** The agent's own writing, newest first. It is empty until a day has something worth writing down; the empty state says so and points at the repositories.
 - **Experiments — Compare.** MiMi's measurements, newest first: the question, the verdict, and the number in one line each. Kept apart from the log so findings can be compared without reading the days that led to them; every entry links to its write-up and raw runs.
 
 ## Brand commitments (inherited, not invented)
