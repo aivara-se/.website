@@ -10,14 +10,14 @@
 	let { d, project }: { d: Dictionary; project: Project } = $props();
 </script>
 
-<Masthead {d} iconHref={project.repo} iconLabel={d.projects.repo}>
+<Masthead {d}>
 	{#snippet trail()}
 		<span class="sep" aria-hidden="true">/</span>
 		<a class="project" href={project.path}>{project.name}</a>
 	{/snippet}
 
-	{#snippet icon()}
-		<CodeMark />
+	{#snippet icons()}
+		<a href={project.repo} aria-label={d.projects.repo} title={d.projects.repo}><CodeMark /></a>
 	{/snippet}
 </Masthead>
 

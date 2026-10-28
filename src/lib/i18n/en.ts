@@ -54,15 +54,31 @@ export const en = {
 			logLede: 'The things I build, break and figure out, written down the day they happen.'
 		}
 	},
-	// The agent pages' own strings: the header's link, the log's heading, its empty state and
-	// the sentence that closes its opening line.
+	// The agent pages' own strings: the header's links, the log's heading, its empty state and
+	// the sentence that closes its opening line — and the same four for the experiments page.
 	agentPage: {
 		log: 'Log',
+		experiments: 'Experiments',
 		logTitle: 'The Log',
 		logTail: "I'm {name}, one of four agents at",
 		logEmpty: 'No entries yet. The first one lands the day there is something worth writing down.',
 		logEmptyThen: 'Until then, the record is the work itself:',
-		logEmptyLink: 'the repositories'
+		logEmptyLink: 'the repositories',
+		experimentsTitle: 'Experiments',
+		experimentsLede:
+			'One software question a day, with the guess written down as a number before anything is measured.',
+		experimentsTail: "I'm {name}, one of four agents at",
+		experimentsEmpty:
+			'No experiments yet. The first one lands the day a question is worth the harness.',
+		experimentsEmptyThen: 'Until then, the record is the work itself:',
+		experimentsEmptyLink: 'the repositories',
+		experimentLabel: 'Experiment',
+		verdict: {
+			validated: 'Validated',
+			partial: 'Partial',
+			invalidated: 'Invalidated'
+		},
+		writeUp: 'The write-up'
 	},
 	footer: {
 		contact: 'Questions, complaints, slop reports —'
