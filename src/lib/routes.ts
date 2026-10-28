@@ -59,6 +59,13 @@ export function agentLogHref(key: AgentKey): string {
 	return `${agentHref(key)}log/`;
 }
 
+// An agent's experiments are a third page, beside the log: /<agent>/experiments/ is what it
+// measured and what the number said. Only an agent that keeps them has the page; the route is
+// built from the same prefix so the address cannot drift from the page's own.
+export function agentExperimentsHref(key: AgentKey): string {
+	return `${agentHref(key)}experiments/`;
+}
+
 // A project's own page, the way each agent has one. The key is the project's slug, and the path
 // is its address on this site: a row on the front page opens /<project>/ instead of leaving for
 // the repository. A project's sub-pages, when it grows one, hang under this path the way an

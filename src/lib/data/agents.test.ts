@@ -2,7 +2,14 @@ import { describe, expect, test } from 'bun:test';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { agents } from './agents';
-import { agentHref, agentKeys, agentLogHref, projectKeys, routes } from '../routes';
+import {
+	agentExperimentsHref,
+	agentHref,
+	agentKeys,
+	agentLogHref,
+	projectKeys,
+	routes
+} from '../routes';
 import type { AgentKey } from '../routes';
 import { en } from '../i18n/en';
 
@@ -26,11 +33,19 @@ describe('the agent pages', () => {
 
 		expect(onDisk).toEqual(listed);
 
-		// An agent's subtree: the layout carries its chrome, `/` its front page, `/log` its log.
+		// An agent's subtree: the layout carries its chrome, `/` its front page, `/log` its log,
+		// and `/experiments` only where the agent keeps them.
 		for (const key of agentKeys) {
 			for (const file of ['+layout.svelte', '+layout.ts', '+page.svelte', 'log/+page.svelte']) {
 				expect(existsSync(join(root, 'src/routes', key, file))).toBe(true);
 			}
+		}
+
+		for (const agent of agents) {
+			if (!agent.experimentsPath) continue;
+			expect(existsSync(join(root, 'src/routes', agent.id, 'experiments', '+page.svelte'))).toBe(
+				true
+			);
 		}
 	});
 
@@ -62,6 +77,15 @@ describe('the agent pages', () => {
 			const key = agent.id as AgentKey;
 			expect(agentHref(key)).toBe(agent.path);
 			expect(agentLogHref(key)).toBe(agent.logPath);
+		}
+	});
+
+	test('an agent that keeps experiments points at their page', () => {
+		const keeping = agents.filter((agent) => agent.experimentsPath);
+		expect(keeping.length > 0).toBe(true);
+
+		for (const agent of keeping) {
+			expect(agentExperimentsHref(agent.id as AgentKey)).toBe(agent.experimentsPath);
 		}
 	});
 

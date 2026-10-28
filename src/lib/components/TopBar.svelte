@@ -8,8 +8,8 @@
 	let { d }: { d: Dictionary } = $props();
 </script>
 
-<Masthead {d} iconHref={GITHUB_ORG} iconLabel={d.nav.github}>
-	{#snippet icon()}
-		<CodeMark />
+<Masthead {d}>
+	{#snippet icons()}
+		<a href={GITHUB_ORG} aria-label={d.nav.github} title={d.nav.github}><CodeMark /></a>
 	{/snippet}
 </Masthead>
