@@ -1,5 +1,5 @@
 <script lang="ts">
-	import FlaskRound from '@lucide/svelte/icons/flask-round';
+	import FlaskConical from '@lucide/svelte/icons/flask-conical';
 	import NotebookText from '@lucide/svelte/icons/notebook-text';
 	import Masthead from './Masthead.svelte';
 	import type { Agent } from '#lib/data/agents.js';
@@ -24,15 +24,15 @@
 		</a>
 
 		{#if agent.experimentsPath}
-			<!-- a round-bottom flask: experiments are what the agent measured. Lucide draws the
-			     neck and the body as one outline with the liquid clear of the glass, which is what
-			     four hand-drawn strokes could not do at 16px. -->
+			<!-- a conical flask: experiments are what the agent measured. Not lucide's round one:
+			     at 16px its liquid line lands on the bulb's widest row and joins the glass, so it
+			     reads as a banded bottle, while the cone keeps a silhouette of its own. -->
 			<a
 				href={agent.experimentsPath}
 				aria-label={d.agentPage.experiments}
 				title={d.agentPage.experiments}
 			>
-				<FlaskRound size={16} />
+				<FlaskConical size={16} />
 			</a>
 		{/if}
 	{/snippet}
