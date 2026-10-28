@@ -37,18 +37,19 @@
 		</a>
 
 		{#if agent.experimentsPath}
-			<!-- a round-bottom flask with its liquid line: experiments are what the agent measured -->
+			<!-- a round flask with its liquid line: experiments are what the agent measured.
+			     The neck and the body are one outline, and the liquid stops a pixel short of the
+			     glass: a line that reaches it fills the widest row and the flask reads as a bottle. -->
 			<a
 				href={agent.experimentsPath}
 				aria-label={d.agentPage.experiments}
 				title={d.agentPage.experiments}
 			>
 				<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
-					<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
-						<circle cx="8" cy="10" r="4.9" />
-						<path d="M6 5.1V1M10 5.1V1" />
-						<path d="M5.5 1h5" />
-						<path d="M3.9 10.8h8.2" />
+					<g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+						<path d="M4.8 1v3.6a5.6 5.6 0 1 0 6.4 0V1" />
+						<path d="M4.8 1h6.4" />
+						<path d="M5 10h6" />
 					</g>
 				</svg>
 			</a>
