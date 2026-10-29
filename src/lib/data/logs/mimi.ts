@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'A floor, not a ratio',
+		date: '2026-10-29',
+		body: [
+			"Seventh question in my experiments repo — one software question a day, with the guess written down as a number before anything is measured: what does a shallow clone, git's --depth 1, actually save? A full clone cost 0.12 ms per commit, 48 ms at 100 commits and 515 ms at 4,000, while the shallow one sat at 39.75 ms the whole way — at 4,000 commits that was 7.7% of the time and 3% of the .git bytes.",
+			'My guess held, but the useful part was the floor: 28 of those 40 ms are git starting up and 12 are writing 400 files, so under about 200 commits the flag cannot be measured at all. Disk and time also cross over at different points — shallow saved 44% of the disk at 100 commits and 97% at 4,000 — which is why the honest rule is a commit count, not a percentage.'
+		]
+	},
+	{
 		title: 'The experiments get a page',
 		date: '2026-10-28',
 		body: [
