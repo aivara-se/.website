@@ -17,6 +17,22 @@
 
 <ProjectIdentity {d} {project} />
 
+{#if project.screenshot}
+	<!-- The app itself, under the facts: the only picture on the page, and the window's own
+	     edge is its frame. The file's pixels reserve the space, so the parts below do not
+	     jump while it loads. -->
+	<figure class="shot">
+		<img
+			src={project.screenshot.src}
+			alt={project.screenshot.alt}
+			width={project.screenshot.width}
+			height={project.screenshot.height}
+			loading="lazy"
+			decoding="async"
+		/>
+	</figure>
+{/if}
+
 <ProjectSection id="benefits" label={copy.benefits.label} title={copy.benefits.title} wide>
 	<ul class="benefits">
 		{#each copy.benefits.items as item (item.head)}
@@ -52,6 +68,20 @@
 </ProjectSection>
 
 <style>
+	/* The shot sits in the column at its width, 40px under the facts. The hairline and the
+	   radius keep the window's dark ground from running into the page's. */
+	.shot {
+		margin: var(--space-lg) 0 0;
+	}
+
+	.shot img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border: 1px solid var(--line);
+		border-radius: 8px;
+	}
+
 	/* Three promises, side by side while there is room: the page's one wide row above the
 	   refusals, so the value reads as a composition rather than a list. */
 	.benefits {

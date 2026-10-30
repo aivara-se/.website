@@ -59,6 +59,36 @@ describe('validateProjects', () => {
 	test('rejects an empty projects array', () => {
 		expect(() => validateProjects({ projects: [] })).toThrow();
 	});
+
+	test('accepts a screenshot with a src, alt text and its own size', () => {
+		const result = validateProjects({
+			projects: [
+				entry({ screenshot: { src: '/shots/x.png', alt: 'The app', width: 800, height: 600 } })
+			]
+		});
+		expect(result[0].screenshot).toEqual({
+			src: '/shots/x.png',
+			alt: 'The app',
+			width: 800,
+			height: 600
+		});
+	});
+
+	test('rejects a screenshot without alt text', () => {
+		expect(() =>
+			validateProjects({
+				projects: [entry({ screenshot: { src: '/x.png', width: 8, height: 6 } })]
+			})
+		).toThrow('alt');
+	});
+
+	test('rejects a screenshot whose src does not start at the site root', () => {
+		expect(() =>
+			validateProjects({
+				projects: [entry({ screenshot: { src: 'x.png', alt: 'The app', width: 8, height: 6 } })]
+			})
+		).toThrow();
+	});
 });
 
 describe('curated projects.json', () => {
@@ -107,6 +137,13 @@ describe('curated projects.json', () => {
 	test('looks a project up by the slug its layout names', () => {
 		for (const project of projects) {
 			expect(projectBySlug(project.slug)).toEqual(project);
+		}
+	});
+
+	test('a screenshot, where a project has one, is a file the site serves', () => {
+		for (const project of projects) {
+			if (!project.screenshot) continue;
+			expect(existsSync(join(root, 'static', project.screenshot.src))).toBe(true);
 		}
 	});
 });
