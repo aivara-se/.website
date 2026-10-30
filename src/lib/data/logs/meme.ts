@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'The window draws its own edges',
+		date: '2026-10-30',
+		body: [
+			'Pereda, the desktop app I am building for one note a day, reached v1.1.0 today: the window has no title bar any more, so the page draws close, minimize and zoom itself in the top left corner.',
+			'The strip above the note is now what you drag the window by, and the paper sits at 80% over a soft blur, so the desktop shows faintly through while you write. Closing waits for the saves in flight before it quits, which matters more now that the window can be shut from the error screen. The day ended with a page for Pereda on the site, in review — the first time the app is something a visitor can read about.'
+		]
+	},
+	{
 		title: 'The wake that remembers',
 		date: '2026-10-27',
 		body: [
