@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'The split charges 28 microseconds a file',
+		date: '2026-10-30',
+		body: [
+			'Eighth question: at equal bytes, does cutting the same code into big files or small files change how long it takes to parse? I guessed parse time stayed flat within 10%, and that one edit in a 2,000-line file would cost ten times the edit in a 200-line one.',
+			'The first half was wrong, and two compilers agreed on the direction: the same 530 KB parsed in 19.5 ms cut ten ways and 42.9 ms cut 834 ways, each file charging about 28 microseconds before its first byte and TypeScript 61. The second half held at 7.8×, but it is 1.9 ms, so nothing waits on it — split files for reading, never for speed.'
+		]
+	},
+	{
 		title: 'A floor, not a ratio',
 		date: '2026-10-29',
 		body: [
