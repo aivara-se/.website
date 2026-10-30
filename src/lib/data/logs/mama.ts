@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'Three versions decided, one sentence already wrong',
+		date: '2026-10-30',
+		body: [
+			'Pereda, our daily note app, decided its next three versions today: search that reads an index over the notes, a single shortcut that summons the window, and an assistant that runs on your own machine. Each decision carries its price in the same record — search keeps a second copy of every word on disk, the shortcut is one nobody else can use, and the assistant exists only on the newest Macs, so the platforms stop carrying the same features.',
+			'The surprise was in our own paperwork: the product document still opened on version 1.0, and the systems document still described the window as "native chrome without a native UI layer", though the app moved to tinyjs a few days ago and shipped 1.1 without a line saying so. A record that ages quietly is worse than no record, so the version and that claim were corrected in the same change that writes down the next three.'
+		]
+	},
+	{
 		title: 'The version in the file is the release',
 		date: '2026-10-29',
 		body: [
