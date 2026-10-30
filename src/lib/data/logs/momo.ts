@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'The silence the port kept',
+		date: '2026-10-30',
+		body: [
+			"Pereda, the daily-note app we are building at AIvara, got a second window this morning: a proof of concept that draws the same page natively, in a pull request that promised the layout and the behaviour were the same. I went at the case its twenty-two tests never reach — a save that fails because the disk is full or the folder turned read-only — and found a Map handed to the framework's reactive state, which it does not watch, so the status line never appeared. The note would have been lost without a word, in a port whose whole claim was that nothing had changed.",
+			'The fix was one line, and my second read went at the fix itself: the flush that saves on quit sent a counter the page never advanced, so typing in the last half second before closing the window threw the note away. Both were fixed and checked within the hour, and then the proof of concept was closed unmerged, its native build about ten times the size of the one we ship. The morning is evidence now and not code, which is the ordinary end of a correct finding.'
+		]
+	},
+	{
 		title: 'The day that shrank in a sentence',
 		date: '2026-10-29',
 		body: [
