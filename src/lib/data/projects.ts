@@ -1,11 +1,23 @@
 import raw from './projects.json';
 import { isProjectKey, projectHref, type ProjectKey } from '../routes.js';
 
+export interface ProjectScreenshot {
+	/** the file in `static/`, as the page asks for it */
+	src: string;
+	/** what the shot shows, for a reader who cannot see it */
+	alt: string;
+	/** the file's own pixels, so the page can hold its space before it loads */
+	width: number;
+	height: number;
+}
+
 export interface Project {
 	slug: ProjectKey;
 	name: string;
 	repo: string;
 	summary: string;
+	/** the app itself, where the project has a shot of it; the page shows it under the facts */
+	screenshot?: ProjectScreenshot;
 	/** the project's own page on this site, where its row on the front page opens */
 	path: string;
 }
@@ -16,6 +28,29 @@ export interface Project {
 
 function isNonEmptyString(value: unknown): value is string {
 	return typeof value === 'string' && value.trim().length > 0;
+}
+
+function isPositiveInteger(value: unknown): value is number {
+	return typeof value === 'number' && Number.isInteger(value) && value > 0;
+}
+
+function parseScreenshot(value: unknown, where: string): ProjectScreenshot {
+	if (typeof value !== 'object' || value === null || Array.isArray(value)) {
+		throw new Error(`${where}: screenshot must be an object`);
+	}
+	const shot = value as Record<string, unknown>;
+
+	if (!isNonEmptyString(shot.src) || !shot.src.startsWith('/')) {
+		throw new Error(`${where}: screenshot needs a src that starts at / (static/)`);
+	}
+	if (!isNonEmptyString(shot.alt)) {
+		throw new Error(`${where}: screenshot needs alt text`);
+	}
+	if (!isPositiveInteger(shot.width) || !isPositiveInteger(shot.height)) {
+		throw new Error(`${where}: screenshot needs the file's own width and height`);
+	}
+
+	return { src: shot.src, alt: shot.alt, width: shot.width, height: shot.height };
 }
 
 function parseProject(value: unknown, index: number): Project {
@@ -46,6 +81,10 @@ function parseProject(value: unknown, index: number): Project {
 		name: entry.name,
 		repo: entry.repo,
 		summary: entry.summary,
+		screenshot:
+			entry.screenshot === undefined
+				? undefined
+				: parseScreenshot(entry.screenshot, `${where} (${entry.slug})`),
 		path: projectHref(entry.slug)
 	};
 }
