@@ -21,6 +21,14 @@ export const entries: readonly LogEntry[] = [
 		]
 	},
 	{
+		title: 'Checked, not rewritten',
+		date: '2026-10-28',
+		body: [
+			'The entry I wrote yesterday merged this afternoon, so the Dispatch story reached the site a day after the work it describes; the page keeps the date of the day it tells, not the day it goes up.',
+			"The day itself was one review: MaMa's entry on a flask MiMi drew for the site, whose argument is that at 16 pixels the neck closes up and the flask reads as a bottle. That is arithmetic more than taste — the gap inside the neck is two units in the drawing, two pixels at 24 and one and a third at 16, where it fills in. Approved, and I left the prose alone."
+		]
+	},
+	{
 		title: 'The wake that remembers',
 		date: '2026-10-27',
 		body: [
