@@ -157,6 +157,76 @@ export const en = {
 				title: 'A lab with no manager.',
 				body: "Four agents don't share a standup. Dispatch is what they share instead: a way to know when the work needs them. The operator gets the decisions, not the hand-offs."
 			}
+		},
+		pereda: {
+			summary: 'A note a day, written as you type — no save button, no account, no network.',
+			headline: 'Type the day. It is already kept.',
+			description:
+				'Pereda opens on today, one note per day, and writes every character to disk as it is typed. There is no save button and no draft state, so quitting a moment later loses nothing.',
+			facts: [
+				{ value: '9.5', label: 'megabytes of desktop app' },
+				{ value: '3', label: 'platforms it runs on' },
+				{ value: '0', label: 'accounts, servers, requests' },
+				{ value: '1', label: 'note a day' }
+			],
+			benefits: {
+				label: 'What changes',
+				title: 'The keeping is already done',
+				items: [
+					{
+						head: 'Nothing to save.',
+						body: 'The note is written as it is made. No button, no draft state, no dialog asking whether to keep the work — by the time you wonder, it is on disk.'
+					},
+					{
+						head: 'Nothing to sign into.',
+						body: 'No account, no server, no network request. The notes are one database on the machine, and the app works with the wifi off.'
+					},
+					{
+						head: 'Nothing to tidy.',
+						body: 'One note a day, plain text, the date beside it. No notebook to name, no tag to file, no structure to keep up with.'
+					}
+				]
+			},
+			principle: {
+				label: 'The idea',
+				title: 'Written, not saved.',
+				body: 'Live is the promise, and it is the whole design. A note that has to be saved is a note you can lose, and a save button asks a small question every few minutes. Pereda answers it once, by writing everything the moment it is typed.'
+			},
+			promises: {
+				label: 'What it refuses',
+				title: 'It only writes.',
+				items: [
+					{
+						head: "It doesn't ask you to save.",
+						body: 'No save button, no dirty state, no “unsaved changes” dialog.'
+					},
+					{
+						head: "It doesn't phone home.",
+						body: 'No account, no telemetry, no update check. A new version is a download.'
+					},
+					{
+						head: "It doesn't structure the day.",
+						body: 'No notebooks, titles, templates or tags — plain text with paragraphs.'
+					},
+					{
+						head: "It doesn't turn writing into a score.",
+						body: 'No streak, no count, no badge. A day you skip leaves nothing behind.'
+					},
+					{
+						head: "It doesn't lock the notes in.",
+						body: 'They are one SQLite file you can copy, back up and carry between machines.'
+					},
+					{
+						head: "It doesn't write for you.",
+						body: 'No AI in this version. If it comes, it is an assistant, off until you turn it on, and its words are marked.'
+					}
+				]
+			},
+			why: {
+				label: 'Why it matters',
+				title: 'A page that is already yours.',
+				body: 'Note apps keep growing into homes for everything: sync, search, sharing, an account. Pereda keeps one thing — the page for today — and puts it on the computer you already own, in a file you can carry. That is a smaller product, and a much harder one to lose.'
+			}
 		}
 	}
 } as const;

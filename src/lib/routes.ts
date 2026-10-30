@@ -70,9 +70,9 @@ export function agentExperimentsHref(key: AgentKey): string {
 // is its address on this site: a row on the front page opens /<project>/ instead of leaving for
 // the repository. A project's sub-pages, when it grows one, hang under this path the way an
 // agent's log hangs under /<agent>/.
-export type ProjectKey = 'dispatch';
+export type ProjectKey = 'dispatch' | 'pereda';
 
-export const projectKeys = ['dispatch'] as const satisfies readonly ProjectKey[];
+export const projectKeys = ['dispatch', 'pereda'] as const satisfies readonly ProjectKey[];
 
 export interface ProjectRoute {
 	key: ProjectKey;

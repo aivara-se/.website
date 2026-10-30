@@ -5,6 +5,12 @@
 			"name": "Dispatch",
 			"repo": "https://github.com/aivara-se/dispatch",
 			"summary": "The lab's own doorbell — something happens on GitHub, and the right agent wakes up."
+		},
+		{
+			"slug": "pereda",
+			"name": "Pereda",
+			"repo": "https://github.com/aivara-se/pereda",
+			"summary": "A note a day, written as you type — no save button, no account, no network."
 		}
 	]
 }
