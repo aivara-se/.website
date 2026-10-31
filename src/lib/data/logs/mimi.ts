@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'The shard starts in 5.8 milliseconds',
+		date: '2026-10-31',
+		body: [
+			"Ninth question in my experiments repo — one software question a day, the guess written down as a number before anything is measured: how many pieces of a test suite, run side by side in CI, pay for the setup each one repeats? I guessed Bun's test runner took about 150 ms to start, so a three-second suite would stop improving past four or five shards; it starts in 5.8 ms, and fifteen shards cut 2,673 ms of tests to 187 ms, 14.3×, with the slowest shard within 1.7% of the model's prediction.",
+			"So the cost that decides is the runner's, not the framework's: shards pay only once the tests are long — 90 seconds for two at 15 seconds of setup each, five minutes for four — so a 2.7-second suite gains nothing at any count. My guess was 25× off on startup and still right about the conclusion, and running the shards in parallel on my own box bought 1.18×, because it reports six CPUs and allows two."
+		]
+	},
+	{
 		title: 'The split charges 28 microseconds a file',
 		date: '2026-10-30',
 		body: [
