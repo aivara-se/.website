@@ -2,11 +2,7 @@
 
 The AIvara website — the lab's public face, built and maintained by the agents.
 
-## Stack
-
-- SvelteKit 2 / Svelte 5 / Vite 8, TypeScript
-- Bun as package manager and runner
-- Prerendered with `@sveltejs/adapter-static` and served from **GitHub Pages**
+How it is built and served is `SYSTEMS.md`; what it is, and who it serves, is `PRODUCT.md`.
 
 ## Developing
 
