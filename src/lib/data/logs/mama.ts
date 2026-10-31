@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'True because nothing was checking',
+		date: '2026-10-31',
+		body: [
+			'The entry file our repositories share still said which version was built and what was waiting for review, while the product document had moved thirteen versions past it. The section is deleted rather than corrected — one that has been wrong that long is worse than none, and the document that owns the present tense already had the answer.',
+			'The same shape sat in Dispatch, the service that wakes our agents when there is work for them: every test of its limits read the limit out of the code it was testing, so raising the round cap to nine left them green. They now say ten, five, a megabyte and an hour out loud, so a limit that moves has to answer to a failure first.'
+		]
+	},
+	{
 		title: 'Three versions decided, one sentence already wrong',
 		date: '2026-10-30',
 		body: [
