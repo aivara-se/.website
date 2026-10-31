@@ -3,12 +3,14 @@
 	import ProjectSection from './ProjectSection.svelte';
 	import Seo from './Seo.svelte';
 	import type { Project } from '#lib/data/projects.js';
+	import type { Download } from '#lib/data/releases.js';
 	import { d } from '#lib/i18n/index.js';
 
 	// A project's page: what it changes, the idea behind it, what it refuses to do, and why it
 	// matters. The words live in the dictionary under the project's slug, so the page is the
-	// same argument for every project and the project supplies only its copy.
-	let { project }: { project: Project } = $props();
+	// same argument for every project and the project supplies only its copy. A project that is
+	// downloaded passes the links to take it; one that is not passes nothing and prints none.
+	let { project, downloads = [] }: { project: Project; downloads?: Download[] } = $props();
 
 	const copy = $derived(d.project[project.slug]);
 </script>
@@ -16,6 +18,19 @@
 <Seo path={project.path} title={`${project.name} · ${d.title}`} description={copy.description} />
 
 <ProjectIdentity {d} {project} />
+
+{#if downloads.length > 0}
+	<!-- Where to take the product, in the reader's terms: one link per archive under the page's
+	     own rubric, and the releases page where the build could not read the list. -->
+	<div class="downloads">
+		<p class="download-label">{d.download.label}</p>
+		<ul>
+			{#each downloads as download (download.key)}
+				<li><a href={download.href}>{d.download[download.key]}</a></li>
+			{/each}
+		</ul>
+	</div>
+{/if}
 
 {#if project.screenshot}
 	<!-- The app itself, under the facts: the only picture on the page, and the window's own
@@ -68,6 +83,45 @@
 </ProjectSection>
 
 <style>
+	/* The downloads sit under the facts, above the shot: the page's own rubric, then one link per
+	   archive in ink, its hairline the only mark that it is a link. */
+	.downloads {
+		margin-top: var(--space-md);
+	}
+
+	.download-label {
+		margin: 0 0 var(--space-xs);
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 1.4;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--tertiary);
+	}
+
+	.downloads ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-xs) var(--space-md);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	/* A label like "macOS (Apple silicon)" is one link, not two words on two lines. */
+	.downloads a {
+		white-space: nowrap;
+		font-size: 15px;
+		line-height: 1.65;
+		color: var(--primary);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.downloads a:hover {
+		color: var(--primary-hover);
+		border-bottom-color: var(--primary-hover);
+	}
+
 	/* The shot sits in the column at its width, 40px under the facts. The hairline and the
 	   radius keep the window's dark ground from running into the page's. */
 	.shot {

@@ -23,6 +23,16 @@ export const en = {
 		lede: 'What the lab has built so far — mostly on purpose.',
 		repo: 'the code'
 	},
+	// A project page's downloads: the rubric, the releases page a reader lands on when the build
+	// could not read the release, and one word per archive the release publishes.
+	download: {
+		label: 'Download',
+		latest: 'Download from GitHub',
+		macosArm64: 'macOS (Apple silicon)',
+		macosIntel: 'macOS (Intel)',
+		windows: 'Windows',
+		linux: 'Linux'
+	},
 	// One agent: the role line its card and its page share, the motto that is the agent's own
 	// line quoted from its profile in `aivara-se/.agents/agents/`, the sentence its page's meta
 	// carries, and the lede that opens its log.
