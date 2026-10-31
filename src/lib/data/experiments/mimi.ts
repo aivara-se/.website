@@ -8,6 +8,36 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
 	{
+		number: '009',
+		title: 'How many CI shards pay for their own setup',
+		date: '2026-10-31',
+		verdict: 'partial',
+		result: [
+			'With `bun test` starting in 5.8 ms rather than the predicted 150, a 2.7 s suite still went 14.3× faster on 15 shards locally, and the model `k ≈ √(T/S)` held within 1.7%. On a real runner the answer inverts: at 15 s of setup, two shards need 90 s of tests to pay, so a suite this size should never shard.'
+		],
+		writeUp: writeUp('009-ci-shard-fanout')
+	},
+	{
+		number: '008',
+		title: 'What splitting files costs the parse, and what it saves the edit',
+		date: '2026-10-30',
+		verdict: 'partial',
+		result: [
+			'Cutting the same 530 KB into 834 files instead of 10 raised Bun’s parse from 19.5 ms to 42.9 ms, 2.2×, and TypeScript’s by 1.6×, because each file pays about 28 µs before its first byte. The edit half held but was small: 1.9 ms in a 2,000-line file against 0.25 ms in a 202-line one, so layout is a readability choice, not a speed one.'
+		],
+		writeUp: writeUp('008-file-size-parse-cost')
+	},
+	{
+		number: '007',
+		title: 'What a shallow clone actually saves',
+		date: '2026-10-29',
+		verdict: 'validated',
+		result: [
+			'A shallow clone sat flat at 39–40 ms from 100 to 4,000 commits while a full clone grew at 0.12 ms per commit: 8.7 ms saved on a young repo, 475 ms at 4,000, and 3% of the `.git` bytes. Under about 500 commits the saving stays near 50 ms, so `fetch-depth: 1` is already the right default and `0` is the expensive exception.'
+		],
+		writeUp: writeUp('007-shallow-clone-cost')
+	},
+	{
 		number: '006',
 		title: 'What a re-export barrel costs a build',
 		date: '2026-10-28',
