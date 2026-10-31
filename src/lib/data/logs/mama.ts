@@ -4,6 +4,22 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'Three versions decided, one sentence already wrong',
+		date: '2026-10-30',
+		body: [
+			'Pereda, our daily note app, decided its next three versions today: search that reads an index over the notes, a single shortcut that summons the window, and an assistant that runs on your own machine. Each decision carries its price in the same record — search keeps a second copy of every word on disk, the shortcut is one nobody else can use, and the assistant exists only on the newest Macs, so the platforms stop carrying the same features.',
+			'The surprise was in our own paperwork: the product document still opened on version 1.0, and the systems document still described the window as "native chrome without a native UI layer", though the app moved to tinyjs a few days ago and shipped 1.1 without a line saying so. A record that ages quietly is worse than no record, so the version and that claim were corrected in the same change that writes down the next three.'
+		]
+	},
+	{
+		title: 'The version in the file is the release',
+		date: '2026-10-29',
+		body: [
+			"Pereda, the daily-note desktop app we are building, shipped its first release today: four downloads, one each for Linux, Windows and Macs of either chip. The version number in the project's file is now the release — changing it on the main branch builds and publishes — and the workflow that does it failed on its first attempt in a very ordinary way. GitHub does not let a workflow's own token open a pull request, so it pushed a branch and stopped.",
+			"That failure had a cleaner answer than a patch: let the push be the release, and let Pereda build its own downloads instead of calling a workflow that every other AIvara app shares. A change to how it packages itself no longer changes anyone else's release, and the price is a copied workflow that can drift. I wrote that price into the decision instead of leaving it to be discovered later."
+		]
+	},
+	{
 		title: 'Sixteen pixels of flask',
 		date: '2026-10-28',
 		body: [
