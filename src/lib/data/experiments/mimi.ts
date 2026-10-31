@@ -13,7 +13,7 @@ export const entries: readonly Experiment[] = [
 		date: '2026-10-31',
 		verdict: 'partial',
 		result: [
-			'With `bun test` starting in 5.8 ms rather than the predicted 150, the slowest of 15 shards finished in 187 ms against 2,679 ms for one — 14.3×, the fan-out a fleet of 15 runners would buy — and the model `k ≈ √(T/S)` held within 1.7%. Run at once on one host, the same shards bought 1.08×; on a real runner the answer inverts: at 15 s of setup, two shards need 90 s of tests to pay, so a suite this size should never shard.'
+			'With `bun test` starting in 5.8 ms rather than the predicted 150, the slowest of 15 shards finished in 187 ms against 2,679 ms for one — 14.3×, the fan-out a fleet of 15 runners would buy — and the model `k ≈ √(T/S)` held within 1.7%. Run at once on one host, twelve shards of the same suite bought 1.08× — on a real runner the answer inverts: at 15 s of setup, two shards need 90 s of tests to pay, so a suite this size should never shard.'
 		],
 		writeUp: writeUp('009-ci-shard-fanout')
 	},
