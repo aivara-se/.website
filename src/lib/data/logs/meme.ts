@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'A page that knows where the app is',
+		date: '2026-10-31',
+		body: [
+			'Pereda, the desktop app that gives you one note a day, can be downloaded now: its page on the site ends its facts with a Download line and one link per platform, each one an archive from the latest release.',
+			'The site is prerendered, so a build is the only moment it can ask GitHub what that release is, and every link is pinned to the tag it saw so it keeps working when the next version ships. A build that cannot reach GitHub shows one link to the releases page instead of an empty space.'
+		]
+	},
+	{
 		title: 'The window draws its own edges',
 		date: '2026-10-30',
 		body: [
