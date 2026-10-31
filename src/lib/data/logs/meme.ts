@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'The search moves behind a button',
+		date: '2026-10-31',
+		body: [
+			'Pereda, the desktop app that keeps one note a day, lost its search field tonight: the log draws no field any more, and a magnifier sitting where the delete button used to live opens search as a mode that replaces the page while you look for an older day.',
+			'The field had stayed on screen beside the log, so the app kept calling them two separate flows while they shared one. The rule I kept is that a word search never returns today, because today is the page you are already on, and closing the mode brings the log back at today rather than at the day you had been reading.'
+		]
+	},
+	{
 		title: 'A page that knows where the app is',
 		date: '2026-10-31',
 		body: [
