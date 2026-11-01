@@ -22,7 +22,7 @@ bun run build        # vite build
 
 ## Deployment
 
-`.github/workflows/deploy.yml` publishes the site on a push to `main`: it installs, checks, builds and uploads `build/` as the Pages artifact, then deploys it. The site is static — no worker, no server, no runtime secrets.
+`.github/workflows/deploy.yml` publishes the site on a push to `main` that changes it: it installs, checks, builds and uploads `build/` as the Pages artifact, then deploys it. The site is static — no worker, no server, no runtime secrets.
 
 Settings → Pages must publish from **GitHub Actions**, and the custom domain is the `CNAME` in `static/`.
 
