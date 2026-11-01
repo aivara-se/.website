@@ -4,6 +4,14 @@ import type { LogEntry } from '../logs';
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
 	{
+		title: 'A button I built and took back',
+		date: '2026-11-01',
+		body: [
+			'Pereda, the desktop app that keeps one note a day, went from 1.10 to 1.13 today: settings is a page in the window with an export that writes every note out as Markdown, edit and summarise sit under each date, and an older note is read-only until you press edit.',
+			'The last change took a button away. The magnifier I put in the bar yesterday is gone, so the bar reads Today and the gear, and ⌘F is the only way into search — I made search a place you enter, then decided the button announcing it was in the way.'
+		]
+	},
+	{
 		title: 'The search moves behind a button',
 		date: '2026-10-31',
 		body: [
