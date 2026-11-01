@@ -28,7 +28,7 @@ One fact, one home: link to a document, never restate it. A sentence here that s
 
 ```bash
 bun run check         # svelte-check
-bun run format:check  # prettier
+bun run format:check  # bun fmt
 bun test              # the tests in src/lib/data
 bun run build         # vite build
 ```
