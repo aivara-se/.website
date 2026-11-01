@@ -36,6 +36,6 @@ bun test              # the tests in src/lib/data
 bun run build         # vite build
 ```
 
-`validate.yml` runs the first, second and fourth on every pull request and on `main`; `deploy.yml` runs `check` and `build` again before it publishes. `bun test` runs in neither — the tests under `src/lib/data/` cover the roster, the logs and the project list, and no workflow runs them: that is the gate's one gap.
+`validate.yml` runs the first, second and fourth on every pull request; `deploy.yml` runs `check` and `build` on `main` before it publishes. `bun test` runs in neither — the tests under `src/lib/data/` cover the roster, the logs and the project list, and no workflow runs them: that is the gate's one gap.
 
 What no command sees is checked by hand: a prerendered page as it is served (`bun run build && bun run preview`), and copy read against `PRODUCT.md`, because a green build cannot tell you that a paragraph describes the lab's process in too much detail.
