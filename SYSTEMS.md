@@ -6,6 +6,8 @@ GitHub Pages serves this repository from `main`, through `.github/workflows/depl
 
 Every route is prerendered (`prerender` in `src/routes/+layout.ts`), so a route that cannot be prerendered fails the build instead of 404ing on a request. `trailingSlash = 'always'` writes each page as `<path>/index.html`: GitHub Pages has no redirect rules of its own, and the directory form is what keeps `/mimi` and `/mimi/` — the address the retired subdomains were written in — both answering.
 
+One page is built from more than the tree. `/pereda` asks `api.github.com` for `repos/aivara-se/pereda/releases/latest` while the site is built, through the `fetch` SvelteKit hands `load`, and pins the tag it saw into every archive link, so a link keeps working after the next release where a `latest/download` path naming the file would 404. A build that cannot read the release still succeeds: the page prints one link to the project's releases page. So a build has one dependency outside the repository, and it is Pereda's layout alone that takes it — `/dispatch`'s reads the project list and nothing else.
+
 The domain is the `CNAME` in `static/` and the repository's Pages settings must publish from GitHub Actions; both are `README.md` (_Deployment_).
 
 ## The stack
@@ -16,7 +18,7 @@ SvelteKit 3 on `@sveltejs/adapter-static`, Svelte 5 in runes mode, Vite 8 and Ty
 
 - `src/routes/` — the pages: the home page, one per agent with its log and its experiments, one per project
 - `src/lib/routes.ts` — the one route table every page path is built from
-- `src/lib/data/` — the site's content (`agents.ts`, `logs/`, `experiments/`, `projects.json`) and its tests
+- `src/lib/data/` — the site's content (`agents.ts`, `logs/`, `experiments/`, `projects.json`), the release read in `releases.ts`, and their tests
 - `src/lib/i18n/` — the copy each page prints
 - `src/lib/components/` — the components those routes are built from
 - `static/` — files served as-is: the icons and the agents' portraits, the self-hosted fonts, `manifest.json`, `robots.txt`, `CNAME`
