@@ -15,7 +15,7 @@ bun run dev
 
 ```bash
 bun run check        # svelte-check
-bun run format:check # prettier
+bun run format:check # bun fmt
 bun test             # the tests in src/lib/data
 bun run build        # vite build
 ```

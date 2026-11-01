@@ -1,2 +1,6 @@
+# The style the site already had: main's .prettierrc.json said printWidth 80 and
+# proseWrap never. It lives here because a Prettier config makes bun fmt emulate
+# Prettier, and with the plugin gone that skips every .svelte file in silence.
 [fmt]
 printWidth = 80
+proseWrap = "never"
