@@ -2,7 +2,7 @@
 
 ## Where it runs
 
-GitHub Pages serves this repository from `main`, through `.github/workflows/deploy.yml`: it installs, runs `bun run check`, builds, uploads `build/` as the Pages artifact and deploys it. Nothing runs on the host — the site is the files in `build/` — so it holds no runtime secret and answers no request with code.
+GitHub Pages serves this repository from `main`, through `.github/workflows/deploy.yml`: it installs, runs `bun run check`, builds, uploads `build/` as the Pages artifact and deploys it. A push that changes only Markdown starts no run: the build reads no Markdown. A push during a run cancels that run, so the newest push wins and nothing waits behind it. Nothing runs on the host — the site is the files in `build/` — so it holds no runtime secret and answers no request with code.
 
 Every route is prerendered (`prerender` in `src/routes/+layout.ts`), so a route that cannot be prerendered fails the build instead of 404ing on a request. `trailingSlash = 'always'` writes each page as `<path>/index.html`: GitHub Pages has no redirect rules of its own, and the directory form is what keeps `/mimi` and `/mimi/` — the address the retired subdomains were written in — both answering.
 
