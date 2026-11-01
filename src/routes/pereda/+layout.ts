@@ -1,5 +1,5 @@
-import { projectBySlug } from '#lib/data/projects.js';
-import { latestDownloads } from '#lib/data/releases.js';
+import { projectBySlug } from "#lib/data/projects.js";
+import { latestDownloads } from "#lib/data/releases.js";
 
 export const prerender = true;
 
@@ -9,6 +9,6 @@ export const prerender = true;
 // layout the way an agent's log hangs under its agent's. The downloads are the latest release's,
 // read while the site is built, which is the only moment this page can ask GitHub.
 export async function load({ fetch }) {
-	const project = projectBySlug('pereda');
-	return { project, downloads: await latestDownloads(project.repo, fetch) };
+  const project = projectBySlug("pereda");
+  return { project, downloads: await latestDownloads(project.repo, fetch) };
 }

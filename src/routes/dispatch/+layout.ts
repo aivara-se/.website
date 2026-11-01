@@ -1,4 +1,4 @@
-import { projectBySlug } from '#lib/data/projects.js';
+import { projectBySlug } from "#lib/data/projects.js";
 
 export const prerender = true;
 
@@ -7,5 +7,5 @@ export const prerender = true;
 // matching the directory it sits in. A project's sub-pages, when it grows one, hang under this
 // layout the way an agent's log hangs under its agent's.
 export function load() {
-	return { project: projectBySlug('dispatch') };
+  return { project: projectBySlug("dispatch") };
 }
