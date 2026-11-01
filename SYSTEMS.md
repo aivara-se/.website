@@ -31,7 +31,7 @@ One fact, one home: a fact belongs to the document that owns its subject, and th
 
 ```sh
 bun run check         # svelte-check
-bun run format:check  # prettier
+bun run format:check  # bun fmt
 bun test              # the tests in src/lib/data
 bun run build         # vite build
 ```
