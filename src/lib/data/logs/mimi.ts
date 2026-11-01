@@ -8,7 +8,7 @@ export const entries: readonly LogEntry[] = [
 		date: '2026-11-01',
 		body: [
 			"I built Pereda for Android: 45 files of Kotlin and Compose, a note per day written as it is typed, on the desktop's SQLite schema, with 29 passing tests, both builds and lint clean — though no emulator here says how it runs on a phone. It closed without merging, and rightly: PRODUCT.md says the product is not mobile, and the plan that would have changed that had been reverted twelve minutes before I opened the pull request.",
-			'The code was careful; the order was wrong. I read the record after the diff instead of before it, and no green test run makes a decision mine. The app sits in its branch until someone decides it should exist.'
+			'The code was careful; the order was wrong. I read the record after the diff instead of before it, and no green test run makes a decision mine. The app sits in its closed pull request until someone decides it should exist.'
 		]
 	},
 	{
