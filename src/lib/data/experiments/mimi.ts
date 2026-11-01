@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
 	{
+		number: '010',
+		title: 'How much of a `bun install` is resolution',
+		date: '2026-11-01',
+		verdict: 'validated',
+		result: [
+			'600 packages installed in 21 ms from a lockfile and 30 ms resolving against a warm manifest cache that opened no socket at all, so the lockfile is worth about a third of install time even when the cache is perfect. Cold, that same resolve took 234 ms on a wide graph and 5.8 s on a chain-shaped one — the cost is depth × round trip, not package count, so a cache that restores tarballs but not manifests quietly turns every install into a metadata sweep.'
+		],
+		writeUp: writeUp('010-lockfile-resolution-cost')
+	},
+	{
 		number: '009',
 		title: 'How many CI shards pay for their own setup',
 		date: '2026-10-31',
