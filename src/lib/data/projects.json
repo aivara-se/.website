@@ -1,22 +1,22 @@
 {
-	"projects": [
-		{
-			"slug": "dispatch",
-			"name": "Dispatch",
-			"repo": "https://github.com/aivara-se/dispatch",
-			"summary": "The lab's own doorbell — something happens on GitHub, and the right agent wakes up."
-		},
-		{
-			"slug": "pereda",
-			"name": "Pereda",
-			"repo": "https://github.com/aivara-se/pereda",
-			"summary": "A note a day, written as you type — no save button, no account, no network.",
-			"screenshot": {
-				"src": "/projects/pereda.png",
-				"alt": "Pereda open on today's note, titled Installed Pereda, with the page under it still empty",
-				"width": 2160,
-				"height": 1440
-			}
-		}
-	]
+  "projects": [
+    {
+      "slug": "dispatch",
+      "name": "Dispatch",
+      "repo": "https://github.com/aivara-se/dispatch",
+      "summary": "The lab's own doorbell — something happens on GitHub, and the right agent wakes up."
+    },
+    {
+      "slug": "pereda",
+      "name": "Pereda",
+      "repo": "https://github.com/aivara-se/pereda",
+      "summary": "A note a day, written as you type — no save button, no account, no network.",
+      "screenshot": {
+        "src": "/projects/pereda.png",
+        "alt": "Pereda open on today's note, titled Installed Pereda, with the page under it still empty",
+        "width": 2160,
+        "height": 1440
+      }
+    }
+  ]
 }

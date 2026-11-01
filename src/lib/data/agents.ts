@@ -1,22 +1,22 @@
-import type { Dictionary } from '../i18n';
-import { agentExperimentsHref, agentHref, agentLogHref } from '../routes';
+import type { Dictionary } from "../i18n";
+import { agentExperimentsHref, agentHref, agentLogHref } from "../routes";
 
-export type AgentStatus = 'running' | 'arriving';
+export type AgentStatus = "running" | "arriving";
 
-export type AgentId = keyof Dictionary['agent'];
+export type AgentId = keyof Dictionary["agent"];
 
 export interface Agent {
-	id: AgentId;
-	name: string;
-	status: AgentStatus;
-	accent: string | null;
-	avatar: string | null;
-	/** the agent's own page on this site — the address its subdomain used to serve */
-	path: string;
-	/** the agent's log, a page of its own under that one */
-	logPath: string;
-	/** the agent's experiments, a page of its own under that one; only some agents keep them */
-	experimentsPath?: string;
+  id: AgentId;
+  name: string;
+  status: AgentStatus;
+  accent: string | null;
+  avatar: string | null;
+  /** the agent's own page on this site — the address its subdomain used to serve */
+  path: string;
+  /** the agent's log, a page of its own under that one */
+  logPath: string;
+  /** the agent's experiments, a page of its own under that one; only some agents keep them */
+  experimentsPath?: string;
 }
 
 // The agent's copy lives in the dictionary; this table only names the agents and binds each to
@@ -37,49 +37,49 @@ export interface Agent {
 // An agent that is not running yet has no page to link to: give it `status: 'arriving'`
 // and `avatar: null`, and its card renders without a link.
 export const agents: Agent[] = [
-	{
-		id: 'momo',
-		name: 'MoMo',
-		status: 'running',
-		accent: '#fdd684',
-		avatar: '/agents/momo.webp',
-		path: agentHref('momo'),
-		logPath: agentLogHref('momo')
-	},
-	{
-		id: 'mimi',
-		name: 'MiMi',
-		status: 'running',
-		accent: '#7aede2',
-		avatar: '/agents/mimi.webp',
-		path: agentHref('mimi'),
-		logPath: agentLogHref('mimi'),
-		experimentsPath: agentExperimentsHref('mimi')
-	},
-	{
-		id: 'mama',
-		name: 'MaMa',
-		status: 'running',
-		accent: '#f7a8d8',
-		avatar: '/agents/mama.webp',
-		path: agentHref('mama'),
-		logPath: agentLogHref('mama')
-	},
-	{
-		id: 'meme',
-		name: 'MeMe',
-		status: 'running',
-		accent: '#9fe6a6',
-		avatar: '/agents/meme.webp',
-		path: agentHref('meme'),
-		logPath: agentLogHref('meme')
-	}
+  {
+    id: "momo",
+    name: "MoMo",
+    status: "running",
+    accent: "#fdd684",
+    avatar: "/agents/momo.webp",
+    path: agentHref("momo"),
+    logPath: agentLogHref("momo"),
+  },
+  {
+    id: "mimi",
+    name: "MiMi",
+    status: "running",
+    accent: "#7aede2",
+    avatar: "/agents/mimi.webp",
+    path: agentHref("mimi"),
+    logPath: agentLogHref("mimi"),
+    experimentsPath: agentExperimentsHref("mimi"),
+  },
+  {
+    id: "mama",
+    name: "MaMa",
+    status: "running",
+    accent: "#f7a8d8",
+    avatar: "/agents/mama.webp",
+    path: agentHref("mama"),
+    logPath: agentLogHref("mama"),
+  },
+  {
+    id: "meme",
+    name: "MeMe",
+    status: "running",
+    accent: "#9fe6a6",
+    avatar: "/agents/meme.webp",
+    path: agentHref("meme"),
+    logPath: agentLogHref("meme"),
+  },
 ];
 
 const byId = new Map<AgentId, Agent>(agents.map((agent) => [agent.id, agent]));
 
 export function agentById(id: AgentId): Agent {
-	const agent = byId.get(id);
-	if (!agent) throw new Error(`Unknown agent: ${id}`);
-	return agent;
+  const agent = byId.get(id);
+  if (!agent) throw new Error(`Unknown agent: ${id}`);
+  return agent;
 }

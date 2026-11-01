@@ -4,12 +4,12 @@
 <span class="mark" aria-hidden="true"></span>
 
 <style>
-	.mark {
-		display: block;
-		width: 16px;
-		height: 16px;
-		background-color: currentColor;
-		-webkit-mask: url('/github-mark.png') center / 16px 16px no-repeat;
-		mask: url('/github-mark.png') center / 16px 16px no-repeat;
-	}
+  .mark {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-color: currentColor;
+    -webkit-mask: url("/github-mark.png") center / 16px 16px no-repeat;
+    mask: url("/github-mark.png") center / 16px 16px no-repeat;
+  }
 </style>

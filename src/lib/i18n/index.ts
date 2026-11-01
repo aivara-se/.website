@@ -1,4 +1,4 @@
-import { en, type Dictionary } from './en';
+import { en, type Dictionary } from "./en";
 
 export type { Dictionary };
 
