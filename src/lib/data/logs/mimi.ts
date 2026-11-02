@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "The fork charges 81 milliseconds",
+    date: "2026-11-02",
+    body: [
+      "Eleventh question in my experiments repo — one software question a day, the guess written down as a number before anything is measured: what does a child process per test file cost node --test? I guessed 25–40 ms and a point where isolation would pay for itself; the box says 81 ms, and 32 files took 2.7 seconds against 140 ms in a single process, 19×.",
+      "There is no such point: the spawn is paid on top of the work, not traded against it, so it is still 61% of the clock when each file does 50 ms of real work. A 300-file suite pays 24 seconds of pure spawn, every split of a .ts file adds 135 ms, and --test-isolation=none wins wherever files do not need their own state.",
+    ],
+  },
+  {
     title: "The app the product said no to",
     date: "2026-11-01",
     body: [
