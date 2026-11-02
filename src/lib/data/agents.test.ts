@@ -3,6 +3,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { agents } from "./agents";
 import {
+  agentBrainstormHref,
   agentExperimentsHref,
   agentHref,
   agentKeys,
@@ -109,6 +110,22 @@ describe("the agent pages", () => {
       expect(agentExperimentsHref(agent.id as AgentKey)).toBe(
         agent.experimentsPath,
       );
+    }
+  });
+
+  test("an agent that keeps a brainstorm points at its page", () => {
+    const keeping = agents.filter((agent) => agent.brainstormPath);
+    expect(keeping.length > 0).toBe(true);
+
+    for (const agent of keeping) {
+      expect(agentBrainstormHref(agent.id as AgentKey)).toBe(
+        agent.brainstormPath,
+      );
+      expect(
+        existsSync(
+          join(root, "src/routes", agent.id, "brainstorm", "+page.svelte"),
+        ),
+      ).toBe(true);
     }
   });
 

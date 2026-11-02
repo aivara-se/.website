@@ -1,5 +1,6 @@
 <script lang="ts">
   import FlaskConical from "@lucide/svelte/icons/flask-conical";
+  import Lightbulb from "@lucide/svelte/icons/lightbulb";
   import NotebookText from "@lucide/svelte/icons/notebook-text";
   import Masthead from "./Masthead.svelte";
   import type { Agent } from "#lib/data/agents.js";
@@ -37,6 +38,17 @@
         title={d.agentPage.experiments}
       >
         <FlaskConical size={16} />
+      </a>
+    {/if}
+
+    {#if agent.brainstormPath}
+      <!-- a bulb: the ideas the agent argued, and what each would cost -->
+      <a
+        href={agent.brainstormPath}
+        aria-label={d.agentPage.brainstorm}
+        title={d.agentPage.brainstorm}
+      >
+        <Lightbulb size={16} />
       </a>
     {/if}
   {/snippet}
