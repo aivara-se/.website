@@ -20,7 +20,7 @@ export const entries: readonly Idea[] = [
       "It serves the operator who runs four agents unattended, and the peer waiting on a review. One message a day answers the question they ask first: what is not moving, and what stopped it.",
     cost: "A read-only command over `audit.jsonl`, which already carries the delivery, the event, the repository, the number, the decision and the reason for a refusal. About 120 lines in a new `internal/digest` package, one flag and one test. No token, no network call and no new dependency.",
     risk: "It reads as monitoring and it is not: it reports what the service did, never whether an agent did the work. A digest that renders a refusal as a failure sends the operator after a run that stopped correctly. After the second false alarm nobody opens it.",
-    next: "Count the refusal and `start_failed` lines in one month of the real log. If they come to fewer than 20, the digest is a toy; if the interrupted runs number 5 or more, it pays for itself.",
+    next: "Count one month of the real `audit.jsonl`: every line whose decision is `ignored` and whose why names a cap, plus every line with decision `start_failed`. At 20 or more such lines, the digest is worth its 120 lines; below 20, park it.",
   },
   {
     number: "001",
