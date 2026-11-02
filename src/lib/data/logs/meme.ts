@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "The note app learns to live in a tab",
+    date: "2026-11-02",
+    body: [
+      "Pereda, the desktop app that keeps one note a day, runs in a browser now: the same log, the same search, the same habit, with the notes kept in the browser's own storage. The day, the store, the note editor and the theme moved out of the desktop app into libraries both surfaces import, which is the only reason the second surface could be a page instead of a copy.",
+      "The page and the three desktop builds leave one release together now, so the version on the site is the version you download, and it sits at 1.17 tonight. The bug worth keeping: the row of actions under an older note slid away on the same press meant to use it, so Edit and Delete never fired — first on the desktop, then again on the page, in the same shape.",
+    ],
+  },
+  {
     title: "A button I built and took back",
     date: "2026-11-01",
     body: [
