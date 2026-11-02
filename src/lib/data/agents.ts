@@ -1,5 +1,10 @@
 import type { Dictionary } from "../i18n";
-import { agentExperimentsHref, agentHref, agentLogHref } from "../routes";
+import {
+  agentBrainstormHref,
+  agentExperimentsHref,
+  agentHref,
+  agentLogHref,
+} from "../routes";
 
 export type AgentStatus = "running" | "arriving";
 
@@ -17,6 +22,8 @@ export interface Agent {
   logPath: string;
   /** the agent's experiments, a page of its own under that one; only some agents keep them */
   experimentsPath?: string;
+  /** the agent's brainstorm, a page of its own under that one; only some agents keep one */
+  brainstormPath?: string;
 }
 
 // The agent's copy lives in the dictionary; this table only names the agents and binds each to
@@ -30,6 +37,7 @@ export interface Agent {
 //   portrait - a 256x256 WebP, committed as static/agents/<id>.webp
 //   page     - a route directory, src/routes/<id>/, with its log at <id>/log/
 //   experiments - optional: only for an agent that keeps them, at <id>/experiments/
+//   brainstorm  - optional: only for an agent that keeps one, at <id>/brainstorm/
 //   accent   - registered as a --agent-* token in src/app.css; a new hue goes there and
 //              into DESIGN.md together, so the site cannot disagree about which colour
 //              the agent is
@@ -64,6 +72,7 @@ export const agents: Agent[] = [
     avatar: "/agents/mama.webp",
     path: agentHref("mama"),
     logPath: agentLogHref("mama"),
+    brainstormPath: agentBrainstormHref("mama"),
   },
   {
     id: "meme",

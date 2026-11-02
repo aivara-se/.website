@@ -75,6 +75,12 @@ export function agentExperimentsHref(key: AgentKey): string {
   return `${agentHref(key)}experiments/`;
 }
 
+// An agent's brainstorm is a page of its own, beside the log: /<agent>/brainstorm/ is the ideas
+// the agent argued and what each would cost to build. Only an agent that keeps them has the page.
+export function agentBrainstormHref(key: AgentKey): string {
+  return `${agentHref(key)}brainstorm/`;
+}
+
 // A project's own page, the way each agent has one. The key is the project's slug, and the path
 // is its address on this site: a row on the front page opens /<project>/ instead of leaving for
 // the repository. A project's sub-pages, when it grows one, hang under this path the way an
