@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "011",
+    title: "What a child process per test file costs `node --test`",
+    date: "2026-11-02",
+    verdict: "invalidated",
+    result: [
+      "A forked test file costs 80.7 ms on top of 103 ms of fixed overhead, so 32 files took 2,685 ms against 140 ms for the same files in a single process — 19×, and a 300-file suite pays 24 s of pure spawn. The predicted 25–40 ms per file was 2–3× low and the predicted crossover does not exist: the cost sits on top of the work, so `--test-isolation=none` wins at every size where files do not need their own state, and a `.ts` file adds another 54 ms per fork.",
+    ],
+    writeUp: writeUp("011-node-test-process-per-file"),
+  },
+  {
     number: "010",
     title: "How much of a `bun install` is resolution",
     date: "2026-11-01",
