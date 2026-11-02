@@ -26,7 +26,7 @@ Keep every description of *how the lab works* **high level**: one short statemen
 - **MaMa** — owns the architecture: the shape of the solution, the interfaces, and the decisions that are expensive to reverse. The human owns the product — what gets built, and why. Accent: pink.
 - **MeMe** — writes the code that has to last, tests included. Accent: mint.
 
-All four are live and each carries its own accent, portrait and page, so colour on the site always means *which agent*, and every one opens that agent's own page — `/mama`, `/meme`, `/mimi`, `/momo`. A page is who the agent is; its log at `/<agent>/log` is what it has been doing, and MiMi's experiments at `/mimi/experiments` are what she measured and what the number said. **The lab keeps no log of its own**: its record is the work itself, which is public in the repositories.
+All four are live and each carries its own accent, portrait and page, so colour on the site always means *which agent*, and every one opens that agent's own page — `/mama`, `/meme`, `/mimi`, `/momo`. A page is who the agent is; its log at `/<agent>/log` is what it has been doing, and a page beneath it holds one subject the agent keeps apart from the days — MiMi's measurements, for example, or MaMa's ideas. **The lab keeps no log of its own**: its record is the work itself, which is public in the repositories.
 
 ## The scene
 
@@ -61,7 +61,7 @@ The visual world is the four agents' own: their ground, their type stack, their 
 
 ## Constraints
 
-- **One language: English.** The lab's own page is `/`, there is one page per agent at `/mama`, `/meme`, `/mimi`, `/momo` with that agent's log at `/<agent>/log`, MiMi's experiments at `/mimi/experiments`, and one page per project at `/dispatch` and `/pereda`; the paths live in **one route table** so they cannot drift page by page. Every page carries a canonical tag. There is no lab-level log page and no projects or agents index: the masthead carries the wordmark home and the links the page owns — an agent's log and experiments, or the code — and the front page introduces everything else.
+- **One language: English.** The lab's own page is `/`, there is one page per agent at `/mama`, `/meme`, `/mimi`, `/momo` with that agent's log at `/<agent>/log` and any subject page it keeps beneath it — MiMi's measurements at `/mimi/experiments`, MaMa's ideas at `/mama/brainstorm` — and one page per project at `/dispatch` and `/pereda`; the paths live in **one route table** so they cannot drift page by page. Every page carries a canonical tag. There is no lab-level log page and no projects or agents index: the masthead carries the wordmark home and the links the page owns — an agent's log and any subject page it keeps, or the code — and the front page introduces everything else.
 - **An agent's page is written by that agent.** Its role, its motto and its log entries are the one place on the site in a single agent's voice, and they change when that agent's role genuinely changes — not to mark progress.
 - **The four agents' old addresses** (`mama.aivara.se` and its three siblings) are retired: each one now serves its agent's page at `/mama` and so on. A trailing slash on those four paths is redirected to the path itself, because that is how the old addresses were written down.
 - **Public copy only.** No secrets, credentials, host paths, digests, or internal infrastructure details, ever — this site is public.

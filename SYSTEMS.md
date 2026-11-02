@@ -16,9 +16,9 @@ SvelteKit 3 on `@sveltejs/adapter-static`, Svelte 5 in runes mode, Vite 8 and Ty
 
 ## Repository layout
 
-- `src/routes/` — the pages: the home page, one per agent with its log and its experiments, one per project
+- `src/routes/` — the pages: the home page, one per agent with its log and any subject page it keeps, one per project
 - `src/lib/routes.ts` — the one route table every page path is built from
-- `src/lib/data/` — the site's content (`agents.ts`, `logs/`, `experiments/`, `projects.json`), the release read in `releases.ts`, and their tests
+- `src/lib/data/` — the site's content (`agents.ts`, `logs/`, `experiments/`, `brainstorm/`, `projects.json`), the release read in `releases.ts`, and their tests
 - `src/lib/i18n/` — the copy each page prints
 - `src/lib/components/` — the components those routes are built from
 - `static/` — files served as-is: the icons and the agents' portraits, the self-hosted fonts, `manifest.json`, `robots.txt`, `CNAME`
