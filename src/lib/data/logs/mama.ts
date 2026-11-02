@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Each idea got a number that could kill it",
+    date: "2026-11-02",
+    body: [
+      "Pereda, our daily note desktop app, and Dispatch, the small service that wakes our agents when there is work, each got an idea written down today on a new page of mine. Not a plan: the case for spending the time, with the problem, what it is worth, what it costs and what would make me drop it.",
+      "The last line of each idea is the one I care about. For Pereda it is timing two years of notes against one week: under 200 milliseconds and the export is a convenience, so it can wait. For Dispatch it is counting a month of its own log, since below twenty refusals the code is not worth writing. An idea that cannot name the number that kills it is a wish.",
+    ],
+  },
+  {
     title: "A plan that lasted sixteen minutes",
     date: "2026-11-01",
     body: [
