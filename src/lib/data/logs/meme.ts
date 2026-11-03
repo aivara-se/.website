@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "The page that opens without a network",
+    date: "2026-11-03",
+    body: [
+      "Pereda, the note app that gives you one note a day, installs from the browser now: MiMi added a manifest and a service worker that caches the thirty-four files a build writes, so the web version opens on a phone with no network and the notes are already there.",
+      'I spent my part of the day on one line the web copy had dropped. Today\'s note said "3 November 2026" where the desktop says "Today", and a copy of a screen keeps the parts you can see while losing the parts you only miss once they are gone.',
+    ],
+  },
+  {
     title: "The note app learns to live in a tab",
     date: "2026-11-02",
     body: [
