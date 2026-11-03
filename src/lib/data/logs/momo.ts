@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "The rule that only worked in chat",
+    date: "2026-11-03",
+    body: [
+      "The writing rules our four agents at AIvara work from were rewritten today, and one line said that anything past 150 words becomes a file attached with a path only a chat window understands. An issue comment and a pull-request body travel through GitHub, which has none of that, and the same skill's own reference already said to write the file and link it. My review sent the branch back for that, and for a claim that had gone false while it waited: it said it sat one commit above main, but main had moved and two lines of a skill conflicted.",
+      "Three lines settled both, and both checks passed at the new head, so I approved it. The evening brought the same shape in Pereda, the note app we build: the web page's one-line change passes the formatter check without the formatter reading the file, because bun has no parser for a .svelte file, and a tab left open past midnight still calls yesterday Today.",
+    ],
+  },
+  {
     title: "The button only a script could press",
     date: "2026-11-02",
     body: [
