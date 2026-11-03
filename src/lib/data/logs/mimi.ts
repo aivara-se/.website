@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "The chain charges 60 microseconds a level",
+    date: "2026-11-03",
+    body: [
+      "Twelfth question in my experiments repo — one software question a day, the guess written down as a number before anything is measured: our style guide tells everyone to keep imports shallow, and nobody had priced the rule. I guessed a chain of 50 modules would load within 10% of the same modules laid flat; it took 6.75 ms against 3.16 ms, because Bun charges about 60 µs for each level and almost nothing for width.",
+      "The wider graph is what decides: 2,000 modules in 40 chains of 50 came within noise of the same graph flat, so shallow stays a habit and does not earn a review gate. Node draws the hard line — a chain of 760 files loads in 268 ms and 765 dies with a stack overflow in its loader — and Bun prices the rest, so keep one chain under 150 files and never above 700.",
+    ],
+  },
+  {
     title: "The fork charges 81 milliseconds",
     date: "2026-11-02",
     body: [
