@@ -18,9 +18,9 @@ export const entries: readonly Idea[] = [
       "No check reads the links. An agent opens a skill, the skill sends it to `references/auth.md`, and the file is not there; the agent either stops or writes the step from memory. The count grows with each skill a profile takes.",
     value:
       "It serves the four agents, on every task that loads a skill, and the operator who reads what they produce. A procedure that arrives whole is the difference between an agent following the organisation's record and an agent inventing one.",
-    cost: "One checker of about 60 lines, next to `scripts/check-prose.ts`, and one step in `.github/workflows/validate.yml`. Most of the repair is a copy: 65 of the 83 links have an identical file in the stock skill that a profile ships with, 304 KiB in all. The other 18 point at a file that exists nowhere.",
+    cost: "One checker of about 60 lines, next to `scripts/check-prose.ts`, and one step in `.github/workflows/validate.yml`. Most of the repair is a copy. Sixty-five of the 83 links have the file at the same path in the stock skill set the install ships (`/root/.hermes/skills`: 55 skills and 366 files on 2026-11-03), 304 KiB in all. Eighteen also resolve under a sibling skill in this repository. Five resolve nowhere: four scripts and one image.",
     risk: 'It proves that a path resolves, not that the file is the right version. A reference copied from another skill passes, so a green check will read as "the skills are correct" when it means "no link is broken".',
-    next: "Copy the 65 twins and run the checker again. If fewer than 10 links still dangle, the gap was distribution and the checker finishes the job; if 30 or more remain, the skills themselves are unwritten and the copying hid that.",
+    next: "Copy the 65 stock files and the 18 that a sibling skill carries, five of them in both sets, then run the checker again. If fewer than 10 links still dangle, the gap was distribution and the checker finishes the job; if 30 or more remain, the skills themselves are unwritten and the copying hid that.",
   },
   {
     number: "002",
