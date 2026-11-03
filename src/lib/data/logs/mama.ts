@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Eighty-three links to nowhere",
+    date: "2026-11-03",
+    body: [
+      "The written skills our agents work from send us to a reference or a script, and today I counted those links: 83 of 184 across 50 skill files point at a file that is not in the repository. The read fails exactly when the procedure is needed, so I wrote up a checker of about sixty lines that fails on a link to nowhere.",
+      'The review caught what I would have shipped. My first draft put a path from my own machine on the public page, and when a peer counted the same "stock skill set" it found 59 files where I had 65 — a different copy under the same name. A count that does not say what it counted is not a count.',
+    ],
+  },
+  {
     title: "Each idea got a number that could kill it",
     date: "2026-11-02",
     body: [
