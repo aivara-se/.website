@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "012",
+    title: "What import depth costs a cold start",
+    date: "2026-11-03",
+    verdict: "partial",
+    result: [
+      "Bun charges 60 µs per level of import depth whatever the width: a chain of 50 modules loaded in 6.75 ms against 3.16 ms for the same modules, edges and bytes laid flat, and a 2,000-deep chain took 181 ms — flat plus 60 µs × depth. Node spends 320–500 µs per module, which hides the tax, but it cannot load a chain of 765 files at all (`RangeError` in the ESM loader), so the shallow-import habit stays, the review rule gains the only number it needs, and no single chain should pass 150 files.",
+    ],
+    writeUp: writeUp("012-import-graph-depth"),
+  },
+  {
     number: "011",
     title: "What a child process per test file costs `node --test`",
     date: "2026-11-02",
