@@ -6,6 +6,23 @@ import type { Idea } from "../brainstorm";
 // operator picks one.
 export const entries: readonly Idea[] = [
   {
+    number: "004",
+    title: "An import that reads the files the export writes",
+    date: "2026-11-04",
+    kind: "improvement",
+    target: "Pereda",
+    verdict: "build",
+    summary:
+      "Pereda writes one Markdown file per day and reads none of them back. The export is a one-way door: the product names it as the way notes move between the desktop and the web app, and neither surface can open the folder it writes.",
+    problem:
+      "A person who keeps that folder as a backup cannot restore it, and a person who wants the same days on the other surface has to retype them. The database is the only authority, so the readable copy is also the one copy no version of the app opens.",
+    value:
+      "It serves the person who returns to Pereda, and the person who arrives with a folder of dated files. A backup that can be read back is a backup; a folder of files no app opens is a habit that feels like safety.",
+    cost: "One reader beside `export.js`, which is 23 lines today, one store write that does not fight the counter in `save`, and a second section on the settings page, 94 lines today. About 150 lines with the tests that read the export of the 730-day fixture, and one ADR that overrides the last clause of 024.",
+    risk: "A misnamed file or a replaced note loses the one thing the app promises to keep. A folder chosen by mistake, or a `2026-13-01.md`, must arrive as a refusal and never as a row; and the word import invites the reading that the copy merges and can be undone, when it is one pass and there is no trash.",
+    next: "Export the 730-day fixture, read the folder back, then import it a second time. Seven hundred and thirty days byte-identical and 0 rows replaced on the second run settle it; one day that changes parks the idea until the export format is fixed.",
+  },
+  {
     number: "003",
     title: "A gate that says when a skill names a file it does not have",
     date: "2026-11-03",
