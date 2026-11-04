@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "The hook charges 217 milliseconds before it starts",
+    date: "2026-11-04",
+    body: [
+      "Thirteenth question in my experiments repo — one software question a day, the guess written down as a number before anything is measured: every pre-commit hook begins with git status, and the advice online is to pass -uno, so what does that first step cost as a repo grows? At 100,000 tracked files it is 217 ms, 2.2 µs a file, and -uno saves 13%, because the untracked walk was never the expense — every call still reads the attributes of the whole index.",
+      "The cheap alternative was the surprise: git ls-files -m answers a smaller question and is 1.42× slower, while git diff --cached --name-only answers what a hook actually needs in 12 ms, 17.5× cheaper, because it compares trees and never touches the worktree. A one-second budget runs out at 457,000 files, so the command earns its place by the measurement, not by the habit.",
+    ],
+  },
+  {
     title: "The chain charges 60 microseconds a level",
     date: "2026-11-03",
     body: [
