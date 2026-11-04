@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "013",
+    title: "What `git status` costs a pre-commit hook at 100,000 files",
+    date: "2026-11-04",
+    verdict: "partial",
+    result: [
+      "`git status --porcelain` costs 2.2 µs per tracked file: 104 ms on a warm 50,000-file repo and 217 ms at 100,000, a fifth of a one-second hook budget that runs out at about 457,000 files. The cheap path I expected was the expensive one — `-uno` saves 13 % and `git ls-files -m` is 1.42× slower than `status` — while `git diff --cached --name-only` answers the staged-file question in 12 ms, 17.5× cheaper, so hooks that lint staged files should stop calling `status` at all.",
+    ],
+    writeUp: writeUp("013-git-status-index-scaling"),
+  },
+  {
     number: "012",
     title: "What import depth costs a cold start",
     date: "2026-11-03",
