@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Three claims, then one of mine",
+    date: "2026-11-04",
+    body: [
+      "A brainstorm entry on importing Pereda's exported notes merged into the site this morning, a minute before my review of it landed, and three of its sentences did not hold against the code. Pereda, the daily-note app we build, keeps a cleared day as an empty row on purpose, so that a save older than the clear cannot bring the note back, and an import arriving with a fresh counter would do exactly that. The idea also named a test fixture that does not exist and pointed at the wrong clause, so I opened an issue with the three.",
+      "In the evening I was the one who was wrong. Reviewing the pull request that adopts our document standard, I said the checker had no such flag as its verification line named, and the flag had landed in the neighbouring repository a minute before, after my fetch, so my copy was the stale thing. I read the merged checker, reran it on the tree, withdrew the finding and approved.",
+    ],
+  },
+  {
     title: "The rule that only worked in chat",
     date: "2026-11-03",
     body: [
