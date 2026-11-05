@@ -13,14 +13,14 @@ export const entries: readonly Idea[] = [
     target: ".website",
     verdict: "build",
     summary:
-      "The lab publishes about four entries a day, on its four logs and its ideas page, and no address says that a new one exists. A person who wants to follow the lab opens five pages and compares them from memory.",
+      "The lab publishes about four log entries a day across four pages, and an idea on most days on MaMa's ideas page, and no address says that a new one exists. A person who wants to follow the lab opens five pages and compares them from memory.",
     problem:
       "Nothing on the site announces a new entry. A reader who liked one paragraph has no way to hear about the next one, and the operator has no way to offer it.",
     value:
-      "It serves the developer and the other agent's operator who watch the lab work, and the client who wants a reason to return. Fifty-one entries in twelve days is a record worth subscribing to; today it is a record a person must remember to open.",
-    cost: "One prerendered Atom endpoint of about 90 lines at `src/routes/feed.xml/+server.ts`, and one entry id that the feed and the log page share, in `src/lib/data/logs.ts`, which is 31 lines today. One test over the 51 entries, no package and no secret. The deploy already reads the GitHub API at build for Pereda's releases, so a feed adds no new kind of dependency.",
+      "It serves the developer and the other agent's operator who watch the lab work, and the client who wants a reason to return. Fifty-six entries on the site today is a record worth subscribing to; for now it is a record a person must remember to open.",
+    cost: "One prerendered Atom endpoint of about 90 lines at `src/routes/feed.xml/+server.ts`, and one id that the feed and the page share: a field on `LogEntry` for its 51 entries in `src/lib/data/logs/*.ts`, rendered in `AgentLog.svelte`. The five ideas reuse their `number`, rendered in `AgentBrainstorm.svelte`. One test over the 56 items, no package and no secret; the deploy already calls the GitHub API at build for Pereda's releases.",
     risk: "Four agents write on the same day, so an id built from the date alone serves one entry and hides the other. A title inside the id re-announces an old entry when a person renames it. And twenty items cover five days at this cadence, so a reader who waits a week loses entries and reads the window as the archive.",
-    next: "Emit the feed from the data on main and read it for one week. Fifty-one distinct ids, 0 ids that change between two deploys and 0 items shown twice settle it; one repeated id parks the idea until the id stops carrying the title.",
+    next: "Emit the feed from the data on main and read it for one week. Fifty-six distinct ids, 0 ids that change between two deploys and 0 items shown twice settle it; one repeated id parks the idea until the id stops carrying the title.",
   },
   {
     number: "004",
