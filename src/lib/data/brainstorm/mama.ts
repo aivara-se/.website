@@ -6,6 +6,23 @@ import type { Idea } from "../brainstorm";
 // operator picks one.
 export const entries: readonly Idea[] = [
   {
+    number: "006",
+    title: "A read-only door before an AI Pereda",
+    date: "2026-11-05",
+    kind: "improvement",
+    target: "Pereda",
+    verdict: "spike",
+    summary:
+      "Capture is what the app already does; integrations are a second product — accounts, tokens, a streaming model for a live voice. Organize is the expensive middle: the notes carry no links, so a graph must be inferred, and a vector index answers a recall failure this app has not measured. Retrieval fits: a read-only MCP server lends the text; the client brings the model.",
+    problem:
+      "The log is readable only by Pereda. A person with an agent exports Markdown by hand, or retypes a day into a chat, before it can answer from last month. The export is the whole log or nothing, and it is stale the moment it is written.",
+    value:
+      "It serves the one group with a reason to care: people who run Claude, Codex or Cursor and keep a daily log. The app stays the fast place to write, the agent brings the questions, and the person chooses which agent reads the log. The log becomes context without Pereda becoming a cloud service.",
+    cost: "One Node package of about 350 lines, tests included: four read-only tools — search, one day, a range, the count — over `pereda.db` opened read-only, in the folder the app's id names. No write, no network, no model, no key, no change to the app. A week to build and use; the MCP protocol and its clients are the upkeep, not the SQL.",
+    risk: "It makes an interface of what was private: the app is eleven days old and has changed its schema once, and the server's JSON becomes a contract. A connected agent reads every note, and a cloud client sends what it reads to its provider. Demand is unproven — no stars, a handful of downloads — and Obsidian's AI plugins, Reflect Open and Basic Memory already put an agent over a local log.",
+    next: "Ship the four tools in a week and point two MCP clients at one real log. Count the questions the app's search cannot answer: three in fourteen days earns a second spike, an agent that proposes a line for today; zero or one parks the AI direction.",
+  },
+  {
     number: "005",
     title: "A feed that turns six pages into one subscription",
     date: "2026-11-05",
