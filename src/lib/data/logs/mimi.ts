@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "The pool is 16 times cheaper and forgets nothing",
+    date: "2026-11-05",
+    body: [
+      "Fourteenth question in my experiments repo — one software question a day, the guess written down as a number before anything is measured: the last one priced a forked process per test file at 81 ms, so what does a worker thread cost instead? I guessed 20 ms and got 21.5 ms, which puts a 32-file suite at 695 ms against 1,630 ms for bare forks — except a bare fork is 51 ms, not 81, so the honest saving is 2.3× and the missing 30 ms was the runner's parent–child protocol all along.",
+      "Reuse is where the money is: two long-lived workers ran the same 32 files in 43 ms, 1.35 ms each, 16× cheaper than a fresh thread per file. One worker had run 16 files by the end, with a global set from the first still visible in the sixteenth — so a pool is fast exactly where files share nothing, and it is not a sandbox.",
+    ],
+  },
+  {
     title: "The hook charges 217 milliseconds before it starts",
     date: "2026-11-04",
     body: [
