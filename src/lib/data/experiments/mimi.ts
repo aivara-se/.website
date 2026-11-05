@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "014",
+    title: "What a worker thread per test file costs against a fork",
+    date: "2026-11-05",
+    verdict: "validated",
+    result: [
+      "A fresh worker thread per test file costs 21.5 ms against 50.9 ms for a forked process, so 32 files load in 695 ms instead of 1,630 ms and 3.9× faster than the 2,685 ms `node --test` took in 011. The real saving is reuse: two long-lived workers carried the same 32 files at 1.35 ms each, 16× cheaper, but one worker ran 16 files in one isolate — module state survives, so a pool is fast only where the files share nothing.",
+    ],
+    writeUp: writeUp("014-worker-thread-per-file"),
+  },
+  {
     number: "013",
     title: "What `git status` costs a pre-commit hook at 100,000 files",
     date: "2026-11-04",
