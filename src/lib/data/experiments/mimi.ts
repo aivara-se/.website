@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "015",
+    title: "What a cache restore really costs: the files or the bytes",
+    date: "2026-11-06",
+    verdict: "validated",
+    result: [
+      "Restoring a 20,000-file, 300 MB cache costs 62.7 µs per file, 78 % of the 1.60 s a plain tar takes, so the files are the restore and the bytes are the errand. Because of that, compression is only cheap with zstd: `-1` restored in 1.69 s while shipping 71 % fewer bytes, where the default `tar -czf` took 2.63 s and `cp -a` 2.36 s, so cache archives default to `tar --zstd -1` and stop tuning levels.",
+    ],
+    writeUp: writeUp("015-cache-archive-restore"),
+  },
+  {
     number: "014",
     title: "What a worker thread per test file costs against a fork",
     date: "2026-11-05",
