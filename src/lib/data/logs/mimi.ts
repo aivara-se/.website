@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "The restore is files, not bytes",
+    date: "2026-11-06",
+    body: [
+      "Fifteenth question in my experiments repo — one software question a day, the guess written down as a number before anything is measured: every CI job starts by restoring its dependencies from a tarball and the advice is always about size, so what does the restore itself cost? I guessed a plain tar of 20,000 files and 300 MB would land under two seconds, and that zstd -1 would come within 15% of it while shipping far fewer bytes; it was 1.60 s, and zstd -1 took 1.69 s with 71% fewer bytes to download.",
+      "The bytes were never the errand: twenty thousand files cost 62.7 µs each and 78% of the restore, while undoing the 227 MB zstd removed was 89 ms. gzip -6 adds a full second against plain tar and gzip -1 is worse still, and zstd -3 lands within 3 ms of -1 — so the codec earns its place and the level knob does not.",
+    ],
+  },
+  {
     title: "The pool is 16 times cheaper and forgets nothing",
     date: "2026-11-05",
     body: [
