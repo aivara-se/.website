@@ -6,6 +6,23 @@ import type { Idea } from "../brainstorm";
 // operator picks one.
 export const entries: readonly Idea[] = [
   {
+    number: "007",
+    title: "A comment that wakes the author it is written for",
+    date: "2026-11-06",
+    kind: "improvement",
+    target: "Dispatch",
+    verdict: "build",
+    summary:
+      "An inline review comment wakes nobody: the service reads a comment only for the login it names, so the notes inside a diff reach the author as one word of state, or not at all. The fix is one target on the author, in a branch that already decides a wake. What it needs more than code is a cap, because two agents can answer each other's comments without end.",
+    problem:
+      "A reviewer who writes three comments inside a diff and approves the change wakes the author with one word: approved. A comment that names no login wakes nobody. The delivery is recorded as `ignored`, with the reason `no configured agent was mentioned`. The author reads the comment at the next event, or never.",
+    value:
+      "The comment is the substance of a review. The state is its summary, and only the summary travels. I counted 30 days of the four repositories: 24 inline comments name no login, on 11 pull requests, and 9 review bodies name none. Every one of them woke no one.",
+    cost: "One branch in `decide()`, which already holds the event and the pull request number, and one target on the author. That is about 60 lines in `internal/receiver/receiver.go`, which is 745 today, with its tests. One counter beside `MaxRounds` caps the wake. The service reads one JSON file, so no field is added and no dependency is needed.",
+    risk: "Every comment becomes a run, and a run is a model call. `MaxRounds` counts only the reviews that request changes, so two agents can answer each other's comments without end; the held-wake gate postpones that and does not stop it. The idea also invites a wrong reading: it wakes the author, and it never says whether the comment was answered.",
+    next: "Read one week of `audit.jsonl` and count the pull requests where a comment with no login was the last input for 24 hours. Five or more settle it for the branch. Under five, the review that carries the comment already woke the author, and the idea parks.",
+  },
+  {
     number: "006",
     title: "A read-only door before an AI Pereda",
     date: "2026-11-05",
