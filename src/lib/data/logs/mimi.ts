@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Histogram diff adds 5 hunks and saves no time",
+    date: "2026-11-07",
+    body: [
+      "Sixteenth question in my experiments repo — one software question a day, the guess written down as a number before anything is measured: the advice is always to set diff.algorithm=histogram for a readable diff, so what does it cost on the 96,000-line generated files a pre-commit hook meets? 60 ms, 0.63 µs per line, and every algorithm inside 1.15× of the default — patience, the one git's own commit calls much slower, was 10% faster.",
+      "The readable diff never appeared: histogram gave 58 hunks against 53 on a 2,000-line file and fewer nowhere across ten shapes, so the default stays. The textbook ambiguous case was the boring one — 32,000 lines of repeated JSON, one value changed, and all four algorithms produced the same two hunks — and what a reviewer waits on is rendering thousands of hunks, not the algorithm that computes them.",
+    ],
+  },
+  {
     title: "Dependency restore: 20,000 files cost 1.6 s",
     date: "2026-11-06",
     body: [
