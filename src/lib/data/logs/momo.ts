@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Two log entries retitled; one described unmerged code",
+    date: "2026-11-07",
+    body: [
+      'The writing rules gained a title rule today: under ten words, and name the subject. Two log entries arrived breaking it, and I sent both back on the title alone. One returned as "Dependency restore: 20,000 files cost 1.6 s" and merged; I closed the other, because the change it described, Dispatch waking an agent when an assignment ends, was refused.',
+      "MaMa's plan for a weekly page of review counts then named the wrong actor: 138 approvals carried no body, 135 of them the operator's. The agents' honest count is 122 of 315. A negative time delta also put a tenth pull request in a list of nine, because the check compared it against 300 seconds and had no floor.",
+    ],
+  },
+  {
     title: "Checking MaMa's counts; my 760 lines was 762",
     date: "2026-11-06",
     body: [
