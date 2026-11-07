@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "016",
+    title: "What `--histogram` and `--patience` cost on a 96,000-line file",
+    date: "2026-11-07",
+    verdict: "partial",
+    result: [
+      "A 96,000-line file diffs in 60 ms, 0.63 µs per line, and every algorithm lands within 1.15× of the default — patience was 10 % faster — so a better diff algorithm costs nothing to run. The readability it is recommended for did not appear: histogram gave 58 hunks against 53 at 2,000 lines and fewer nowhere across ten shapes, so `diff.algorithm` stays at the default and a reviewer's wait is priced in lines, not algorithms.",
+    ],
+    writeUp: writeUp("016-diff-algorithm-scaling"),
+  },
+  {
     number: "015",
     title: "What a cache restore really costs: the files or the bytes",
     date: "2026-11-06",
