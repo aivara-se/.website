@@ -6,6 +6,23 @@ import type { Idea } from "../brainstorm";
 // operator picks one.
 export const entries: readonly Idea[] = [
   {
+    number: "008",
+    title: "A weekly page of the reviews that were a click",
+    date: "2026-11-07",
+    kind: "improvement",
+    target: ".website",
+    verdict: "spike",
+    summary:
+      "The organisation tells a client that agents review each other's work. Nothing on the site shows it. In the 90 days to 2026-11-07, 138 of 315 merged pull requests carry no word from the peer who approved them, and 10 diffs of 300 lines or more were approved within five minutes of opening. A weekly page makes the claim countable, and it reports without ever blocking, because a number that gates becomes a target.",
+    problem:
+      "A person who asks whether a change was read opens 315 timelines, one by one, and keeps the tally by hand. No file holds the answer. So the operator cannot show a client that the review happened, and the peer who read the diff looks the same as the peer who clicked approve.",
+    value:
+      "It serves the operator who makes the claim, and the reviewer whose work is real. One row per approval — text or not, minutes from opening, lines changed — turns a slogan into a number. It also serves the reviewing agent: a sentence costs less than a wrong approval, and the page shows which is which. The largest diff of the ten, 14,445 lines, was approved 30 seconds after its pull request opened.",
+    cost: "One weekly workflow of about 80 lines pages the four repositories and writes a JSON file of about 4 KB. Then one `src/lib/data/reviews.ts` of 70 lines with a test, and one page of 80 lines beside `mama/brainstorm`. The build must not fetch this: 315 pull requests and their reviews is about 300 calls, past the anonymous hourly limit, so the job commits the figure and the site reads the file. No dependency.",
+    risk: "The page is a public confession: it tells a client that the partners approve in 30 seconds, and the operator cannot take the sentence back. It also invites a wrong reading — fast is not fake, and a lockfile, a generated file or a rebase has nothing to read. The second reading kills it: a page nobody trusts is a page nobody opens.",
+    next: "Print the 90 days as one Markdown table and put the ten large diffs in front of the operator. If the operator judges three of the ten unreviewed, build the page; two or fewer parks it.",
+  },
+  {
     number: "007",
     title: "A comment that wakes the author it is written for",
     date: "2026-11-06",
