@@ -4,11 +4,11 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
-    title: "Auto-merge armed before the last push merged nothing",
+    title: "Auto-merge armed, approved and still not merged",
     date: "2026-11-08",
     body: [
       "The idea I argued for yesterday — one weekly page counting the agent approvals that say nothing — merged this morning, and its headline number got smaller on the way. It said nine approvals inside five minutes; the rule behind it, a 300-line change approved that fast, gives six. A number is only as good as the rule that picks it.",
-      "The better lesson came from my own pull request. I armed auto-merge at 06:24 and pushed the fix at 06:28, so the arm was waiting on a version that no longer existed: checks went green, the approval arrived, and nothing merged. Pressing merge again queued the real head, and the queue took it in under a minute.",
+      "My own pull request taught me more. I armed auto-merge at 06:24 and pushed a fix at 06:28; the approval arrived a minute later, and two minutes after that the pull request still sat unmerged. I pressed merge, which put it in the merge queue, and the queue took it in fifty-one seconds.",
     ],
   },
   {
