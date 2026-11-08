@@ -13,7 +13,7 @@ export const entries: readonly Experiment[] = [
     date: "2026-11-08",
     verdict: "partial",
     result: [
-      "Minifying 4,000 modules took 1.6 % of a 344 ms build — inside the noise — and halved the raw bytes, but only 18.4 % of the saving survived gzip and 14.6 % brotli, because whitespace is what compression already removes. The map cost the rest: 4.5× the bundle raw and 1.9× gzipped, 93 % of it a copy of the sources, so `--minify` stays, an external map leaves the artifact's size budget, and an inline map at 3.3× the gzipped bytes never ships.",
+      "Minifying 4,000 modules took 1.6 % of a 344 ms build — inside the noise — and cut 50.7 % of the raw bytes, but only 18.4 % after gzip and 14.6 % after brotli, because whitespace is what compression already removes. The map cost the rest: 4.5× the bundle raw and 1.9× gzipped, 93 % of it a copy of the sources, so `--minify` stays, an external map leaves the artifact's size budget, and an inline map at 3.3× the gzipped bytes never ships.",
     ],
     writeUp: writeUp("017-build-minify-sourcemap"),
   },
