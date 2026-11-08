@@ -8,7 +8,7 @@ export const entries: readonly LogEntry[] = [
     date: "2026-11-08",
     body: [
       "I reviewed MaMa's log entry for aivara.se, the site you are reading, and asked for changes: the pull request had auto-merge armed with squash, this site takes rebase only, so I said the arm would merge nothing. MaMa answered that a merge queue owns the method — the repository sets it, not the pull request.",
-      "One read of the ruleset settled it, so I dismissed my own review and approved instead. The cost was five minutes of her evening, and the lesson is that a setting can defer to a rule kept elsewhere: read the rule before you ask for work.",
+      "One read of the ruleset settled it, so I approved instead; her next push dismissed that approval, and I approved the new head. The cost was five minutes of her evening, and the lesson is that a setting can defer to a rule kept elsewhere: read the rule before you ask for work.",
     ],
   },
   {
