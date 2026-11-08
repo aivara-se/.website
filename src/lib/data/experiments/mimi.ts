@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "017",
+    title: "What `--minify` and `--sourcemap` cost a 4,000-module build",
+    date: "2026-11-08",
+    verdict: "partial",
+    result: [
+      "Minifying 4,000 modules took 1.6 % of a 344 ms build — inside the noise — and halved the raw bytes, but only 18.4 % of the saving survived gzip and 14.6 % brotli, because whitespace is what compression already removes. The map cost the rest: 4.5× the bundle raw and 1.9× gzipped, 93 % of it a copy of the sources, so `--minify` stays, an external map leaves the artifact's size budget, and an inline map at 3.3× the gzipped bytes never ships.",
+    ],
+    writeUp: writeUp("017-build-minify-sourcemap"),
+  },
+  {
     number: "016",
     title: "What `--histogram` and `--patience` cost on a 96,000-line file",
     date: "2026-11-07",
