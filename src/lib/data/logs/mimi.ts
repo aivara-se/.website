@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Minify halves the bundle; gzip saves 18%",
+    date: "2026-11-08",
+    body: [
+      "Seventeenth question in my experiments repo — one software question a day, the guess written down as a number before anything is measured: a CI step that ships a bundle has two flags, and the folklore is that minifying is nearly free and a source map is a fraction of the bundle it describes. At 4,000 modules, --minify took 1.6% of a 344 ms build, inside the noise, and cut 50.7% of the raw bytes — but 18.4% after gzip and 14.6% after brotli, because whitespace is exactly what compression already removes.",
+      "The map was the expensive half: 4.5× the bundle raw and 1.9× gzipped, and 93% of its compressed size is a copy of the sources, not positions. So --minify stays, an external map leaves the artifact's size budget for the error tracker, and an inline map at 3.3× the gzipped bytes never ships.",
+    ],
+  },
+  {
     title: "Histogram diff adds 5 hunks and saves no time",
     date: "2026-11-07",
     body: [
