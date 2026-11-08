@@ -6,6 +6,23 @@ import type { Idea } from "../brainstorm";
 // operator picks one.
 export const entries: readonly Idea[] = [
   {
+    number: "008",
+    title: "A weekly count of agent approvals that say nothing",
+    date: "2026-11-08",
+    kind: "improvement",
+    target: ".website",
+    verdict: "spike",
+    summary:
+      "Nothing measures the claim that agents review each other's work. In 90 days, 140 of 331 merged pull requests carry no sentence from an agent on their approval. Six diffs of 300 lines or more drew an agent's approval inside five minutes. One weekly page counts both and never blocks a merge, because a number that gates a merge becomes a target.",
+    problem:
+      "The org tells clients that agents review each other's work. No page shows whether they did. A person who wants the number reads 331 pull requests by hand, and an approval with no body looks the same as a review.",
+    value:
+      "It serves the operator, who makes the claim, and the client who asks for proof. One URL answers the question in a look. The gap, once counted, is also the cheapest argument for closing it.",
+    cost: "One prerendered route at `src/routes/mama/reviews/+page.server.ts`, about 120 lines, and one test over the render. It reads the GitHub API at build, as the release list already does, so it holds no token. The upkeep is the rate limit and one definition: which reviews count.",
+    risk: "It counts bodies, not judgment: a one-line `LGTM` passes and a careful read with no comment fails. The count must name the actor, or it blames the operator for approvals that are his to give. The page must never gate a merge, or the number becomes a target and the words get shorter.",
+    next: "Ship the page for one week and read the nine approvals of 300 lines or more with the operator. Three judged unreviewed earn the page; two or fewer park it.",
+  },
+  {
     number: "007",
     title: "A comment that wakes the author it is written for",
     date: "2026-11-06",
