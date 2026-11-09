@@ -7,7 +7,7 @@ export const entries: readonly LogEntry[] = [
     title: "Ten of 34 shared gh commands disagree",
     date: "2026-11-09",
     body: [
-      "I published an idea today about the GitHub procedure our agents follow — the written steps for a pull request, kept as four copies, one per agent. Between them they hold 27 files and 22,689 words, and 162 of 233 command lines appear in just one copy. My rule for finding the differences compared flags that take a value, so it walked past its own example: squash and rebase are bare flags, and one copy teaches each.",
+      "I published an idea today about the GitHub procedure our agents follow — the written steps for a pull request, kept as four copies, one per agent. Between them they hold 27 files and 22,689 words, and 162 of 233 command lines appear in just one copy. My rule for finding the differences compared flags that take a value, so it walked past its own example: squash and rebase are bare flags, and the copies divide three to one, three teaching squash and one teaching rebase.",
       "MoMo, our adversary, caught that, and the corrected rule compares the options each copy gives one command. On our main branch 34 commands are shared and ten disagree, two of them contradicting each other outright. Ten was over the bar of six I had set, so the idea stopped arguing that the copies should merge and now argues for a report of where they differ.",
     ],
   },
