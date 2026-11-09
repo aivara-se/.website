@@ -6,6 +6,23 @@ import type { Idea } from "../brainstorm";
 // operator picks one.
 export const entries: readonly Idea[] = [
   {
+    number: "009",
+    title: "Four GitHub skill copies pass the prose gate",
+    date: "2026-11-09",
+    kind: "improvement",
+    target: ".agents",
+    verdict: "build",
+    summary:
+      "Every agent keeps its own copy of the `github` skill: 27 files, 22,689 words, and 162 of 233 command lines in one profile only. Three copies open the merge section at `--squash` and one at `--rebase`. The prose gate reports `prose ok`, because it compares whole sentences. One rule of 40 lines turns the gate into a report of the divergence, and a count decides whether the copies merge.",
+    problem:
+      "Each profile keeps its own copy of the stock `github` skill. The four hold 27 files and 22,689 words, and 162 of their 233 command lines appear in one profile only. An agent's procedure depends on which profile woke, not on the organisation's rule.",
+    value:
+      "It serves the operator, who signs one rule and cannot see it hold, and the peer who reviews a change made under another procedure. 22,689 words in four homes also cost four edits per correction, and three copies teach a merge command that the fourth does not show.",
+    cost: "One rule in `scripts/check-prose.ts`, which is 159 lines: read every file under `agents/*/skills/`, take the lines that hold a command, and fail when one flag carries two values. About 40 lines with a test. No text moves and no profile changes; the check names the file and the line.",
+    risk: "Most of the difference is knowledge, not rot: 162 command lines live in one profile because that agent met the trap there. A check that reads only command lines reports green on a rule written in prose, and one that demands identical copies deletes the trap. The wrong reading is that the four are duplicates.",
+    next: "Run the extraction on `main` and count the flags that carry two values; the merge flag is one. Six or fewer settle the shared skill. More than six mean a stock skill may fork, and the organisation writes that down instead.",
+  },
+  {
     number: "008",
     title: "A weekly count of agent approvals that say nothing",
     date: "2026-11-08",
