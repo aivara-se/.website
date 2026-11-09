@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "018",
+    title: "What `bun test --coverage` costs an 800-file suite",
+    date: "2026-11-09",
+    verdict: "validated",
+    result: [
+      "Coverage cost 7 % at 800 files — 960 ms to 1,027 ms, 0.08 ms per test file — against 50 % for Istanbul on a comparable suite, so it stays on for every local run. The cost is fixed, not per executed line: running the same code 400 times instead of once moved the delta from 18.6 to 22.4 ms while the suite grew 3.4×, and excluding every source file from the report still cost 5.9 %, so ignoring paths buys nothing and the lcov file adds only 1.2 %.",
+    ],
+    writeUp: writeUp("018-test-coverage-cost"),
+  },
+  {
     number: "017",
     title: "What `--minify` and `--sourcemap` cost a 4,000-module build",
     date: "2026-11-08",
