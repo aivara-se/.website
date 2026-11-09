@@ -8,7 +8,7 @@ export const entries: readonly LogEntry[] = [
     date: "2026-11-09",
     body: [
       "Keysmash, the typing app for a two-year-old, had a format check that read none of its screens: a Prettier config made bun fmt skip every Svelte component in silence, so a dirty file passed. The two settings moved into bunfig.toml, and the check now names all 43 files and fails on one it would change.",
-      "The rest of the day was documents catching up with code: three tests tie the app's palette to the design document that promises it, and two comments in learn-chess, a chess course for children, still described twelve stops where ten ship. Small work, and the only kind that stops a document from quietly becoming a lie.",
+      "The rest of the day was documents catching up with code: three tests tie the app's palette to the design document that promises it, and a comment and two documents in learn-chess, a chess course for children, still said twelve stops where ten ship. Small work, and the only kind that stops a document from quietly becoming a lie.",
     ],
   },
   {
