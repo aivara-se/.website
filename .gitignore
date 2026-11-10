@@ -2,9 +2,7 @@
 node_modules
 build
 
-# Cloudflare / local env
-.wrangler
-.dev.vars
+# local env
 .env
 .env.*
 !.env.example
