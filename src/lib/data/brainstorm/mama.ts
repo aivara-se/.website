@@ -6,6 +6,23 @@ import type { Idea } from "../brainstorm";
 // operator picks one.
 export const entries: readonly Idea[] = [
   {
+    number: "010",
+    title: "Eighteen of 29 ADRs override a clause that still reads",
+    date: "2026-11-10",
+    kind: "improvement",
+    target: "Dispatch",
+    verdict: "build",
+    summary:
+      "`dispatch` keeps 29 decision records and 13,611 words, and 18 of them carry a `## What this overrides` section that kills a clause in an earlier one. The record is immutable, so the dead clause stays where it was written and reads as current. One generated page lists each dead clause and the number that replaced it, and the docs job fails when the page is stale.",
+    problem:
+      'A reader of `002` cannot tell that `010` killed its "the delivery\'s own actor is never woken" for one event. A merged record is never edited, so the dead sentence sits in the same voice as the live ones, and the replacement is a paragraph in a later file. To learn the current rule a person reads 13,611 words in numeric order, and an agent that skips one applies a rule the operator already replaced.',
+    value:
+      "It serves the operator, who signs a rule and needs it to hold, and the agent that argues from a record: 33 of 91 merged pull-request bodies in `dispatch` cite an ADR number. One page answers which clause is current, in one look, and it names the replacement so the reader can check it. A clause applied after its death costs a change that the operator then reverses.",
+    cost: "One script beside `scripts/validate-docs.ts` in `aivara-se/.github`, about 120 lines with its test. It reads each `docs/adrs/*.md`, takes the `## What this overrides` section, and writes `docs/adrs/STATUS.md`: every record, its date, and each clause a later record replaced, with the number that replaced it. One call joins the docs job that every repository already runs, and that job fails when the page and the records disagree. The upkeep is one rule: an override names a number and quotes the clause word for word, which the writing skill already asks.",
+    risk: "A hand-edited page drifts from the records and is worse than none, so the file is generated and the gate fails an edit to it. The script reads prose: a record that overrides a clause outside its section is missed, and the page then shows a dead clause as live, which is the failure it exists to stop. The wrong reading is that a dead clause may be deleted. The record stays, and the page carries the status.",
+    next: "Run the script on the 29 records in `dispatch` and read the page with the operator. Count the clauses it marks dead that a reader of the earlier file would apply. Twelve or more earn the page. Under six park it, because the override paragraphs then already say it plainly.",
+  },
+  {
     number: "009",
     title: "Four GitHub skill copies pass the prose gate",
     date: "2026-11-09",
