@@ -60,6 +60,19 @@ describe("validateProjects", () => {
     expect(() => validateProjects({ projects: [] })).toThrow();
   });
 
+  test("accepts a web app URL on https", () => {
+    const result = validateProjects({
+      projects: [entry({ site: "https://keys.example.se/" })],
+    });
+    expect(result[0].site).toBe("https://keys.example.se/");
+  });
+
+  test("rejects a site that is not an https URL", () => {
+    expect(() =>
+      validateProjects({ projects: [entry({ site: "keys.example.se" })] }),
+    ).toThrow("https");
+  });
+
   test("accepts a screenshot with a src, alt text and its own size", () => {
     const result = validateProjects({
       projects: [
@@ -106,10 +119,11 @@ describe("validateProjects", () => {
 
 describe("curated projects.json", () => {
   test("loads and validates the curated entries", () => {
-    expect(projects).toHaveLength(2);
+    expect(projects).toHaveLength(3);
     expect(projects.map((project) => project.slug)).toEqual([
       "dispatch",
       "pereda",
+      "keysmash",
     ]);
   });
 
@@ -175,6 +189,21 @@ describe("curated projects.json", () => {
       expect(existsSync(join(root, "static", project.screenshot.src))).toBe(
         true,
       );
+    }
+  });
+
+  test("a web app, where a project has one, is opened from its page", () => {
+    // The shared page prints the app link by reading the field; a project whose site is
+    // written but never read would send the reader to the repository alone.
+    const page = readFileSync(
+      join(root, "src/lib/components/ProjectPage.svelte"),
+      "utf8",
+    );
+    expect(page).toContain("project.site");
+
+    for (const project of projects) {
+      if (!project.site) continue;
+      expect(project.site).toMatch(/^https:\/\//);
     }
   });
 });

@@ -33,6 +33,11 @@ export const en = {
     windows: "Windows",
     linux: "Linux",
   },
+  // A project page's actions under the reason: the app where it runs on the web, and the code.
+  projectPage: {
+    play: "Play it",
+    code: "Read the code",
+  },
   // One agent: the role line its card and its page share, the motto that is the agent's own
   // line quoted from its profile in `aivara-se/.agents/agents/`, the sentence its page's meta
   // carries, and the lede that opens its log.
@@ -263,6 +268,77 @@ export const en = {
         label: "Why it matters",
         title: "A page that is already yours.",
         body: "Note apps keep growing into homes for everything: sync, search, sharing, an account. Pereda keeps one thing — the page for today — and puts it on the computer you already own, in a file you can carry. That is a smaller product, and a much harder one to lose.",
+      },
+    },
+    keysmash: {
+      summary:
+        "A typing app for a two-year-old: every key lands on the screen, and the letters say their names back.",
+      headline: "A keyboard with no wrong keys.",
+      description:
+        "A stray tap is not a mistake, and a hand across the keys is not a broken document. The child gets a screen that answers back, and the parent gets the device back unchanged.",
+      facts: [
+        { value: "197", label: "words it knows on day one" },
+        { value: "1", label: "screen, and no way out of it" },
+        { value: "0", label: "accounts, ads or analytics" },
+        { value: "0", label: "things sent off the device" },
+      ],
+      benefits: {
+        label: "What changes",
+        title: "The keyboard stops being the parent's",
+        items: [
+          {
+            head: "Nothing can break.",
+            body: "No message sends and no document changes. Every press lands on the one screen, and the parent's controls are out of the way.",
+          },
+          {
+            head: "The letters talk back.",
+            body: "A letter is named once the child stops on it, and the words they have made are marked a moment later and read aloud.",
+          },
+          {
+            head: "Their own words show up.",
+            body: "A parent adds a word with an emoji or a picture, so a name from home — a pet, a person — appears when the child types it.",
+          },
+        ],
+      },
+      principle: {
+        label: "The idea",
+        title: "A toy, not a lesson.",
+        body: "Nothing here is taught and nothing is scored. The point is that the keyboard has stopped being the parent's for a minute, and a child who cannot read can still make words appear and hear them said.",
+      },
+      promises: {
+        label: "What it refuses",
+        title: "It does not teach.",
+        items: [
+          {
+            head: "No lessons.",
+            body: "No levels, scoring, rewards, streaks or profiles. Progress is not the point.",
+          },
+          {
+            head: "No account.",
+            body: "Nothing to sign into, and no server that holds the words.",
+          },
+          {
+            head: "No ads or analytics.",
+            body: "Nothing about the child is measured, and nothing is sold.",
+          },
+          {
+            head: "No way out for the child.",
+            body: "The only controls are the parent's, and they disappear in full screen.",
+          },
+          {
+            head: "Nothing is sent anywhere.",
+            body: "The child's text is written nowhere, and no request carries it off the device.",
+          },
+          {
+            head: "Nothing is erased.",
+            body: "No tap clears the screen, and nothing rewrites what the child has typed.",
+          },
+        ],
+      },
+      why: {
+        label: "Why it matters",
+        title: "The first words arrive before the reading.",
+        body: "A small child wants the keyboard, and the keyboard is where the parent works. Keysmash hands it over for a minute without handing over a message, a window or a document. The child types noise; the screen reads words back.",
       },
     },
   },

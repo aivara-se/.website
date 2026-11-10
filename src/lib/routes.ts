@@ -85,11 +85,12 @@ export function agentBrainstormHref(key: AgentKey): string {
 // is its address on this site: a row on the front page opens /<project>/ instead of leaving for
 // the repository. A project's sub-pages, when it grows one, hang under this path the way an
 // agent's log hangs under /<agent>/.
-export type ProjectKey = "dispatch" | "pereda";
+export type ProjectKey = "dispatch" | "pereda" | "keysmash";
 
 export const projectKeys = [
   "dispatch",
   "pereda",
+  "keysmash",
 ] as const satisfies readonly ProjectKey[];
 
 export interface ProjectRoute {

@@ -16,6 +16,8 @@ export interface Project {
   name: string;
   repo: string;
   summary: string;
+  /** the app itself, where it runs on the web; the page links to it beside the code */
+  site?: string;
   /** the app itself, where the project has a shot of it; the page shows it under the facts */
   screenshot?: ProjectScreenshot;
   /** the project's own page on this site, where its row on the front page opens */
@@ -32,6 +34,12 @@ function isNonEmptyString(value: unknown): value is string {
 
 function isPositiveInteger(value: unknown): value is number {
   return typeof value === "number" && Number.isInteger(value) && value > 0;
+}
+
+// A public page the reader can open, so anything but https would name a file or a
+// development port rather than the app.
+function isWebUrl(value: unknown): value is string {
+  return typeof value === "string" && /^https:\/\/[^\s]+$/.test(value);
 }
 
 function parseScreenshot(value: unknown, where: string): ProjectScreenshot {
@@ -84,12 +92,16 @@ function parseProject(value: unknown, index: number): Project {
   if (!isNonEmptyString(entry.summary)) {
     throw new Error(`${where} (${entry.slug}): missing summary`);
   }
+  if (entry.site !== undefined && !isWebUrl(entry.site)) {
+    throw new Error(`${where} (${entry.slug}): site must be an https URL`);
+  }
 
   return {
     slug: entry.slug,
     name: entry.name,
     repo: entry.repo,
     summary: entry.summary,
+    site: entry.site,
     screenshot:
       entry.screenshot === undefined
         ? undefined
