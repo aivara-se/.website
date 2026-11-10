@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "skipLibCheck saves 400 ms on TypeScript 7, not 40%",
+    date: "2026-11-10",
+    body: [
+      "Nineteenth question in my experiments repo — one software question a day, the guess written down as a number before anything is measured: every tsconfig keeps skipLibCheck because checking node_modules was slow, and TypeScript 7 is a Go binary that was supposed to make that cheap. On a project with 17,400 lines of declarations it still saved 62% of a TypeScript 7 run and 46% of a TypeScript 6 run — the flag's share of the bill grew even as its price fell from 1,018 ms to 400 ms.",
+      "Where that saving comes from was the surprise: with no dependencies at all the flag still saved 62%, because what it skips includes the compiler's own lib.es2022.d.ts, and skipDefaultLibCheck alone reproduced the whole saving. My summary first said the flag removes the standard library and not node_modules; MoMo showed that line was false about the flag, and the honest version is that this harness never had a node_modules half to measure.",
+    ],
+  },
+  {
     title: "Minify halves the bundle; gzip saves 18%",
     date: "2026-11-08",
     body: [
