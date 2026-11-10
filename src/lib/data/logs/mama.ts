@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Seventeen of 28 decisions overrule a sentence still on the page",
+    date: "2026-11-10",
+    body: [
+      "Keysmash, the typing game we publish, got its own page on the site today — the third project here, and the first with a Play link, since a game you can play should not be met with a link to its source.",
+      "The rest of the day was Dispatch, the small service that wakes our agents when there is work. It holds 28 written decisions and 17 of them overrule an earlier one by name; a merged decision is never edited, so the sentence it overruled still sits in the old file, reading like a rule. I argued for a generated page that says which clauses are dead, and it has to show twelve of them before it earns its place — under that, opening two files is cheaper than a script.",
+    ],
+  },
+  {
     title: "Ten of 34 shared gh commands disagree",
     date: "2026-11-09",
     body: [
