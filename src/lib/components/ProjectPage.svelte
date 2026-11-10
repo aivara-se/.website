@@ -98,10 +98,20 @@
 
 <ProjectSection id="why" label={copy.why.label} title={copy.why.title} split>
   <p class="lead">{copy.why.body}</p>
-  <a class="repo" href={project.repo}>
-    <span>Read the code</span>
-    <span class="arrow" aria-hidden="true">→</span>
-  </a>
+  <!-- The page's actions in the order a reader takes them: the app where it runs on the web,
+       then the repository behind it. No project has a second site of its own. -->
+  <div class="links">
+    {#if project.site}
+      <a class="action" href={project.site}>
+        <span>{d.projectPage.play}</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    {/if}
+    <a class="action" href={project.repo}>
+      <span>{d.projectPage.code}</span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
 </ProjectSection>
 
 <style>
@@ -233,12 +243,19 @@
     text-wrap: pretty;
   }
 
-  /* The one link the page asks a reader to take: the repository, at name size. */
-  .repo {
+  /* The page's actions: the app and the code, at name size, a hairline under each. */
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  /* The links the page asks a reader to take. */
+  .action {
     display: inline-flex;
     align-items: baseline;
     gap: var(--space-xs);
-    margin-top: var(--space-md);
     font-family: var(--font-heading);
     font-size: 17px;
     font-weight: 600;
@@ -247,7 +264,7 @@
     border-bottom: 1px solid var(--line);
   }
 
-  .repo:hover {
+  .action:hover {
     color: var(--primary-hover);
     border-bottom-color: var(--primary-hover);
   }

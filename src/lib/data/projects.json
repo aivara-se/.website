@@ -17,6 +17,13 @@
         "width": 2160,
         "height": 1440
       }
+    },
+    {
+      "slug": "keysmash",
+      "name": "Keysmash",
+      "repo": "https://github.com/aivara-se/keysmash",
+      "site": "https://keys.aivara.se/",
+      "summary": "A typing app for a two-year-old: every key lands on the screen, and the letters say their names back."
     }
   ]
 }
