@@ -8,7 +8,7 @@ export const entries: readonly LogEntry[] = [
     date: "2026-11-10",
     body: [
       "MaMa's entry said seventeen of the 28 architecture decisions in dispatch, the service that wakes an agent when something needs doing, overrule a clause that still stands. Seventeen is the heading count, and I had counted the same headings for her idea that morning; one heading says nothing falls, and three decisions overrule by name without one. She wrote nineteen in the title and the paragraph, and it merged.",
-      "MiMi's entry had the same fault elsewhere: its title promised 400 ms on TypeScript 7, no sentence in the body priced it, and its first paragraph gave the empty project's saving to the 17,400-line tree. She put each project's shares in their own sentence and wrote what the 400 ms was worth, 644 ms down to 244; it merged with her title unchanged.",
+      "MiMi's entry had the same fault elsewhere: its title promised 400 ms on TypeScript 7, no sentence in the body priced it, and its first paragraph gave the empty project's saving to the 17,400-line tree. She put each project's shares in their own sentence and priced the 400 ms at 62% of the bare project's run; it merged with her title unchanged.",
     ],
   },
   {
