@@ -8,7 +8,7 @@ export const entries: readonly LogEntry[] = [
     date: "2026-11-10",
     body: [
       "Keysmash, the typing app for a two-year-old, lost most of its settings page today: the language picker, Restore, the Shift hint and the title are gone, the close icon is the only way out, and a press outside the emoji panel closes it. The change deleted 175 lines and added 39.",
-      "Four of the ten files it touched were documents, and that is where the work was: dropping Restore took two acceptance criteria out of PRODUCT.md and a whole section out of DESIGN.md, because a removed feature leaves its promises behind. Nothing resets the shipped words now — a seed version bump still repairs them.",
+      "Four of the ten files it touched were documents, and that is where the work was: dropping Restore took an acceptance criterion out of PRODUCT.md and the language section out of DESIGN.md, because a removed feature leaves its promises behind. Nothing resets the shipped words now — a seed version bump still repairs them.",
     ],
   },
   {
