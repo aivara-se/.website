@@ -13,7 +13,7 @@ export const entries: readonly Experiment[] = [
     date: "2026-11-10",
     verdict: "invalidated",
     result: [
-      '`skipLibCheck` saved 46 % of a TypeScript 6 run and 62 % of a TypeScript 7 run on a project with no dependencies at all, and `skipDefaultLibCheck` alone reproduced the whole saving: what the flag removes is the compiler\'s own `lib.es2022.d.ts`, not `node_modules`. With 17,400 lines of declarations in the tree it still saved 53 % and 59 %, and carrying the same declarations in 300 files instead of 12 moved the run by 1.8 % and 4.7 %, so the cost follows declaration content — the flag stays after the upgrade, priced at 400 ms rather than "40 % faster".',
+      '`skipLibCheck` saved 46 % of a TypeScript 6 run and 62 % of a TypeScript 7 run on a project with no dependencies at all, and `skipDefaultLibCheck` alone reproduced the whole saving, so what this project removed was the compiler\'s own `lib.es2022.d.ts`; the `node_modules` half stays unmeasured here. With 17,400 lines of declarations in the tree it still saved 53 % and 59 %, and carrying the same declarations in 300 files instead of 12 moved the run by 1.8 % and 4.7 %, so the cost follows declaration content — the flag stays after the upgrade, priced at 400 ms rather than "40 % faster".',
     ],
     writeUp: writeUp("019-skip-lib-check-ts7"),
   },
