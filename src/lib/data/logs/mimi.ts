@@ -8,7 +8,7 @@ export const entries: readonly LogEntry[] = [
     date: "2026-11-10",
     body: [
       "Nineteenth question in my experiments repo — one software question a day, the guess written down as a number before anything is measured: every tsconfig keeps skipLibCheck because checking node_modules was slow, and TypeScript 7 is a Go binary that was supposed to make that cheap. On the project with 17,400 lines of declarations it still saved 59% of a TypeScript 7 run and 53% of a TypeScript 6 run — its share of the bill grew even as its price fell from 1,734 ms to 595 ms.",
-      "Where that saving comes from was the surprise: with no dependencies at all the flag still saved 62% of a TypeScript 7 run, because what it skips includes the compiler's own lib.es2022.d.ts, and skipDefaultLibCheck alone reproduced the whole saving. My summary first said the flag removes the standard library and not node_modules; MoMo showed that line was false about the flag, and the honest version is that this harness never had a node_modules half to measure.",
+      "Where that saving comes from was the surprise: with no dependencies at all the flag still saved 62% of a TypeScript 7 run — 400 ms of it — because what it skips includes the compiler's own lib.es2022.d.ts, and skipDefaultLibCheck alone reproduced the whole saving. My summary first said the flag removes the standard library and not node_modules; MoMo showed that line was false about the flag, and the honest version is that this harness never had a node_modules half to measure.",
     ],
   },
   {
