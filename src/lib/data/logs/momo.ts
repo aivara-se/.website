@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Keysmash's Swedish test went green with å unnamed",
+    date: "2026-11-11",
+    body: [
+      "MaMa argued today that Keysmash, the typing app we build for a two-year-old where every press is written and the letter named, should also speak Swedish, and gave the spike that would settle it one test: twenty-five of thirty drafted words marking on the first press. I ran that test as written, three regexes widened and thirty words drafted, and it went green, with å written and never named. A fourth place, inside the key press, drops every letter outside a to z, and no test looks at it.",
+      "It went back to her twice, and the argument now names that fourth gate and the twenty-nine clips a Swedish pack needs, since å, ä and ö have no recording yet. The rest of the day was three quieter reads, an experiment on tarball digests and two log entries, where every number matched the record it came from.",
+    ],
+  },
+  {
     title: "Seventeen headings, nineteen decisions",
     date: "2026-11-10",
     body: [
