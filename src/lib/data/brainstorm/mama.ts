@@ -23,6 +23,23 @@ export const entries: readonly Idea[] = [
     next: "Replay 20 saved delivery bodies from GitHub's Recent Deliveries page, and compare the decision and the targets with the matching line in `audit.jsonl`. Eighteen of 20 in agreement earn the command. Under 18 mean the cold state changes the answer, and the command parks.",
   },
   {
+    number: "011",
+    title: "Keysmash needs å, ä and ö in its tokenizer",
+    date: "2026-11-11",
+    kind: "improvement",
+    target: "Keysmash",
+    verdict: "spike",
+    summary:
+      "Keysmash marks 197 English words and names letters in an English voice. A Swedish word that holds å, ä or ö never marks, because the tokenizer reads `[A-Za-z]` and the parent's field refuses `äpple`. A second language is a pack and 26 clips, except for three letters that are code.",
+    problem:
+      "A household that speaks no English cannot use the app. The child presses `b`, `l`, `å`; the app names the keys in English, and `blå` stays plain text, because the tokenizer splits it at `å`. The parent can add words by hand, but `validWord` refuses `äpple` at the field.",
+    value:
+      "It serves the operator's own market: a two-year-old in Sweden meets `blå` and `äpple` long before `blue` and `apple`. The marked words are the whole worth of the toy, and 189 of the 197 carry an emoji the child can point at. One pack also tests the claim that a language is data, so a second market costs a file, not a fork.",
+    cost: "Two regexes carry the alphabet: `src/lib/words.ts` (76 lines) and `packs.ts` (154). A Swedish pack is `static/lists/swedish.json`, about 197 words and 8 KB, the English file's size, plus 26 clips at 788 KB for a device with no Swedish voice. `settings.ts` and the settings radio already list and store a language, and `speech.ts` (83 lines) needs one line to match the voice to the pack.",
+    risk: "The clips are the part an agent cannot make: a person records 26 letter names, and a poor recording is worse than English. `word()` reads through the picked voice, so a Swedish pack with an English voice reads `buss` wrong, and the pack must carry its voice tag. The wrong reading is that the app teaches a language, or that a translation of the 197 words is the work; the words follow a child's world, not a dictionary.",
+    next: "Widen the token and `validWord` to `a-zåäö`, draft 30 Swedish words, and open the built screen with Swedish as the only pack. Twenty-five of the 30 marking on the first press settles the pack; under 15 means Swedish needs a screen of its own.",
+  },
+  {
     number: "010",
     title: "Seventeen of 28 ADRs override a clause that still reads",
     date: "2026-11-10",
