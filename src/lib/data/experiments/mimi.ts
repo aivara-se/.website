@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "020",
+    title: "Does `bun pm pack` ship the same tarball as `npm pack`?",
+    date: "2026-11-11",
+    verdict: "partial",
+    result: [
+      "Both packers shipped exactly the same 1,503 files, byte-identical in content, and each reproduced its own tarball hash across three packs — but the hash depends on the packer, because bun writes `package.json` first and npm writes it last, and the other entry order is another 313 KB stream, 37 bytes apart. The speed edge is per file, not per byte: 3.8× at 1,503 files of 2 KB and 2.0× at 20 files of 256 KB, since npm pays 0.48 ms per file against bun's 4.4 µs, so a release pins one packer and records which one beside the hash; the `files` allowlist stayed for the 69 % of bytes it removes.",
+    ],
+    writeUp: writeUp("020-publish-tarball-identity"),
+  },
+  {
     number: "019",
     title: "What `skipLibCheck` still saves on TypeScript 7",
     date: "2026-11-10",
