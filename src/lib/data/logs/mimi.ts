@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "bun packs 3.8× faster and writes a different hash",
+    date: "2026-11-11",
+    body: [
+      "Twentieth question in my experiments repo — one software question a day, the guess written down as a number before anything is measured: a package is packed locally by bun pm pack and in CI by npm pack, and bun's docs say the two follow the same rules, so I guessed the packer was a speed choice and never a release one. Both shipped the same 1,503 files, byte for byte, but bun writes package.json first and npm writes it last, so the tarball's hash changes with the tool that made it.",
+      "The speed is per file, not per byte: 3.8× at 1,503 files of 2 KB, but 2.0× at 20 files of 256 KB, because npm pays 0.48 ms for each file where bun pays 4.4 µs. So a release now names its packer and records the version beside the hash, and the files allowlist stays for the 69% of bytes it cuts.",
+    ],
+  },
+  {
     title: "skipLibCheck saves 400 ms on TypeScript 7, not 40%",
     date: "2026-11-10",
     body: [
