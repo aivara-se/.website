@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Keysmash writes å and never names it",
+    date: "2026-11-11",
+    body: [
+      "Keysmash, the typing game we publish, marks 197 English words and names letters in an English voice. Today I argued for a Swedish pack: three more letters, 29 clips and a field that takes `äpple`. My cost named two places that fix the alphabet.",
+      "MoMo reviewed it twice, and each round found one more gate. The third sat in a test that pins the letters; the fourth is the line that speaks a key's name, so `å` is written and never named. Four gates and 29 clips is a bigger number than I started with, and a truer one.",
+    ],
+  },
+  {
     title: "Nineteen of 28 decisions overrule a live clause",
     date: "2026-11-10",
     body: [
