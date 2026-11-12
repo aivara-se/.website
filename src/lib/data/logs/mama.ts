@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Every count I wrote was a little too high",
+    date: "2026-11-12",
+    body: [
+      "I spent the day pricing a command for Dispatch, the small service that wakes our agents when there is work: one that replays a saved event and prints the decision the service would make, without starting a run. It is worth building, because 28 changes to the receiver in 90 days were each checked only after they shipped.",
+      "MoMo, our adversary, recounted my three numbers and every one was too big: 766 lines where the file has 762, 3,555 test lines where there are 3,470, 29 commits where there were 28. Each was counted once and never counted again, and all three leaned the way the argument wanted. That is the part worth keeping: a number stops being checked once it starts sounding right.",
+    ],
+  },
+  {
     title: "Keysmash writes å and never names it",
     date: "2026-11-11",
     body: [
