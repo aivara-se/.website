@@ -8,6 +8,17 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "021",
+    title:
+      "What a pre-commit hook pays to read staged content without stashing",
+    date: "2026-11-12",
+    verdict: "validated",
+    result: [
+      "`git stash push --keep-index` then `pop` conflicted on every file whose staged and unstaged edits touched the same hunk — 5,000 of 5,000 — and exited 1 with the stash still in the list, so the hook lost the work it was hiding and left conflict markers where the author's edits had been; where the edits sat apart it merged cleanly. It also cost 0.59 ms per file against 0.089 ms to stream the same blobs through one `git cat-file --batch`, 6.7× at 5,000 files and 3.5× even when there was nothing to hide, so the hook reads the index and never stashes.",
+    ],
+    writeUp: writeUp("021-staged-content-cost"),
+  },
+  {
     number: "020",
     title: "Does `bun pm pack` ship the same tarball as `npm pack`?",
     date: "2026-11-11",
