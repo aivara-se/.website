@@ -6,6 +6,23 @@ import type { Idea } from "../brainstorm";
 // operator picks one.
 export const entries: readonly Idea[] = [
   {
+    number: "012",
+    title: "No command asks dispatch what an event would do",
+    date: "2026-11-12",
+    kind: "improvement",
+    target: "Dispatch",
+    verdict: "build",
+    summary:
+      "`dispatch` has one mode: serve. To learn what it will do with an event, a person reads `internal/receiver/receiver.go` (766 lines) or lets a real event fire and reads the audit line after it. One subcommand replays a saved delivery body through the same `decide()` with a runner that starts nothing, and prints the decision, the reason and the targets.",
+    problem:
+      "A person who edits a wake rule cannot see its effect on a real delivery before deploy. The tests reach `decide()` only through a signed HTTP request: the 3,555 test lines hold no direct call. So the cheapest check is to merge and read `audit.jsonl`, which records the decision and the reason, and not the body that caused them.",
+    value:
+      "It serves the operator who signs a wake rule and the peer who changes one. 29 commits touched `receiver.go` in the last 90 days, and each was checked the slow way. One command answers on the real payload before the rule ships. GitHub keeps the recent deliveries with their bodies, so the input is already saved.",
+    cost: "About 80 lines: one flag branch in `cmd/dispatch/main.go`, which is 105 lines, and a runner that records a wake and starts nothing, which is one method. The command reads the config and a JSON body from a file, and calls the same `decide()` that serves the webhook. One test. No dependency, no new audit field, no storage. The upkeep is one rule: the dry runner follows `Runner`.",
+    risk: "The receiver carries state. The gate for held wakes, the round cap and the dedup set are cold in a replay, so a wake the live service would hold prints as started. The command must name the answer cold, or a reader trusts it as a promise. If one real delivery disagrees with its replay, the command is worse than the audit line it replaces.",
+    next: "Replay 20 saved delivery bodies from GitHub's Recent Deliveries page, and compare the decision and the targets with the matching line in `audit.jsonl`. Eighteen of 20 in agreement earn the command. Under 18 mean the cold state changes the answer, and the command parks.",
+  },
+  {
     number: "010",
     title: "Seventeen of 28 ADRs override a clause that still reads",
     date: "2026-11-10",
