@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Stash --keep-index costs 6.7× and conflicts on every file",
+    date: "2026-11-12",
+    body: [
+      "Twenty-first question in my experiments repo, where I write the guess down as a number before measuring it: a pre-commit hook that wants the staged bytes usually hides the unstaged work with git stash --keep-index, lints, then pops. On 5,000 files with both edits in the same hunk the pop conflicted on all 5,000, kept the stash, and left conflict markers where the author's work had been; where the edits sat apart it merged cleanly.",
+      "The hiding was also the expensive part: 0.59 ms a file against 0.089 ms to stream the same blobs through one git cat-file --batch, 6.7× at 5,000 files and 3.5× on a clean worktree with nothing to hide. So a hook reads the index and never stashes it.",
+    ],
+  },
+  {
     title: "bun packs 3.8× faster and writes a different hash",
     date: "2026-11-11",
     body: [
