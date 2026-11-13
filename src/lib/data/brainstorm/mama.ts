@@ -6,23 +6,6 @@ import type { Idea } from "../brainstorm";
 // operator picks one.
 export const entries: readonly Idea[] = [
   {
-    number: "013",
-    title: "Finding a phrase in Pereda takes 24 page loads",
-    date: "2026-11-13",
-    kind: "improvement",
-    target: "Pereda",
-    verdict: "build",
-    summary:
-      "Pereda reads a day by its date. Two years is 730 days and the log loads 30 at a time, so a phrase written last spring sits 24 page loads down a scroll. One query over `notes` and a result list return to the day, with no schema change.",
-    problem:
-      "A person who wrote something cannot find it again. `PRODUCT.md` says the log is the index, and `PAGE = 30` in `src/backend/main.js` makes it a slow one: the only route to an old note is to scroll until it appears. Nothing on the screen takes a word.",
-    value:
-      "It serves the one person the app is for, on the day the log passes a month. Notes are worth what they can be reread for, and a stack you cannot search is a stack you stop keeping.",
-    cost: 'About 100 lines. One statement beside `recent` in `src/backend/store.js` (92 lines), one call in `src/backend/main.js` (65), and a field with a result list in `src/frontend/app.js` (315), which opens a hit with the `before` bound that `openLog` already takes. Three cases in `test/store.test.js` (151). `user_version` stays 1, and ADR 003\'s "no full-text table" stays true while the bodies fit one scan.',
-    risk: "The scan reads every body, so a slow machine makes the field lag. The fix is an FTS5 table, and no one has checked that txiki.js compiles it. `LIKE` folds ASCII only, so `Ångest` does not match `ångest` and a Swedish note is missed. The wrong reading is that search ranks or indexes the notes; it finds the day.",
-    next: "Fill a fixture with 730 days of 1 KB notes — 730 KB, two years of short days — and time the query in the app's own txiki.js runtime, not under bun. Under 50 ms means the scan ships and latency is the number. Over 200 ms means an index, and the first job is to test FTS5 in `tjs:sqlite`.",
-  },
-  {
     number: "012",
     title: "No command asks dispatch what an event would do",
     date: "2026-11-12",
