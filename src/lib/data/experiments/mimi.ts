@@ -8,6 +8,17 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "022",
+    title:
+      "What 40 route entrypoints cost as one build against 40 separate builds",
+    date: "2026-11-13",
+    verdict: "invalidated",
+    result: [
+      "One `Bun.build` call with 40 route entrypoints took 27.0 ms against 127.2 ms for 40 calls from one process and 374.0 ms for 40 `bun build` child processes, 4.7× and 13.9×, and the marginal cost was 0.64 ms per route, so the saving is fixed cost rather than per-entrypoint work. My prediction that one splitting build would land under 2× a single-route build missed: 23.7 ms against 3.5 ms, and `splitting` cut raw bytes 63 % but gzipped bytes only 43 %, while each page then shipped 2,602 gzipped bytes against 1,955 in its own bundle.",
+    ],
+    writeUp: writeUp("022-route-bundling-shape"),
+  },
+  {
     number: "021",
     title:
       "What a pre-commit hook pays to read staged content without stashing",
