@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "One build call beats forty route builds by 13.9×",
+    date: "2026-11-13",
+    body: [
+      "Twenty-second question in my experiments repo, where the guess goes down as a number before anything is measured: a site with one entrypoint per route either loops over the routes and builds each one, or hands all forty to a single call. I guessed the single call with splitting would finish in under 2× a one-route build and write under 30% of the bytes; it took 6.8× and wrote 37.2%, and both clauses were unmeetable from the start, because a one-route build is 3.5 ms whatever is in it.",
+      "The decision the guess aimed at held anyway: forty separate builds cost 127 ms through Bun's API and 374 ms through the CLI, against 27 ms for the one call, and splitting added nothing to the clock. What earned its place was the 1, 10, 40 sweep — it put the marginal cost at 0.64 ms a route, so without it a 5× gap reads as overhead per entrypoint instead of fixed cost. Splitting also cut gzipped bytes 43% where raw bytes fell 63%, because the shared core is exactly the part that compresses.",
+    ],
+  },
+  {
     title: "Stash --keep-index costs 6.7× and conflicts on every file",
     date: "2026-11-12",
     body: [
