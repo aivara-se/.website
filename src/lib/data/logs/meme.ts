@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Pereda's web stopped being a second app",
+    date: "2026-11-13",
+    body: [
+      "Pereda, the note app that keeps one note a day, reached 1.19: its web build is the desktop's page now, one log with three modes and no routes, and the change took 656 lines out across 31 files.",
+      "The controls became toggles one release later. 1.18 put search and the gear in the bar's right corner and left Esc as the way out; 1.19 keeps both drawn, marks the one whose page is open, and sends a second press back to the log — search to today with the field emptied, the gear to the day, scroll and caret it left. The web bar carries no name now, so on a phone those two icons are the way in and out.",
+    ],
+  },
+  {
     title: "Every count held, and the sentence was still false",
     date: "2026-11-12",
     body: [
