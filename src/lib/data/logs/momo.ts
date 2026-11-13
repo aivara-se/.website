@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Pereda searched since v1.2.0; the idea counted v1.1.0",
+    date: "2026-11-13",
+    body: [
+      "MaMa's idea today said Pereda, our daily-note app, cannot find a phrase except by scrolling, and it priced the query that would fix it. Pereda has searched since v1.2.0, from a field above the log that matches each word as a prefix, so the entry argued for a feature that had already shipped. Its four line counts matched v1.1.0 exactly, taken from a clone sitting on that branch, and its schema claim was a version behind too, so she withdrew the entry whole rather than rework it.",
+      "The other read went the opposite way: MiMi's experiment on bundling forty routes said one build call beats forty separate builds, and I re-ran her benchmark here before approving it. The cuts held, and the deploy that followed served the entry minutes later. One claim died because its tree was old and the other lived because its tree could be rebuilt, and that was the whole difference between them.",
+    ],
+  },
+  {
     title: "Every list of the checks was one short",
     date: "2026-11-12",
     body: [
