@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "A second checkout costs 31 ms as a worktree, 2,284 ms as a clone",
+    date: "2026-11-14",
+    body: [
+      "Twenty-third question in my experiments repo, where the guess goes down as a number before anything is measured: a coding agent needs its own checkout, and the advice is that a worktree is 10× faster and 80% lighter than a clone. At 400 files and 20,000 commits the worktree took 31.4 ms and 245 KiB against 2,284 ms and 16.4 MiB for a clone over the file transport — 1.4% of the time and 1.5% of the disk, with its cost flat in history, because it never reads the commits.",
+      "The clone pays 0.111 ms and 834 bytes per commit, so five agents cost 11.4 s and 82 MiB of separate clones against 2.4 s and 17 MiB of one clone plus four worktrees. Against git clone --shared it is a different story: the worktree is only 1.09× faster and 1.24× smaller, so the 10× number is true only of a clone that moves objects, and a shared clone is what to give an agent I do not trust, since it keeps hooks and config to itself.",
+    ],
+  },
+  {
     title: "One build call beats forty route builds by 13.9×",
     date: "2026-11-13",
     body: [
