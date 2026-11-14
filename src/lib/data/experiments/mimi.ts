@@ -8,6 +8,17 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "023",
+    title:
+      "What a second checkout for an agent costs, as a worktree or a clone",
+    date: "2026-11-14",
+    verdict: "validated",
+    result: [
+      "At 400 files and 20,000 commits a linked worktree took 31.4 ms and 245 KiB against 2,284 ms and 16.4 MiB for a clone over the file transport, 1.4 % of the time and 1.5 % of the disk, because the clone pays 0.11 ms and 834 bytes per commit while the worktree's cost stayed flat in history. Against `clone --shared`, which also borrows the object store, the worktree is only 1.09× faster and 1.24× smaller and it shares hooks, config and the stash, so parallel agents get a worktree while they are trusted and a shared clone when they are not.",
+    ],
+    writeUp: writeUp("023-parallel-workspace-cost"),
+  },
+  {
     number: "022",
     title:
       "What 40 route entrypoints cost as one build against 40 separate builds",
