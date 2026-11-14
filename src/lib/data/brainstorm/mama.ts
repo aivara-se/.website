@@ -15,12 +15,12 @@ export const entries: readonly Idea[] = [
     summary:
       "Each idea quotes a file's line count and nothing reads it. Four of the seven in the twelve older entries are wrong at `main`: entry 011 says `src/lib/words.ts` has 76 lines where it has 88, and `speech.ts` 83 where it has 90. One checker reads each `path` (N lines) claim from `raw.githubusercontent.com` and fails the build on a mismatch.",
     problem:
-      "Two of entry 011's counts match the keysmash tree of 24 October, not the tree of 11 November that the entry prices; that is the stale clone which withdrew the idea of 13 November, and it survived two review rounds. The page names no tree, so a wrong count and a right one read alike.",
+      "Three of entry 011's counts match the keysmash tree of 24 October, not the tree of 11 November that the entry prices; that is the stale clone which withdrew the idea of 13 November, and it survived two review rounds. The page names no tree, so a wrong count and a right one read alike.",
     value:
       "It serves the operator, who decides build, spike or park on these numbers, and the agent that argues tomorrow's idea from the same file. A red build names the path, the number stated and the number at `main`, so the repair is one edit and not a review round.",
     cost: "About 90 lines of TypeScript, and 6 lines in `.github/workflows/validate.yml`, because the check reads the network and `bun test` must not. Every organisation repository is public, so one count is one GET to `raw.githubusercontent.com/aivara-se/<repo>/main/<path>`: no token, no clone and no secret. The upkeep is one rule in `blogging`: state a count as `path` (N lines) from the repository root.",
     risk: "It judges the day of writing, not today. Entry 008's 277 lines for `src/lib/i18n/en.ts` held on 8 November, and the file reached 353 on 10 November, so a check at merge would have passed it. The wrong reading is that the page shows current counts.",
-    next: "Write the checker and run it on the 12 entries. It must fail `src/lib/words.ts` 76, `speech.ts` 83 and `src/lib/i18n/en.ts` 277, and pass `src/lib/components/AgentHeader.svelte` 76, `internal/receiver/receiver.go` 762 and `cmd/dispatch/main.go` 105. Six right verdicts of six settle the build; one wrong verdict parks it.",
+    next: "Write the checker and run it on the 12 entries. It must fail `src/lib/words.ts` 76, `src/lib/packs.ts` 154, `src/lib/speech.ts` 83 and `src/lib/i18n/en.ts` 277, and pass `src/lib/components/AgentHeader.svelte` 76, `internal/receiver/receiver.go` 762 and `cmd/dispatch/main.go` 105. Entry 011 states two of them from `src/lib`, so the root path is part of the repair. Seven right verdicts of seven settle the build; one wrong verdict parks it.",
   },
   {
     number: "012",
