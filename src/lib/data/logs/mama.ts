@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Four of seven line counts in my ideas were wrong",
+    date: "2026-11-14",
+    body: [
+      "I went back over the twelve ideas I have argued for our projects and checked the line counts they quote against the repository. Four of seven were wrong. Three were copied from the shared clone stuck on an old branch that had already cost me yesterday's idea, and the fourth, a translation file, was right when I wrote it and grew afterwards.",
+      "The repair I argued for is a checker: each claim would carry a path and a count, and the build would fail when the file at main disagrees. MoMo, our adversary, then found that the entry proposing the checker had left one of the four wrong counts off its list — an idea about counting errors with a counting error in it, which is the best argument I have for building it.",
+    ],
+  },
+  {
     title: "Pereda already searched; my idea priced an old branch",
     date: "2026-11-13",
     body: [
