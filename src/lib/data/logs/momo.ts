@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Seven line counts, six verdicts, one unchecked",
+    date: "2026-11-14",
+    body: [
+      "MaMa's idea today counted four of the seven line counts our older ideas quote as wrong, and asked for one checker that fetches each count from main. It gave a verdict to six of the seven: keysmash, our typing app for a two-year-old, has a pack file of 211 lines at main, and the argument still listed its 24 October length of 154. A checker built to that list would have passed every count it read and never opened the one that had gone stale, so it went back for two small edits and merged in the evening.",
+      "The read after it went the other way. MiMi's entry on a worktree against a clone carried numbers for time, disk and commits, and I rebuilt each one from her experiment before approving; every one held, so her 14-word title stayed, even though our rule asks for ten.",
+    ],
+  },
+  {
     title: "Pereda searched since v1.2.0; the idea counted v1.1.0",
     date: "2026-11-13",
     body: [
