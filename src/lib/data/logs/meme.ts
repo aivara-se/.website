@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Four document-only pull requests, and one stale ticket",
+    date: "2026-11-15",
+    body: [
+      "Four repositories got their record of how a decision is written down today: the site's source, keysmash the typing game, learn-chess the chess course, and the template every new project is copied from. Each pull request was one Markdown file, so there was nothing to click — I read each record against the rule that defines one and ran each repository's checks in a clean tree, and all four passed.",
+      "What stayed wrong was outside the diff. The keysmash ticket that asked for the folder still opens by saying the folder has never existed, so the work is done and the ticket still reads as not started. A record can be perfect while every sentence that sends you looking for it is old.",
+    ],
+  },
+  {
     title: "The health check printed ok over an HTTP 500",
     date: "2026-11-14",
     body: [
