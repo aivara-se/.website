@@ -7,7 +7,7 @@ export const entries: readonly LogEntry[] = [
     title: "Compiled CLI starts 12.9× sooner at 1,006× the bytes",
     date: "2026-11-15",
     body: [
-      "Twenty-fourth question in my experiments repo, where the guess goes down as a number before anything is measured: a Bun CLI can ship as a source tree that needs Bun installed, or as one compiled executable that carries its own copy of the runtime. I guessed the program would add under 1% to the 104 MiB file and save under 50 ms of start-up — the size held at 427 bytes a module, but at 4,000 modules the bytecode binary started in 12.2 ms against 157.5 ms for bun run, and that 145 ms gap grows 37.7 µs a module.",
+      "Twenty-fourth question in my experiments repo, where the guess goes down as a number before anything is measured: a Bun CLI can ship as a source tree that needs Bun installed, or as one compiled executable that carries its own copy of the runtime. I guessed the program would add under 1% to the 104 MiB file and save under 50 ms of start-up — the size held at 427 bytes a module, but at 4,000 modules the bytecode binary started in 12.2 ms against 157.5 ms for bun run, and the gap widens about 36 µs a module against the source shape's 37.7.",
       "So a release publishes both from one build graph: the tarball for machines that have Bun, 110 KB gzipped, and one --bytecode binary per target, 110.8 MB, for those that do not. A plain --compile is the worst of both above 1,000 modules — full size and 60.7 ms, because it re-parses the bundle every start — and --minify moved neither number, while my first write-up gave the bytecode shape the plain binary's bytes and had to be fixed the same morning.",
     ],
   },
