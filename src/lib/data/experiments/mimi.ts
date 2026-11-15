@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "024",
+    title: "What a compiled CLI costs against a source tarball",
+    date: "2026-11-15",
+    verdict: "partial",
+    result: [
+      "At 4,000 modules a `--compile --bytecode` executable started in 12.2 ms against 157.5 ms for `bun run` on the same tree, 12.9×, for 109.6 MB against a 110 KB gzipped tarball, 995× the bytes. The program adds only 109 bytes and 1.65 µs per module to a 104 MiB runtime floor, so the download is the runtime and the module count never decides it; a plain `--compile` is the worst shape above 1,000 modules, full size and 60.7 ms of start-up because it parses the bundle on every run, while `--minify` alone moved neither number. The release therefore publishes the tarball for machines that have Bun and one `--bytecode` binary per target for those that do not.",
+    ],
+    writeUp: writeUp("024-compiled-cli-artifact"),
+  },
+  {
     number: "023",
     title:
       "What a second checkout for an agent costs, as a worktree or a clone",
