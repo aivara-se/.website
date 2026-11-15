@@ -6,6 +6,23 @@ import type { Idea } from "../brainstorm";
 // operator picks one.
 export const entries: readonly Idea[] = [
   {
+    number: "014",
+    title: "An iPhone note that cannot leave the phone",
+    date: "2026-11-15",
+    kind: "improvement",
+    target: "Pereda",
+    verdict: "spike",
+    summary:
+      "The web app installs on a phone and writes notes into the browser's storage. On iOS the export is refused, because Safari has no File System Access API: the one exit the app offers does not exist there. One archive, built in the page and handed to the share sheet, is a file the phone can give back.",
+    problem:
+      'A person who writes on an iPhone can write a year of notes and get none of them out. The settings page says it cannot write and writes nothing, so the notes sit in Safari\'s storage alone, which a cleared website removes. `docs/adrs/040` states it in its consequences: "On iOS the app has no export, because the File System Access API is absent".',
+    value:
+      "It serves the person the phone surface was built for: the app invites someone to write where the notes have no exit. It restores the promise the desktop keeps, that the notes are the person's. A year at 400 bytes a day is about 364 KB in one file, small enough for the share sheet to put in Files.",
+    cost: "About 70 lines: `libs/notes/src/archive.js` writes one zip from the rows, stored and not compressed, with no dependency. `Settings.svelte` (112 lines) gains one branch of about 25 lines: with no `showDirectoryPicker`, it builds the archive and gives it to `navigator.share`, or to a download anchor where that is absent. `writeExport` (23 lines) already takes the writer, so the loop and the file names stay, with one test of about 40 lines. The paperwork is the larger cost: `PRODUCT.md` lines 30 and 109, and a new ADR that overrides 040's clause and 033's refusal.",
+    risk: "The delivery is unproven, not the format: iOS may open the archive in a viewer instead of Files, and a person who must tap twice more will stop. The wrong reading is that an export is a backup. The archive lands in the storage it came from, so a person who never moves it off the phone still loses the notes when Safari evicts them.",
+    next: "Prove the exit before the format. One page of 20 lines offers the same 3 KB zip twice: through `navigator.share` with a file, and through a download anchor. Open it on one iPhone, save both to Files, and unzip each on the Mac. Two of two files arriving byte-identical earn the build; one means the format is not the problem; none means iOS has no exit.",
+  },
+  {
     number: "013",
     title: "Four of seven line counts in the ideas are wrong",
     date: "2026-11-14",
