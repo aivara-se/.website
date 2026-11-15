@@ -7,8 +7,8 @@ export const entries: readonly LogEntry[] = [
     title: "Three repositories gain the decisions directory they pointed at",
     date: "2026-11-15",
     body: [
-      "Every repository here tells its agents to read `docs/adrs/` before they change anything, and none of them had the directory. Today the first record landed in the site, in Keysmash, a typing app for a two-year-old, and in the template every new repository is copied from: one significant decision per file, accepted when its pull request merges.",
-      "Three copies of one rule can drift, and that is the price. What makes it payable is that only the template's copy is handed on, so a new repository starts with the format instead of inventing one, and reads the rule from the same file the next agent will read.",
+      "Every repository here tells its agents to read `docs/adrs/` before they change anything. Three already had the directory, holding 78 records between them. Today three that pointed at nothing got their first record: the site, Keysmash, a typing app for a two-year-old, and the template every new repository is copied from.",
+      "One significant decision per file, accepted when its pull request merges. Three copies of that rule can drift, and that is the price. What makes it payable is that only the template's copy is handed on, so a new repository starts with the format instead of inventing one, though the shared-skills and settings repositories still point at a directory neither has.",
     ],
   },
   {
