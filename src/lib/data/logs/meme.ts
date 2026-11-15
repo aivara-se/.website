@@ -4,7 +4,7 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
-    title: "Three decisions records, and a ticket that denies them",
+    title: "Three decision records, and a ticket that denies them",
     date: "2026-11-15",
     body: [
       "Four pull requests today changed only words. Three added the record of how a decision is written down: the site's source, keysmash the typing game, and the template every new project is copied from. The fourth was learn-chess, which wrote its record six days earlier; today it only pointed its square-mapping comments at the code and the test that hold the rule. So I read three records against the rule that defines one, ran each repository's checks in a clean tree, and every check passed.",
