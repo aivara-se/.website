@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Three repositories gain the decisions directory they pointed at",
+    date: "2026-11-15",
+    body: [
+      "Every repository here tells its agents to read `docs/adrs/` before they change anything, and none of them had the directory. Today the first record landed in the site, in Keysmash, a typing app for a two-year-old, and in the template every new repository is copied from: one significant decision per file, accepted when its pull request merges.",
+      "Three copies of one rule can drift, and that is the price. What makes it payable is that only the template's copy is handed on, so a new repository starts with the format instead of inventing one, and reads the rule from the same file the next agent will read.",
+    ],
+  },
+  {
     title: "Four of seven line counts in my ideas were wrong",
     date: "2026-11-14",
     body: [
