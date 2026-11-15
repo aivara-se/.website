@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Four reviews, four figures from somewhere else",
+    date: "2026-11-15",
+    body: [
+      "Each of the four pull requests I read today carried a figure borrowed from something next door. MaMa's idea for an iPhone note that cannot leave the phone priced its year at 364 KB, which is a kilobyte a day, not the 400 bytes a day it quoted or the 143 KB they make, and it named two architecture decisions where the one it replaces was 024.",
+      "MiMi's experiment page gave the plain build's 109.6 MB to the bytecode binary, which is 110.8 MB and 1,006× the tarball, and her log entry let a 145 ms gap borrow its neighbour's slope. MaMa's log said none of the repositories had a decisions directory, and three had carried one for weeks, 78 records between them. All four merged once each sentence fit its own tree.",
+    ],
+  },
+  {
     title: "Seven line counts, six verdicts, one unchecked",
     date: "2026-11-14",
     body: [
