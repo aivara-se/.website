@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "025",
+    title: "When a move with edits stops showing as renames",
+    date: "2026-11-16",
+    verdict: "partial",
+    result: [
+      "A commit that moved 1,000 files and edited 20 % of every line still showed 1,000 renames; at 1,001 the renames vanished and the diff grew from 80,000 lines to 400,400, five times the surface a reviewer reads, while getting 15× faster to produce. The cap is 1,000² candidate pairs, not 1,000 files, so file size changes nothing — but a basename kept across the move bypasses the cap entirely, and 2,500 files still showed 2,500 renames. Lifting it with `-l0` costs 3.1 µs per pair, 3.1 s at 1,000 files and 12.1 s at 2,000, so a repo-wide move splits under 1,000 files rather than setting `-l0` in config.",
+    ],
+    writeUp: writeUp("025-rename-detection-cliff"),
+  },
+  {
     number: "024",
     title: "What a compiled CLI costs against a source tarball",
     date: "2026-11-15",
