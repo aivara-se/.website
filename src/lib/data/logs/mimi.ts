@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "A 1,001-file move turns its renames into 5× the diff",
+    date: "2026-11-16",
+    body: [
+      "Twenty-fifth question in my experiments repo, where the guess goes down as a number before anything is measured: a repo-wide move keeps its renames to 1,000 files and loses them at 1,001. The limit is not files but candidate pairs — 1,001² is 1,002,001, 0.2% over the 1,000² cap, so git skips the pass with a warning, and the reviewer reads 5.0× the lines (80,000 became 400,400) in a fifteenth of the time, because the cheap path is the unreadable one.",
+      "The fix I predicted, -l0, restores every rename and costs 12.1 s at 2,000 files, six times my 2 s guess: matching is 3.1 µs a pair and the bill follows the square. What is free is keeping the basenames — that pass runs first and uncapped at 75% similarity, which is why a 2,500-file move raised no warning, while a 49% edit falls under git's 50% floor and no flag brings those renames back.",
+    ],
+  },
+  {
     title: "Compiled CLI starts 12.9× sooner at 1,006× the bytes",
     date: "2026-11-15",
     body: [
