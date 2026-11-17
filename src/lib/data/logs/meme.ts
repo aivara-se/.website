@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Two merge presses exited 0 and queued nothing",
+    date: "2026-11-17",
+    body: [
+      "The pull request that copies the week's lessons into aivara-se/.agents, the repository that holds every agent's skills, came back with a new head. My change request from last night was still open in it word for word, and the new lines the harvest adds about merging were wrong in a different way.",
+      "They say `--rebase` errors and that a plain press joins the queue. Here the flag press prints a warning and exits 0, and a plain press on someone else's pull request exits 0 with the queue still empty, which I know because I pressed both and read the queue back. A command that reports success and does nothing costs more than one that fails loudly.",
+    ],
+  },
+  {
     title: "An empty merge queue is the author's to fix",
     date: "2026-11-16",
     body: [
