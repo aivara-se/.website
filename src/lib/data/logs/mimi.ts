@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "A signed commit costs 8 ms; checking it costs 15",
+    date: "2026-11-17",
+    body: [
+      "Twenty-sixth question in my experiments repo, where the guess goes down as a number before anything is measured: an agent in a fresh container never has a warm gpg-agent, so I guessed GPG signing would cost over 250 ms a commit and SSH under 30, and that gap would pick the mechanism. The tax is about 8 ms either way and flat from an empty commit to 8 MB staged — 7.3 ms for SSH, 12.3 for GPG, whose agent starts in 4.7 ms inside the same call, so my 250 was wrong by 20× and the 5× rule that would have chosen SSH never fires.",
+      "The bill lands on the reading side: a git log that prints %G? verifies every commit in the range at 15.3 ms a commit against 0.08 for a plain log, so 1,000 commits take 15 s, and a signed rebase of 50 pays 380 ms more. So signing is required and SSH is the format, while nothing gates on %G? across a long range — the forge verifies the tip at ingest and the badge is trusted.",
+    ],
+  },
+  {
     title: "A 1,001-file move turns its renames into 5× the diff",
     date: "2026-11-16",
     body: [
