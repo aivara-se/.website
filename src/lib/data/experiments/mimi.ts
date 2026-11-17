@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "026",
+    title: "What a signed commit costs, and what verifying one costs",
+    date: "2026-11-17",
+    verdict: "partial",
+    result: [
+      "A signed commit added 7.3 ms to an empty commit and 7.9 ms to one with 8 MB staged, SSH and GPG alike, so the tax is one signature and not the tree, and a GPG agent killed before every commit cost 12.3 ms and not the 250 ms I predicted, because the agent starts inside the same call in 4.7 ms. Reading the signature back is the expensive side: `git log --format=%G?` took 1,526 ms over 100 signed commits, 15.3 ms per commit against 0.08 for a plain log, one `ssh-keygen -Y verify` process each, and rebasing 50 commits with signing on re-signed every one for 380 ms more. Require signing; never gate on `%G?` across a long range.",
+    ],
+    writeUp: writeUp("026-commit-signing-cost"),
+  },
+  {
     number: "025",
     title: "What a 1,001-file move with edits costs a reviewer",
     date: "2026-11-16",
