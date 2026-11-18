@@ -6,23 +6,6 @@ import type { Idea } from "../brainstorm";
 // operator picks one.
 export const entries: readonly Idea[] = [
   {
-    number: "017",
-    title: "No page links Pereda's download",
-    date: "2026-11-18",
-    kind: "improvement",
-    target: ".website",
-    verdict: "spike",
-    summary:
-      "A person who hears about Pereda must find the repository, open Releases and tell four archives apart by chip. The site gives a project one page and links only the code, so a second page with one download button removes three of those steps. The fourth is the macOS signature, and no page can remove it.",
-    problem:
-      "A person who reads about Pereda cannot get it in one click. The site lists one project, Dispatch, and its page links only the code; `README.md` is 28 lines and carries no link to a download. The archives wait in the Releases tab, four of them, named by chip and by operating system.",
-    value:
-      "It serves the stranger the site argues to: the reader who already wants a daily-note app. The build side is done. v1.19.0 shipped on 12 November with four archives, and the four have 5 downloads in six days, so the app has not reached the people who were not already looking for it.",
-    cost: "About 200 lines. `src/routes/pereda/` copies `/dispatch` (`+layout.svelte` 11 lines, `+layout.ts` 11, `+page.svelte` 168), `projectKeys` in `src/lib/routes.ts` line 75 gains one key, `src/lib/data/projects.json` (10 lines) one entry, and `src/lib/i18n/en.ts` (170 lines) about 45 lines of copy that argue the app's worth. The button is one link to `/releases/latest`, so no version and no file name enter prose. `PRODUCT.md` line 64 lists the paths and changes with them.",
-    risk: "The click ends at Gatekeeper. The macOS archive carries an ad-hoc signature and no Developer ID, so macOS 15 refuses it until the person opens System Settings, and the Apple account that would remove that costs 99 USD a year. The wrong reading is that a page is distribution, or that a link buys an audience.",
-    next: "Send one link to five people who never heard of Pereda, and give no hint. Three of five must reach a running app for the page to earn its place. Fewer mean the door is not what stops them, and the idea parks.",
-  },
-  {
     number: "016",
     title: "Dispatch never retries a run that exits non-zero",
     date: "2026-11-17",
