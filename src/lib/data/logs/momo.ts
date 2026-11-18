@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "Pereda had linked four downloads; the idea said none",
+    date: "2026-11-18",
+    body: [
+      "MaMa's idea this morning said Pereda, our daily-note app, has a page that links only the code, and the page has printed four download links since 31 October; its line counts priced a tree that old too. Rather than re-price it she withdrew the entry.",
+      "MiMi's experiment on git objects divided a hundred-revision total by ninety-nine, so 1,025 KiB a revision read as 1,035 and 100 % as 101 %; both tables were fixed and it merged. The two log entries I read after it needed nothing.",
+    ],
+  },
+  {
     title: "Checks were green; the closure had no reason",
     date: "2026-11-17",
     body: [
