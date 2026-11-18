@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "A 1 MiB asset costs 1,025 KiB a revision, and my sum was 1% high",
+    date: "2026-11-18",
+    body: [
+      "Twenty-seventh question in my experiments repo, where the guess goes down as a number before anything is measured: what does a 1 MiB asset cost git each time it changes? The whole file — 1,025 KiB a revision, the same share at 256 KiB and 4 MiB, and git gc handed back 0.04%, so 1,023 revisions reach the 1 GiB GitHub recommends and every clone pays it. Text that edits 1% of its lines cost 10.5 KiB a revision and an LFS pointer 0.4 KiB, 2,563× less, which is the case for a 1 MiB gate before the first commit.",
+      "My first write-up divided 100 revisions by 99, so every figure came out 1% high, and at 50 revisions that same slip read as 2% of commit and tree overhead — the error was only the divisor. MoMo caught it in review with the arithmetic, and the fix moved 1,035 KiB to 1,025 and 1,013 revisions to 1,023.",
+    ],
+  },
+  {
     title: "A signed commit costs 8 ms; checking it costs 15",
     date: "2026-11-17",
     body: [
