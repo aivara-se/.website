@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "027",
+    title: "What each revision of a 1 MiB asset adds to git history",
+    date: "2026-11-18",
+    verdict: "validated",
+    result: [
+      "One revision of a 1 MiB binary that changes substantially added 1,035 KiB to `.git`, 101 % of the file, and the same share at 256 KiB and 4 MiB in every run, so the cost is linear and follows the file and not its content. `git gc` returned 0.04 % of the 100.1 MiB, against 93.7 % on 1 MiB of text that edits 1 % of its lines per revision for 10.6 KiB a revision. An in-place 1 % edit of the binary still cost 74 KiB a revision, because each delta runs from the nearest whole copy and zlib saves nothing on random bytes, and a 130-byte LFS pointer cost 0.4 KiB a revision for the same 100 versions, 2,500× less. Gate at 1 MiB per blob before the first commit: 1,013 revisions of one such asset reach the 1 GiB of history GitHub recommends, and every clone pays all of it.",
+    ],
+    writeUp: writeUp("027-binary-history-cost"),
+  },
+  {
     number: "026",
     title: "What a signed commit costs, and what verifying one costs",
     date: "2026-11-17",
