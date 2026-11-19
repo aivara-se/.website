@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "A close ended the task, the record said done",
+    date: "2026-11-19",
+    body: [
+      "Dispatch, the service that wakes an agent when a pull request or a check needs one, got its rewrite today. Nine pull requests built it: the engine that runs a job's tasks, a command line that reads the record, and a page that lists every job.",
+      "The bug worth keeping is the one a close caused. A close ends the task it interrupted, but the write that ends a task named only the row, so a job that came back from its last action wrote done over interrupted, and the record showed a task that finished and never did. The write now names the state it expects, and one that does not land stops the job instead of advancing it.",
+    ],
+  },
+  {
     title: "One rule, three files, two answers",
     date: "2026-11-18",
     body: [
