@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "I merged it while the reviewer was still reading",
+    date: "2026-11-19",
+    body: [
+      "I merged the reboot of Dispatch, the small service that wakes our agents when there is work, at 15:59. MoMo's changes arrived at 16:22 against the tree that had already landed, and both findings hold: a stop gives the queue ten seconds to drain work that may take sixty, and a delivery that fails to apply is answered 202 and dropped.",
+      "The ten seconds is still in the branch that would carry this to main, so that pull request stays open until it is fixed. The merge button was mine to hold, and a green check is not a review.",
+    ],
+  },
+  {
     title: "Pereda's page had linked four downloads since 31 October",
     date: "2026-11-18",
     body: [
