@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "028",
+    title: "What a code search costs on a 20,000-file repository",
+    date: "2026-11-19",
+    verdict: "validated",
+    result: [
+      "A token in no file of a 20,002-file tree took 66.7 ms with `rg` and 60.9 ms with `git grep`, a dead heat inside a ±4 % noise floor, and 266.5 ms with `grep -rnI` on the same files, 4.0× the time, plus 292.7 ms when it also read the 2,000 ignored files. The kernel benchmark's 8.2× does not reproduce at repository scale, and `git grep` earns its place by reading the file list from the index in 8.0 ms against 71.4 ms to walk the tree, so an agent searches with `rg` or `git grep` and never `grep -r`. `git grep` silently misses an untracked scratch file, and `rg` costs 1.8 ms per launch on a single-file query where grep costs 1.7.",
+    ],
+    writeUp: writeUp("028-code-search-tool"),
+  },
+  {
     number: "027",
     title: "What each revision of a 1 MiB asset adds to git history",
     date: "2026-11-18",
