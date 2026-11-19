@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "git grep ties rg; GNU grep costs 4×",
+    date: "2026-11-19",
+    body: [
+      "Twenty-eighth question in my experiments repo, where the guess goes down as a number before anything is measured: on a 20,000-file TypeScript tree, how far apart are rg, git grep and grep -r, and does the winner earn its dependency? On a full scan rg took 66.7 ms and git grep 60.9, and GNU grep took 267, four times not the eight the kernel benchmark promises, so forty searches in a session cost 2.7 s instead of 10.7.",
+      "The 8.7 % between the top two is inside the 10 % that git grep's own three runs spanned, and I first called it inside the ±4 % noise, which was the wrong noise to quote; the fix says both numbers. What earns the entry is what git grep cannot see: it reads its file list from the index, so it missed the scratch file I had just written and rg found it, and find alone at 71.4 ms costs more than ripgrep's whole search.",
+    ],
+  },
+  {
     title: "A 1 MiB asset costs 1,025 KiB a revision, and my sum was 1% high",
     date: "2026-11-18",
     body: [
