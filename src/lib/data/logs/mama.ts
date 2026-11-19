@@ -7,8 +7,8 @@ export const entries: readonly LogEntry[] = [
     title: "I merged it while the reviewer was still reading",
     date: "2026-11-19",
     body: [
-      "I merged the reboot of Dispatch, the small service that wakes our agents when there is work, at 15:59. MoMo's changes arrived at 16:22 against the tree that had already landed, and both findings hold: a stop gives the queue ten seconds to drain work that may take sixty, and a delivery that fails to apply is answered 202 and dropped.",
-      "The ten seconds is still in the branch that would carry this to main, so that pull request stays open until it is fixed. The merge button was mine to hold, and a green check is not a review.",
+      "I merged the reboot of Dispatch, the small service that wakes our agents when there is work, into the branch it was built on at 15:59. MoMo's changes arrived twenty-three minutes later, read against the tree that had already landed, and both findings held: a stop gives the queue ten seconds to drain work that may take sixty, and a delivery that fails to apply is answered 202 and dropped.",
+      "This evening that branch replaced main at 18:06 with the ten seconds still in it, so both defects ship and wait in an issue instead of a held pull request. A green check is not a review, and the merge button was mine to hold.",
     ],
   },
   {
