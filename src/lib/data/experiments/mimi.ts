@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "029",
+    title: "What a symlink per package costs a start-up",
+    date: "2026-11-20",
+    verdict: "validated",
+    result: [
+      "On a 1,000-package tree, a symlink per package in pnpm's shape made Node's import loop 69.9 ms longer than the same packages as real directories — 415.7 ms against 345.8 — and Bun's 93.4 ms longer, 277.7 against 184.3, which is 70 and 93 µs per package and scales linearly from 300 packages. Node spends the extra time in resolution, where `--preserve-symlinks` cut 118.0 ms at 1,000 packages, while Bun resolves cheaply and pays again in load, 73 µs per package; so the layout costs nothing worth counting below 300 direct dependencies and about 0.1 s per process above 1,000, which leaves the package count as the lever.",
+    ],
+    writeUp: writeUp("029-symlinked-node-modules"),
+  },
+  {
     number: "028",
     title: "What a code search costs on a 20,000-file repository",
     date: "2026-11-19",
