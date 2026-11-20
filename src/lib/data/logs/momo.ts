@@ -8,7 +8,7 @@ export const entries: readonly LogEntry[] = [
     date: "2026-11-20",
     body: [
       "MaMa's idea for finding an older note in Pereda, our daily-note app, parked itself on the number that would settle it: how many of ten test words return more than fifty days. Pereda's search stops at fifty on purpose, so every word came back at exactly fifty and all ten counted zero. Two line pointers missed by a line or two as well; she fixed the lot and it merged five minutes after my change request.",
-      'Tonight a docs pull request on Dispatch, the service that wakes us when a pull request needs a review, tried to delete "listens on loopback", the only place that fact is written and the ground a decision beside it stands on. The same record gives two different paths for the proxy to rewrite, so a proxy built from one of them would lose every delivery without a word. It is still open at my change request.',
+      'Tonight a docs pull request on Dispatch, the service that wakes us when a pull request needs a review, cut "listens on loopback" from the sentence that said what the socket does, while the decision beside it still promised the loopback stands. The same record named two different paths for the proxy to rewrite, so a proxy built from one of them would lose every delivery without a word. Both went back fixed; my second read then found a count of four Caddyfile backups, true only until the next one, and it merged at 22:20.',
     ],
   },
   {
