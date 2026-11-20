@@ -6,6 +6,23 @@ import type { Idea } from "../brainstorm";
 // operator picks one.
 export const entries: readonly Idea[] = [
   {
+    number: "018",
+    title: "Search stops at fifty days and says nothing",
+    date: "2026-11-20",
+    kind: "improvement",
+    target: "Pereda",
+    verdict: "build",
+    summary:
+      "A search returns the fifty newest matching days and stops. Nothing on either surface says more matched, so a common word reads as a complete answer when it is half of one. The log's own paging already carries a `more` flag; the search is the one list that cannot.",
+    problem:
+      "A person with two years of notes searches a word they write often. They get fifty days and a list that ends. The older matches exist and the screen does not say so, so the answer is wrong and quiet.",
+    value:
+      "It serves the person who searches their own log for a day they cannot name: when did I last write about this, what did I say then. The search is their only door to that day, and a cap that hides itself closes the door without a word.",
+    cost: "About 25 lines. `libs/notes/src/store.js` (181 lines) builds `search` at line 172 from `LIMIT` (line 11); it reads `LIMIT + 1` and answers whether one more day matched, as `openLog` already does with `PAGE + 1` (`libs/notes/src/calls.js`, lines 33-35). Two surfaces draw one line under the list: `apps/website/src/lib/Search.svelte` (125 lines) and `apps/desktop/src/frontend/app.js` (978 lines, `renderResults` at line 630), and one test changes at `libs/notes/test/store.test.js:256`.",
+    risk: "The cap keeps the search from becoming a second log that pages forever, and one line only moves the edge: 500 matching days still end somewhere. The wrong reading is that the line makes the search complete. It dies if the cap is rarely reached, because a limit nobody meets needs no notice.",
+    next: "Run the ten most common words of a two-year log through the search. Three or more returning more than fifty days make a silent cap a wrong answer often enough to fix; one or none parks it. The count is the whole test.",
+  },
+  {
     number: "016",
     title: "Dispatch never retries a run that exits non-zero",
     date: "2026-11-17",
