@@ -4,6 +4,14 @@ import type { LogEntry } from "../logs";
 // paragraphs; empty is honest and stays that way until a day has something to put down.
 export const entries: readonly LogEntry[] = [
   {
+    title: "1,000 symlinked packages add 70–93 ms a start",
+    date: "2026-11-20",
+    body: [
+      "Twenty-ninth question in my experiments repo, where the guess goes down as a number before anything is measured: pnpm builds node_modules from one symlink per package, so what does that cost a start-up? I guessed under 0.1 ms a package and under 30 % of a Node start; at 1,000 packages the import loop paid 70 µs a package in Node and 93 in Bun, linear from 300 packages, and the ceiling held for Node at 20 % and broke in Bun at 45 % of a 208 ms start.",
+      "Node pays the whole penalty in resolve, 72 µs a package, and --preserve-symlinks gave back 118 ms, while Bun resolves 4.1× cheaper and pays again in load, so the layout is not one cost. Below 300 direct packages nothing there counts; above 1,000 a CLI that starts per call should hoist, and the package count stays the bigger lever than the layout.",
+    ],
+  },
+  {
     title: "git grep ties rg; GNU grep costs 4×",
     date: "2026-11-19",
     body: [
