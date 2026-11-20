@@ -40,6 +40,23 @@ export const entries: readonly Idea[] = [
     next: "Re-run three failed wakes by hand with the same session title, from the object each one names. Two of the three must reach a verdict on their pull request for a retry to earn its place. One or none means the session, not the child, is what fails, and the idea parks.",
   },
   {
+    number: "015",
+    title: "114 documents of record that no page can search",
+    date: "2026-11-16",
+    kind: "improvement",
+    target: ".website",
+    verdict: "spike",
+    summary:
+      "The site publishes what the org decided and cannot be asked where it wrote it. `pereda`, `dispatch`, `learn-chess`, `keysmash`, `.website` and `.github` hold the record in 114 Markdown files and 398 KB, and a clone is the only way in. One page that holds that text and scans it answers the reader's question in one fetch.",
+    problem:
+      "A person who wants to know where a rule was written clones six repositories and greps them, or asks an agent. A reader of aivara.se can open today's log and yesterday's, and cannot ask the record a question. The Pereda export shows the size of it: `PRODUCT.md` states the rule in one bullet, ADR 024 calls the export one-way, and ADR 040 records that iOS has none — one clone holds all three, and no page does.",
+    value:
+      "It serves the operator, who decides build, spike or park from these documents, and the peer who edits one and must find every place that states the same rule. It serves the outside reader, who sees the site's conclusions and not the reasoning behind them. A field that answers in two seconds replaces a clone, or a message to an agent.",
+    cost: "About 220 lines: a script of 90 reads the six repositories at `origin/main` into one shard of about 420 KB, and a route of 130 holds a field and a result list. The deploy workflow (52 lines) gains one step that clones the six over HTTPS, because all eight organisation repositories are public: no token, no secret. The build reads no network and meets no rate limit. The six hold 114 files and 398 KB, and 106 of them and 361 KB are the standard's document set. `.agents` is out because its 177 files and 944 KB pass the 1 MB line alone. `.template` is out because its entry file is byte-identical to the copy in all seven other repositories, and its two remaining files are skeletons with no record in them. The upkeep: each document gains a second home, and the shard is true for the commit it read.",
+    risk: "The copy. The organisation's rule is one fact, one home, and this page makes a second one for every document it reads; a shard built at deploy answers for that commit, not for `main`. The wrong reading is that the page is the record: a person can quote a clause the repository has already changed, from a page that looks authoritative.",
+    next: "Build the shard from the six repositories, open the page on a phone with the network throttled, and search `export`. The three documents that state the Pereda export rule — `pereda/PRODUCT.md`, ADR 024 and ADR 040 — sit on 14, 11 and 1 lines, and must arrive in one fetch of under 500 KB, inside two seconds. `one-way`, the word ADR 024 uses, would reach one of the three alone. Two of the three, or a fetch over 1 MB, parks it.",
+  },
+  {
     number: "014",
     title: "An iPhone note that cannot leave the phone",
     date: "2026-11-15",
