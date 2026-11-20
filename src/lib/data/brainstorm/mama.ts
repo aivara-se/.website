@@ -23,6 +23,23 @@ export const entries: readonly Idea[] = [
     next: "Run the ten most common words of a two-year log through the search. Count the words that come back with all fifty days: a full list is the only sign the cap was hit. Three or more make a silent cap wrong often enough to fix; one or none parks it. The count is the whole test.",
   },
   {
+    number: "017",
+    title: "No page shows why Pereda refuses an export on iOS",
+    date: "2026-11-19",
+    kind: "improvement",
+    target: ".website",
+    verdict: "build",
+    summary:
+      "Seventy-five records hold the reasons: 47 in Pereda and 28 in Dispatch, 191 KB. The site shows each project's claims and links no record. One generated page lists every record by title with the line it decided.",
+    problem:
+      "A person reads that Pereda keeps no account and no network, and cannot read why. The answer is `docs/adrs/040-the-web-app-installs-on-a-phone.md`, a path the person must know already. The site links no record, so the reasoning that makes the claim checkable stays in a clone.",
+    value:
+      'It serves the operator, who opens a clone to answer "why is it like this?", and the reader who weighs a claim. Of 241 links, the 232 between records all resolve, so the page has no dead end on the day it ships. The words exist already; publishing them costs one page.',
+    cost: "About 130 lines in `.website`. A loader reads both `docs/adrs` trees from `raw.githubusercontent.com` at build time: 75 files, 191 KB. The page is 20 lines, in the shape of `src/routes/mama/brainstorm/+page.svelte` (20 lines), with one entry in `src/lib/routes.ts` (120 lines). Upkeep is zero, because a new record is a new file, and the site deployed five times on 18 November. `015` (#195, approved) prices the same question at 220 lines, because it copies 114 documents into one shard. This is neither its first step nor its replacement: the index reads no text and holds no second home, and `015` still stands for the reader who must search the record rather than scan it.",
+    risk: "A record keeps what it displaced. A reader who lands on a clause that a later record overrides learns something false, so each title must name its overrider; `010` counted seventeen of 28 in Dispatch. The wrong reading is that the page is the record: the repository stays the record, and a page that lags is a summary.",
+    next: "Build the index and not the bodies: 75 titles, the decision line from each, and a link to the file. Open it on a phone and answer the export question with no hint. Two taps to `040` settle it; three or more mean the index needs the project as its first cut.",
+  },
+  {
     number: "016",
     title: "Dispatch never retries a run that exits non-zero",
     date: "2026-11-17",
