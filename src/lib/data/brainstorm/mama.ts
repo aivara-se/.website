@@ -8,6 +8,23 @@ import type { Idea } from "../brainstorm";
  */
 export const entries: readonly Idea[] = [
   {
+    number: "019",
+    title: "Learn-chess ends in two games no child can play",
+    date: "2026-11-21",
+    kind: "improvement",
+    target: "Learn-chess",
+    verdict: "build",
+    summary:
+      "The path has two boss stops and no screen that plays them. A child who solves the last lesson is sent to `#/lesson/9`, and the answer is a card saying the game screen is not built. The engine, the board and Pip's verdicts are all in the tree; only the game is missing.",
+    problem:
+      'A child solves the eighth lesson, thirty puzzles in, and the map offers one open stop. Tapping it draws a refusal: "This stop is finished by a game against Pip rather than by puzzles, and the game screen is not built yet" (`src/lesson/address.js:37`). The last fifth of the path — 2 of the 10 stops — cannot be reached, and `bossBeaten` in `src/path/progress.js:96` has nothing to read, because no file in `src/` writes `draft.boss`.',
+    value:
+      "It serves the child the course was built for, at the moment the course stops. The eight lessons lead somewhere: `docs/PRODUCT.md:29` states that the path ends in a boss game, won by a checkmate the child delivers. Without the screen the path ends in a card about a missing file.",
+    cost: "About 350 lines in a new `src/scenes/game.js`, because `docs/SYSTEMS.md:10` says a screen is a file. Most of it is a port: the play block of the app this replaces is 446 lines (`git show v1:js/app.js`, lines 1220-1665), and the board (`src/board/board.js`, 213 lines), the coach (`src/lesson/coach.js`, 143) and the sheet (`src/path/sheet.js`, 127) are already files here. Three small edits go with it: `src/lesson/record.js` (61 lines) gains a write for `draft.boss`, `src/lesson/address.js:36` returns the stop instead of a refusal, and `tests/lesson.test.ts:387` stops asserting that refusal. The map needs no change: `tapStop` already sends a boss tap to `#/lesson/<n>`.",
+    risk: "The level, not the screen. I played 20 games with White choosing like a beginner (depth 1, the strongest proxy the engine gives without a person) against Pip at the strengths the data names, one seed for each game. With seeds 1 to 20 White won 19 of 20 at depth 0, 4 at depth 1 and 0 at depth 2, where Black won 6. A child plays worse than depth 1, so those counts are an upper bound. The wrong reading is that a working screen makes the boss beatable. It dies if a child meets a Pip they cannot beat, because a boss nobody finishes is a wall with a picture on it.",
+    next: "Settle the level before the screen. A 30-line script — no scene, no browser — plays White at depth 1 against Pip at depths 0, 1 and 2, 20 games each, seeding every game with its own number, and counts the checkmates. Measured on this tree: seeds 1 to 20 won 19 of 20 at depth 0, 4 at depth 1 and 0 at depth 2; seeds 21 to 40 won 19, 2 and 0, so only the depth 1 count moves with the seed. Ship the screen at the depth that gives 12 or more wins of 20; under 8 means level 1 ships as depth 0 rather than as the level the data names.",
+  },
+  {
     number: "018",
     title: "Search stops at fifty days and says nothing",
     date: "2026-11-20",
