@@ -8,6 +8,16 @@ const writeUp = (slug: string) =>
 
 export const entries: readonly Experiment[] = [
   {
+    number: "030",
+    title: "What each git tag costs a local command",
+    date: "2026-11-21",
+    verdict: "validated",
+    result: [
+      "A loose tag cost 12.6 µs to `git tag` and to `git for-each-ref`, so 10,000 tags added 126 ms and 50,000 added 630 ms, while `git status`, `git log -1`, `git rev-parse` and `git checkout -B` stayed flat at 2.0–3.5 ms from 0 to 50,000 tags because they never list refs. `git pack-refs --all` cut the listing to 1.28 µs per tag and 0.09 µs for `git describe`, at 89.5 µs per tag to run — 4.5 s at 50,000 — so it pays back after eight tag listings, and it also returned 192 MB of block space that 50,000 one-file refs held on the 6.2 MB packed repo.",
+    ],
+    writeUp: writeUp("030-tag-count-cost"),
+  },
+  {
     number: "029",
     title: "What a symlink per package costs a start-up",
     date: "2026-11-20",
