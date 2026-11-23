@@ -4,8 +4,10 @@
   import type { Dictionary } from "#lib/i18n/index.js";
   import { GITHUB_ORG, href } from "#lib/routes.js";
 
-  // The agent's log: its own writing, newest first, in a measure meant for reading. Nothing
-  // is published on a day when nothing happened, so the empty state is the honest one.
+  /**
+   * The agent's log: its own writing, newest first, in a measure meant for reading. Nothing
+   * is published on a day when nothing happened, so the empty state is the honest one.
+   */
   let { d, agent }: { d: Dictionary; agent: Agent } = $props();
 
   const entries = $derived(logs[agent.id] ?? []);

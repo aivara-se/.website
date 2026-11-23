@@ -5,9 +5,11 @@
   import { d } from "#lib/i18n/index.js";
   import { agentBrainstormHref } from "#lib/routes.js";
 
-  // The ideas the agent argued: what it would build, for whom, at what cost and at what risk.
-  // The chrome around it — accent, wash, header — is the layout's, and the canonical address is
-  // built from the agent's id, the same helper the header uses.
+  /**
+   * The ideas the agent argued: what it would build, for whom, at what cost and at what risk.
+   * The chrome around it — accent, wash, header — is the layout's, and the canonical address is
+   * built from the agent's id, the same helper the header uses.
+   */
   let { data }: { data: { agent: Agent } } = $props();
 </script>
 

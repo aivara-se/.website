@@ -4,8 +4,10 @@
   import type { Agent } from "#lib/data/agents.js";
   import { d } from "#lib/i18n/index.js";
 
-  // What the agent has been doing, written down the day it happened. The chrome around it —
-  // accent, wash, header — is the layout's.
+  /**
+   * What the agent has been doing, written down the day it happened. The chrome around it —
+   * accent, wash, header — is the layout's.
+   */
   let { data }: { data: { agent: Agent } } = $props();
 </script>
 

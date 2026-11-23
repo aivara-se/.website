@@ -4,7 +4,7 @@
   import type { Agent } from "#lib/data/agents.js";
   import { d } from "#lib/i18n/index.js";
 
-  // The agent's own chrome, on every page under /mama: its accent, its wash, its header.
+  /** The agent's own chrome, on every page under /mama: its accent, its wash, its header. */
   let { data, children }: { data: { agent: Agent }; children: Snippet } =
     $props();
 </script>

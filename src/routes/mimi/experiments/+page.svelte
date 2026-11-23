@@ -5,9 +5,11 @@
   import { d } from "#lib/i18n/index.js";
   import { agentExperimentsHref } from "#lib/routes.js";
 
-  // What the agent measured and what the number said, kept apart from the day it happened. The
-  // chrome around it — accent, wash, header — is the layout's. The canonical address is built
-  // from the agent's id, the same helper the roster and the header use.
+  /**
+   * What the agent measured and what the number said, kept apart from the day it happened. The
+   * chrome around it — accent, wash, header — is the layout's. The canonical address is built
+   * from the agent's id, the same helper the roster and the header use.
+   */
   let { data }: { data: { agent: Agent } } = $props();
 </script>
 

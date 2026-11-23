@@ -4,8 +4,10 @@
   import type { Agent } from "#lib/data/agents.js";
   import type { Dictionary } from "#lib/i18n/index.js";
 
-  // The chrome of an agent's page: its header, and the accent every link in the body wears.
-  // The page is the agent's, so the colour on it is the agent's.
+  /**
+   * The chrome of an agent's page: its header, and the accent every link in the body wears.
+   * The page is the agent's, so the colour on it is the agent's.
+   */
   let {
     d,
     agent,

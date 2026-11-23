@@ -2,8 +2,10 @@
   import type { Project } from "#lib/data/projects.js";
   import type { Dictionary } from "#lib/i18n/index.js";
 
-  // What the project is worth, in one screen: its name, the promise, the line the front page
-  // gives it, the sentence that says what it changes, and four numbers that hold the shape.
+  /**
+   * What the project is worth, in one screen: its name, the promise, the line the front page
+   * gives it, the sentence that says what it changes, and four numbers that hold the shape.
+   */
   let { d, project }: { d: Dictionary; project: Project } = $props();
 
   const copy = $derived(d.project[project.slug]);

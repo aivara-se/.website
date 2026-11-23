@@ -4,9 +4,11 @@
   import type { Project } from "#lib/data/projects.js";
   import type { Dictionary } from "#lib/i18n/index.js";
 
-  // A project page's header: the same masthead as every other page, with the project's name
-  // added after the wordmark and the code in place of the organisation's mark — the page is
-  // the project's, so the icon leaves for its repository.
+  /**
+   * A project page's header: the same masthead as every other page, with the project's name
+   * added after the wordmark and the code in place of the organisation's mark — the page is
+   * the project's, so the icon leaves for its repository.
+   */
   let { d, project }: { d: Dictionary; project: Project } = $props();
 </script>
 

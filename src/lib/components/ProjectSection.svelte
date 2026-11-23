@@ -1,11 +1,13 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
 
-  // One part of a project's page: a quiet rubric, a heading, and whatever the part is. The
-  // hairline above it is the only divider the page uses, so a section needs no box. A split
-  // part puts the heading at the left and the content beside it, which breaks the stack of
-  // prose without adding a surface; the rubric stays above both so the heading and the
-  // content start on the same line.
+  /**
+   * One part of a project's page: a quiet rubric, a heading, and whatever the part is. The
+   * hairline above it is the only divider the page uses, so a section needs no box. A split
+   * part puts the heading at the left and the content beside it, which breaks the stack of
+   * prose without adding a surface; the rubric stays above both so the heading and the
+   * content start on the same line.
+   */
   let {
     id,
     label,

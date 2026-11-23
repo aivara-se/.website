@@ -3,10 +3,12 @@
   import type { Dictionary } from "#lib/i18n/index.js";
   import { href } from "#lib/routes.js";
 
-  // The line every page wears at the top: the wordmark home at the left, the page's own icon
-  // links at the right. A page may add to the trail after the wordmark — an agent's name — and
-  // brings its own glyphs; everything else is shared, so the wordmark and the icons' boxes land
-  // in exactly the same place on every page.
+  /**
+   * The line every page wears at the top: the wordmark home at the left, the page's own icon
+   * links at the right. A page may add to the trail after the wordmark — an agent's name — and
+   * brings its own glyphs; everything else is shared, so the wordmark and the icons' boxes land
+   * in exactly the same place on every page.
+   */
   let { d, trail, icons }: { d: Dictionary; trail?: Snippet; icons: Snippet } =
     $props();
 

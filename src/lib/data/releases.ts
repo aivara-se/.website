@@ -1,19 +1,23 @@
-// A project's downloads, read from its latest release while the site is built. Nothing runs on
-// the host, so a reader cannot be answered from GitHub at request time: the build pins the tag it
-// saw, which keeps the links working after the next release, where a `latest/download` path built
-// from this tag would start answering 404. A build that cannot read the release still gives the
-// reader the releases page rather than nothing.
+/**
+ * A project's downloads, read from its latest release while the site is built. Nothing runs on
+ * the host, so a reader cannot be answered from GitHub at request time: the build pins the tag it
+ * saw, which keeps the links working after the next release, where a `latest/download` path built
+ * from this tag would start answering 404. A build that cannot read the release still gives the
+ * reader the releases page rather than nothing.
+ */
 
-export type DownloadKey =
-  "macosArm64" | "macosIntel" | "windows" | "linux" | "latest";
+type DownloadKey = "macosArm64" | "macosIntel" | "windows" | "linux" | "latest";
 
+/** One link a project page prints: the archive for a platform, or the releases page. */
 export interface Download {
   key: DownloadKey;
   href: string;
 }
 
-// The archives the release workflow publishes, by the tail of their file name; the order here is
-// the order the page prints them in.
+/**
+ * The archives the release workflow publishes, by the tail of their file name; the order here is
+ * the order the page prints them in.
+ */
 const platforms: readonly { key: DownloadKey; suffix: string }[] = [
   { key: "macosArm64", suffix: "-macos-arm64.zip" },
   { key: "macosIntel", suffix: "-macos-x86_64.zip" },
@@ -39,7 +43,6 @@ export function downloadsFrom(payload: unknown, repo: string): Download[] {
   if (typeof release?.tag_name !== "string" || !Array.isArray(release.assets)) {
     return [releasesPage(repo)];
   }
-
   const names = release.assets
     .map((asset) => (asset as { name?: unknown } | null)?.name)
     .filter((name): name is string => typeof name === "string");
@@ -48,7 +51,6 @@ export function downloadsFrom(payload: unknown, repo: string): Download[] {
     const file = names.find((name) => name.endsWith(suffix));
     return file ? [{ key, href: `${base}/${file}` }] : [];
   });
-
   return downloads.length > 0 ? downloads : [releasesPage(repo)];
 }
 
@@ -61,7 +63,6 @@ export async function latestDownloads(
     "https://github.com/",
     "https://api.github.com/repos/",
   );
-
   try {
     const response = await fetchImpl(`${api}/releases/latest`, {
       headers: { accept: "application/vnd.github+json" },

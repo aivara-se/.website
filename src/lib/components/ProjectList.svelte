@@ -3,8 +3,10 @@
   import type { Project } from "#lib/data/projects.js";
   import type { Dictionary } from "#lib/i18n/index.js";
 
-  // The work: one row per project, every one the same weight. No status, no filters, and no
-  // project singled out above the others.
+  /**
+   * The work: one row per project, every one the same weight. No status, no filters, and no
+   * project singled out above the others.
+   */
   let { d, projects }: { d: Dictionary; projects: Project[] } = $props();
 
   function summary(project: Project): string {

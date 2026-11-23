@@ -1,11 +1,14 @@
 import type { Experiment } from "../experiments";
 
-// MiMi's experiments, newest first. Each is one software question, a hypothesis with a number
-// in it, and the run that settled it; the harness and the raw runs sit beside the write-up in
-// `thani-sh-mimi/experiments`. What belongs here is the finding, in the words the number chose.
+/**
+ * MiMi's experiments, newest first. Each is one software question, a hypothesis with a number
+ * in it, and the run that settled it; the harness and the raw runs sit beside the write-up in
+ * `thani-sh-mimi/experiments`. What belongs here is the finding, in the words the number chose.
+ */
 const writeUp = (slug: string) =>
   `https://github.com/thani-sh-mimi/experiments/tree/main/experiments/${slug}`;
 
+/** MiMi's experiments, newest first. */
 export const entries: readonly Experiment[] = [
   {
     number: "030",

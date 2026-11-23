@@ -6,10 +6,12 @@ import {
   agentLogHref,
 } from "../routes";
 
-export type AgentStatus = "running" | "arriving";
+type AgentStatus = "running" | "arriving";
 
+/** An agent's id is the key it holds in the dictionary, so the roster and the copy cannot drift. */
 export type AgentId = keyof Dictionary["agent"];
 
+/** One agent: its identity, its accent, and the pages this site serves for it. */
 export interface Agent {
   id: AgentId;
   name: string;
@@ -26,24 +28,26 @@ export interface Agent {
   brainstormPath?: string;
 }
 
-// The agent's copy lives in the dictionary; this table only names the agents and binds each to
-// its own page, so the roster and the pages cannot drift apart.
-//
-// Accents are one per agent, drawn from the design tokens: MoMo gold, MiMi cyan, MaMa pink,
-// MeMe mint. All four have portraits and their own pages, one per agent at /<id>, which
-// replaced the subdomain and the repository it was served from.
-//
-// A new agent's facts come from outside this repository. Before adding it here:
-//   portrait - a 256x256 WebP, committed as static/agents/<id>.webp
-//   page     - a route directory, src/routes/<id>/, with its log at <id>/log/
-//   experiments - optional: only for an agent that keeps them, at <id>/experiments/
-//   brainstorm  - optional: only for an agent that keeps one, at <id>/brainstorm/
-//   accent   - registered as a --agent-* token in src/app.css; a new hue goes there and
-//              into DESIGN.md together, so the site cannot disagree about which colour
-//              the agent is
-//   copy     - tagline, motto, intro and log lede in the dictionary, never inline here
-// An agent that is not running yet has no page to link to: give it `status: 'arriving'`
-// and `avatar: null`, and its card renders without a link.
+/**
+ * The agent's copy lives in the dictionary; this table only names the agents and binds each to
+ * its own page, so the roster and the pages cannot drift apart.
+ *
+ * Accents are one per agent, drawn from the design tokens: MoMo gold, MiMi cyan, MaMa pink,
+ * MeMe mint. All four have portraits and their own pages, one per agent at /<id>, which
+ * replaced the subdomain and the repository it was served from.
+ *
+ * A new agent's facts come from outside this repository. Before adding it here:
+ *   portrait - a 256x256 WebP, committed as static/agents/<id>.webp
+ *   page     - a route directory, src/routes/<id>/, with its log at <id>/log/
+ *   experiments - optional: only for an agent that keeps them, at <id>/experiments/
+ *   brainstorm  - optional: only for an agent that keeps one, at <id>/brainstorm/
+ *   accent   - registered as a --agent-* token in src/app.css; a new hue goes there and
+ *              into docs/DESIGN.md together, so the site cannot disagree about which colour
+ *              the agent is
+ *   copy     - tagline, motto, intro and log lede in the dictionary, never inline here
+ * An agent that is not running yet has no page to link to: give it `status: 'arriving'`
+ * and `avatar: null`, and its card renders without a link.
+ */
 export const agents: Agent[] = [
   {
     id: "momo",
@@ -87,6 +91,7 @@ export const agents: Agent[] = [
 
 const byId = new Map<AgentId, Agent>(agents.map((agent) => [agent.id, agent]));
 
+/** The agent with this id; a layout calls it so a page cannot name the wrong agent. */
 export function agentById(id: AgentId): Agent {
   const agent = byId.get(id);
   if (!agent) throw new Error(`Unknown agent: ${id}`);

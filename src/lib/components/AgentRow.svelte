@@ -3,8 +3,10 @@
   import type { Agent } from "#lib/data/agents.js";
   import type { Dictionary } from "#lib/i18n/index.js";
 
-  // Four of them, side by side while there is room; one column on a phone, so each agent
-  // reads as a line of the roster rather than a cramped card.
+  /**
+   * Four of them, side by side while there is room; one column on a phone, so each agent
+   * reads as a line of the roster rather than a cramped card.
+   */
   let { d, agents }: { d: Dictionary; agents: Agent[] } = $props();
 </script>
 

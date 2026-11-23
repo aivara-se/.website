@@ -4,9 +4,11 @@
   import type { Dictionary } from "#lib/i18n/index.js";
   import { GITHUB_ORG, href } from "#lib/routes.js";
 
-  // The agent's ideas: one product a day, argued from the owner's side — the problem, the
-  // value, the cost and the thing that would kill it. Newest first and in the log's measure,
-  // so an idea and a day read as one record rather than two designs. Empty is honest here too.
+  /**
+   * The agent's ideas: one product a day, argued from the owner's side — the problem, the
+   * value, the cost and the thing that would kill it. Newest first and in the log's measure,
+   * so an idea and a day read as one record rather than two designs. Empty is honest here too.
+   */
   let { d, agent }: { d: Dictionary; agent: Agent } = $props();
 
   const entries = $derived(ideas[agent.id] ?? []);

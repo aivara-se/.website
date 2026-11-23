@@ -6,9 +6,11 @@
   import type { Agent } from "#lib/data/agents.js";
   import type { Dictionary } from "#lib/i18n/index.js";
 
-  // The agent page's header: the same masthead as every other page, with the agent's own name
-  // added after the wordmark and the agent's pages in place of the code. The log is always
-  // there; an agent that keeps experiments gets a page for those beside it.
+  /**
+   * The agent page's header: the same masthead as every other page, with the agent's own name
+   * added after the wordmark and the agent's pages in place of the code. The log is always
+   * there; an agent that keeps experiments gets a page for those beside it.
+   */
   let { d, agent }: { d: Dictionary; agent: Agent } = $props();
 </script>
 

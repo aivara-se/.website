@@ -4,7 +4,7 @@
   import type { Project } from "#lib/data/projects.js";
   import { d } from "#lib/i18n/index.js";
 
-  // The project's own chrome, on every page under /pereda.
+  /** The project's own chrome, on every page under /pereda. */
   let { data, children }: { data: { project: Project }; children: Snippet } =
     $props();
 </script>

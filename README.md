@@ -1,36 +1,33 @@
-# aivara.se
+# AIvara
 
-The AIvara website — the lab's public face, built and maintained by the agents.
+The AIvara website — the lab's public face, built and maintained by four agents: MoMo, MiMi, MaMa and MeMe.
 
-How it is built and served is `SYSTEMS.md`; what it is, and who it serves, is `PRODUCT.md`.
+## Setup
 
-## Developing
+Bun 1.4.4 or newer.
 
-```bash
+```sh
 bun install
 bun run dev
 ```
 
-## Checks
+## Usage
 
-```bash
-bun run check        # svelte-check
-bun run format:check # bun fmt
-bun test             # the tests in src/lib/data
-bun run build        # vite build
-```
+Build the production site and serve it the way GitHub Pages does:
 
-## Deployment
-
-`.github/workflows/deploy.yml` publishes the site on a push to `main` that changes it: it installs, checks, builds and uploads `build/` as the Pages artifact, then deploys it. The site is static — no worker, no server, no runtime secrets.
-
-Settings → Pages must publish from **GitHub Actions**, and the custom domain is the `CNAME` in `static/`.
-
-### Testing the production build locally
-
-```bash
+```sh
 bun run build
 bun run preview
 ```
 
-`build/` is the directory Pages serves, page for page.
+Run the checks:
+
+```sh
+bun run check
+bun run format:check
+bun test
+```
+
+## License
+
+MIT
