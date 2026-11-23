@@ -4,7 +4,7 @@
   import TopBar from "./TopBar.svelte";
   import type { Dictionary } from "#lib/i18n/index.js";
 
-  // The lab's own pages: one column, the masthead above and the footer below.
+  /** The lab's own pages: one column, the masthead above and the footer below. */
   let { d, children }: { d: Dictionary; children: Snippet } = $props();
 </script>
 

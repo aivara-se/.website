@@ -3,7 +3,7 @@
   import type { Project } from "#lib/data/projects.js";
   import type { Dictionary } from "#lib/i18n/index.js";
 
-  // The statement: what the lab is, in one breath, with the two true numbers under it.
+  /** The statement: what the lab is, in one breath, with the two true numbers under it. */
   let {
     d,
     projects,

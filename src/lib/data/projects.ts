@@ -1,7 +1,7 @@
 import raw from "./projects.json";
 import { isProjectKey, projectHref, type ProjectKey } from "../routes.js";
 
-export interface ProjectScreenshot {
+interface ProjectScreenshot {
   /** the file in `static/`, as the page asks for it */
   src: string;
   /** what the shot shows, for a reader who cannot see it */
@@ -11,6 +11,7 @@ export interface ProjectScreenshot {
   height: number;
 }
 
+/** One project: what it is called, where its code lives, and the line the front page gives it. */
 export interface Project {
   slug: ProjectKey;
   name: string;
@@ -24,10 +25,11 @@ export interface Project {
   path: string;
 }
 
-// Nothing on this site carries a status, and nothing is singled out: the lab does not sort its
-// work into active, shipped or internal, and a badge that says "active" says nothing a visitor
-// cannot see for themselves.
-
+/**
+ * Nothing on this site carries a status, and nothing is singled out: the lab does not sort its
+ * work into active, shipped or internal, and a badge that says "active" says nothing a visitor
+ * cannot see for themselves.
+ */
 function isNonEmptyString(value: unknown): value is string {
   return typeof value === "string" && value.trim().length > 0;
 }
@@ -36,8 +38,10 @@ function isPositiveInteger(value: unknown): value is number {
   return typeof value === "number" && Number.isInteger(value) && value > 0;
 }
 
-// A public page the reader can open, so anything but https would name a file or a
-// development port rather than the app.
+/**
+ * A public page the reader can open, so anything but https would name a file or a development
+ * port rather than the app.
+ */
 function isWebUrl(value: unknown): value is string {
   return typeof value === "string" && /^https:\/\/[^\s]+$/.test(value);
 }
@@ -47,7 +51,6 @@ function parseScreenshot(value: unknown, where: string): ProjectScreenshot {
     throw new Error(`${where}: screenshot must be an object`);
   }
   const shot = value as Record<string, unknown>;
-
   if (!isNonEmptyString(shot.src) || !shot.src.startsWith("/")) {
     throw new Error(
       `${where}: screenshot needs a src that starts at / (static/)`,
@@ -61,7 +64,6 @@ function parseScreenshot(value: unknown, where: string): ProjectScreenshot {
       `${where}: screenshot needs the file's own width and height`,
     );
   }
-
   return {
     src: shot.src,
     alt: shot.alt,
@@ -76,7 +78,6 @@ function parseProject(value: unknown, index: number): Project {
   }
   const entry = value as Record<string, unknown>;
   const where = `projects[${index}]`;
-
   if (!isNonEmptyString(entry.slug)) {
     throw new Error(`${where}: missing slug`);
   }
@@ -95,7 +96,6 @@ function parseProject(value: unknown, index: number): Project {
   if (entry.site !== undefined && !isWebUrl(entry.site)) {
     throw new Error(`${where} (${entry.slug}): site must be an https URL`);
   }
-
   return {
     slug: entry.slug,
     name: entry.name,
@@ -110,12 +110,17 @@ function parseProject(value: unknown, index: number): Project {
   };
 }
 
+/** The project with this slug; a layout calls it so a page cannot name the wrong project. */
 export function projectBySlug(slug: ProjectKey): Project {
   const project = projects.find((entry) => entry.slug === slug);
   if (!project) throw new Error(`Unknown project: ${slug}`);
   return project;
 }
 
+/**
+ * Parse and validate the curated project list; an entry without a page or a required field
+ * fails the build instead of reaching production.
+ */
 export function validateProjects(data: unknown): Project[] {
   if (
     typeof data !== "object" ||
@@ -135,4 +140,5 @@ export function validateProjects(data: unknown): Project[] {
   return entries.map(parseProject);
 }
 
+/** The curated projects, parsed from `projects.json` at import time. */
 export const projects: Project[] = validateProjects(raw);

@@ -4,6 +4,5 @@ build
 static
 bun.lock
 
-# Hand-authored design/product docs are not run through the code formatter.
-DESIGN.md
-PRODUCT.md
+# The hand-authored design tables are not run through the code formatter.
+docs/DESIGN.md

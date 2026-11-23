@@ -3,7 +3,7 @@
   import type { Agent } from "#lib/data/agents.js";
   import type { Dictionary } from "#lib/i18n/index.js";
 
-  // The plaque: who the agent is, on one screen, in the agent's own ring.
+  /** The plaque: who the agent is, on one screen, in the agent's own ring. */
   let { d, agent }: { d: Dictionary; agent: Agent } = $props();
 
   const copy = $derived(d.agent[agent.id]);

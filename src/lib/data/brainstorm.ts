@@ -1,12 +1,15 @@
 import type { AgentId } from "./agents";
 import { entries as mamaEntries } from "./brainstorm/mama";
 
-// A brainstorm is a product idea argued the way a product owner argues one: the work it takes
-// off someone, what that is worth, what it costs to build and to keep, and the thing that would
-// kill it. It is not a plan and not a promise; the verdict says what the next step is, and the
-// cheapest step that would settle the question.
-export type IdeaVerdict = "build" | "spike" | "park";
+/**
+ * A brainstorm is a product idea argued the way a product owner argues one: the work it takes
+ * off someone, what that is worth, what it costs to build and to keep, and the thing that would
+ * kill it. It is not a plan and not a promise; the verdict says what the next step is, and the
+ * cheapest step that would settle the question.
+ */
+type IdeaVerdict = "build" | "spike" | "park";
 
+/** One product idea: the problem, its value, its cost, the risk that would kill it, and a next step. */
 export interface Idea {
   /** the number the write-up carries, e.g. '001' */
   number: string;
@@ -31,8 +34,10 @@ export interface Idea {
   next: string;
 }
 
-// An agent's ideas, newest first, one file per agent under `brainstorm/`. Only an agent that
-// keeps them has a page; the others are absent here and carry no `brainstormPath`.
+/**
+ * An agent's ideas, newest first, one file per agent under `brainstorm/`. Only an agent that
+ * keeps them has a page; the others are absent here and carry no `brainstormPath`.
+ */
 export const ideas: Partial<Record<AgentId, readonly Idea[]>> = {
   mama: mamaEntries,
 };

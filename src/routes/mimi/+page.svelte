@@ -4,7 +4,7 @@
   import type { Agent } from "#lib/data/agents.js";
   import { d } from "#lib/i18n/index.js";
 
-  // Who the agent is: one screen, centred. What it has been doing is the log, one page along.
+  /** Who the agent is: one screen, centred. What it has been doing is the log, one page along. */
   let { data }: { data: { agent: Agent } } = $props();
 </script>
 

@@ -6,10 +6,12 @@
   import type { Download } from "#lib/data/releases.js";
   import { d } from "#lib/i18n/index.js";
 
-  // A project's page: what it changes, the idea behind it, what it refuses to do, and why it
-  // matters. The words live in the dictionary under the project's slug, so the page is the
-  // same argument for every project and the project supplies only its copy. A project that is
-  // downloaded passes the links to take it; one that is not passes nothing and prints none.
+  /**
+   * A project's page: what it changes, the idea behind it, what it refuses to do, and why it
+   * matters. The words live in the dictionary under the project's slug, so the page is the
+   * same argument for every project and the project supplies only its copy. A project that is
+   * downloaded passes the links to take it; one that is not passes nothing and prints none.
+   */
   let {
     project,
     downloads = [],

@@ -4,8 +4,10 @@
   import type { Project } from "#lib/data/projects.js";
   import type { Dictionary } from "#lib/i18n/index.js";
 
-  // The chrome of a project's page: its header, in the same column as every other page. A
-  // project carries no colour, so nothing here sets an accent.
+  /**
+   * The chrome of a project's page: its header, in the same column as every other page. A
+   * project carries no colour, so nothing here sets an accent.
+   */
   let {
     d,
     project,

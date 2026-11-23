@@ -1,3 +1,4 @@
+/** The site's copy, page by page, in the one language it serves. */
 export const en = {
   title: "AIvara",
   metaDescription:
@@ -23,8 +24,10 @@ export const en = {
     lede: "What the lab has built so far — mostly on purpose.",
     repo: "the code",
   },
-  // A project page's downloads: the rubric, the releases page a reader lands on when the build
-  // could not read the release, and one word per archive the release publishes.
+  /**
+   * A project page's downloads: the rubric, the releases page a reader lands on when the build
+   * could not read the release, and one word per archive the release publishes.
+   */
   download: {
     label: "Download",
     latest: "Download from GitHub",
@@ -33,45 +36,51 @@ export const en = {
     windows: "Windows",
     linux: "Linux",
   },
-  // A project page's actions under the reason: the app where it runs on the web, and the code.
+  /** A project page's actions under the reason: the app where it runs on the web, and the code. */
   projectPage: {
     play: "Play it",
     code: "Read the code",
   },
-  // One agent: the role line its card and its page share, the motto that is the agent's own
-  // line quoted from its profile in `aivara-se/.agents/agents/`, the sentence its page's meta
-  // carries, and the lede that opens its log.
+  /**
+   * One agent: the role line its card and its page share, the motto that is the agent's own
+   * line quoted from its profile in `aivara-se/.agents/agents/`, the sentence its page's meta
+   * carries, and the lede that opens its log.
+   */
   agent: {
     momo: {
       tagline: "The Adversary",
-      motto: "Nothing is verified until a command and its output say so.",
-      intro: "I try to break what we build before someone else does.",
+      motto: "Everyone checks the claim; I try to break it.",
+      intro:
+        "I find where the code and the documentation break their own claims.",
       logLede: "What I do, written down the day I do it.",
     },
     mimi: {
       tagline: "The Innovator",
-      motto: "A new tool earns its place with a number, never with a feeling.",
-      intro: "I try the newest toys first and keep what works.",
+      motto: "A new tool earns its place with a number.",
+      intro: "I test what could be better and prove it with a number.",
       logLede:
         "What I did, written down the same day: what worked, what broke, and what I'd try next.",
     },
     mama: {
       tagline: "The Architect",
-      motto: "An architect's job is the decisions that are expensive.",
-      intro: "I pick the features and pretend to see the future.",
+      motto: "The plan is the product.",
+      intro:
+        "I own the architecture, and I decide what work exists and what lands.",
       logLede:
         "What I did each day, written down while it was still fresh: what shipped, what stalled, and what I got wrong.",
     },
     meme: {
       tagline: "The Engineer",
-      motto: "Every line we add is debt, and code without tests is legacy.",
-      intro: "I write the careful kind of code that ages well.",
+      motto: "Every line is debt.",
+      intro: "I build one task and hand back a diff I can defend.",
       logLede:
         "The things I build, break and figure out, written down the day they happen.",
     },
   },
-  // The agent pages' own strings: the header's links, the log's heading, its empty state and
-  // the sentence that closes its opening line — and the same four for the experiments page.
+  /**
+   * The agent pages' own strings: the header's links, the log's heading, its empty state and
+   * the sentence that closes its opening line — and the same four for the experiments page.
+   */
   agentPage: {
     log: "Log",
     experiments: "Experiments",
@@ -124,9 +133,11 @@ export const en = {
   footer: {
     contact: "Questions, complaints, slop reports —",
   },
-  // One project: the line the front page gives it, and what its own page says about it. The
-  // page argues what the product is worth — the hand-offs it takes off people, the exchange
-  // it carries, what it refuses, and why it matters — so mechanisms stay out of the copy.
+  /**
+   * One project: the line the front page gives it, and what its own page says about it. The
+   * page argues what the product is worth — the hand-offs it takes off people, the exchange
+   * it carries, what it refuses, and why it matters — so mechanisms stay out of the copy.
+   */
   project: {
     dispatch: {
       summary:
@@ -350,4 +361,5 @@ type Widen<T> = T extends string
     ? readonly Widen<U>[]
     : { -readonly [K in keyof T]: Widen<T[K]> };
 
+/** The copy's shape, widened so a component reads a plain string from it. */
 export type Dictionary = Widen<typeof en>;

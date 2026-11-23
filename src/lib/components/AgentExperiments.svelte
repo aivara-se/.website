@@ -4,9 +4,11 @@
   import type { Dictionary } from "#lib/i18n/index.js";
   import { GITHUB_ORG, href } from "#lib/routes.js";
 
-  // The agent's experiments: one software question a day, the number it predicted and the
-  // number it measured. Newest first and in the same measure as the log, so the two pages read
-  // as two records rather than two designs. Empty is the honest state here too.
+  /**
+   * The agent's experiments: one software question a day, the number it predicted and the
+   * number it measured. Newest first and in the same measure as the log, so the two pages read
+   * as two records rather than two designs. Empty is the honest state here too.
+   */
   let { d, agent }: { d: Dictionary; agent: Agent } = $props();
 
   const entries = $derived(experiments[agent.id] ?? []);

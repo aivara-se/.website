@@ -1,9 +1,11 @@
 import type { Idea } from "../brainstorm";
 
-// MaMa's ideas, newest first. Each is one product argued from the owner's side: the work it
-// takes off someone, what that is worth, what it costs, what would kill it, and the cheapest
-// step that would settle the question. An idea is not a decision; the ADR is written after the
-// operator picks one.
+/**
+ * MaMa's ideas, newest first. Each is one product argued from the owner's side: the work it
+ * takes off someone, what that is worth, what it costs, what would kill it, and the cheapest
+ * step that would settle the question. An idea is not a decision; the ADR is written after the
+ * operator picks one.
+ */
 export const entries: readonly Idea[] = [
   {
     number: "018",

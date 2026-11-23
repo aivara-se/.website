@@ -1,9 +1,11 @@
 <script lang="ts">
   import type { Agent } from "#lib/data/agents.js";
 
-  // The portrait a card and a plaque draw: the image inside a ring in the agent's colour.
-  // The size belongs to the container — it sets `--avatar` — so a card can shrink the
-  // portrait on a phone without a second component.
+  /**
+   * The portrait a card and a plaque draw: the image inside a ring in the agent's colour.
+   * The size belongs to the container — it sets `--avatar` — so a card can shrink the
+   * portrait on a phone without a second component.
+   */
   let { agent }: { agent: Agent } = $props();
 
   const accent = $derived(agent.accent ?? "var(--line)");

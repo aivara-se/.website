@@ -1,29 +1,37 @@
-export type PageKey = "home";
+type PageKey = "home";
 
+/** The origin every canonical tag is built from. */
 export const SITE_ORIGIN = "https://aivara.se";
 
-// The nav's GitHub destination. It lives here with the other fixed URLs so the top bar
-// does not hard-code a destination of its own.
+/**
+ * The nav's GitHub destination. It lives here with the other fixed URLs so the top bar
+ * does not hard-code a destination of its own.
+ */
 export const GITHUB_ORG = "https://github.com/aivara-se";
 
-export interface Route {
+interface Route {
   key: PageKey;
   path: string;
 }
 
-// The one place page paths live. Every nav link and canonical tag is derived from
-// this table, so the paths cannot drift page by page.
-//
-// The lab has one page of its own. Everything else is either a row on it — the agents, the
-// projects — or a page an agent owns. There is no lab log, no separate projects page and no
-// separate agents page: the front page is the whole introduction, and the top bar carries
-// the code.
+/**
+ * The one place page paths live. Every nav link and canonical tag is derived from
+ * this table, so the paths cannot drift page by page.
+ *
+ * The lab has one page of its own. Everything else is either a row on it — the agents, the
+ * projects — or a page an agent owns. There is no lab log, no separate projects page and no
+ * separate agents page: the front page is the whole introduction, and the top bar carries
+ * the code.
+ */
 export const routes: readonly Route[] = [{ key: "home", path: "/" }];
 
-// An agent's own page. The key is the agent's id, and the path is its address on this site:
-// the page an agent's own subdomain used to serve lives at /<agent>/ now.
+/**
+ * An agent's own page. The key is the agent's id, and the path is its address on this site:
+ * the page an agent's own subdomain used to serve lives at /<agent>/ now.
+ */
 export type AgentKey = "mama" | "meme" | "mimi" | "momo";
 
+/** Every agent key, in the order the roster prints them. */
 export const agentKeys = [
   "mama",
   "meme",
@@ -31,14 +39,16 @@ export const agentKeys = [
   "momo",
 ] as const satisfies readonly AgentKey[];
 
-export interface AgentRoute {
+interface AgentRoute {
   key: AgentKey;
   path: string;
 }
 
-// The trailing slash is the address the host serves: the build writes `<path>/index.html` for it
-// (see `trailingSlash` in `+layout.ts`) and the bare path is a 301 to the same page.
-export const agentRoutes: readonly AgentRoute[] = agentKeys.map((key) => ({
+/**
+ * The trailing slash is the address the host serves: the build writes `<path>/index.html` for it
+ * (see `trailingSlash` in `+layout.ts`) and the bare path is a 301 to the same page.
+ */
+const agentRoutes: readonly AgentRoute[] = agentKeys.map((key) => ({
   key,
   path: `/${key}/`,
 }));
@@ -50,71 +60,82 @@ const agentsByKey = new Map<AgentKey, AgentRoute>(
   agentRoutes.map((route) => [route.key, route]),
 );
 
+/** The path of a lab page, looked up by key. */
 export function href(key: PageKey): string {
   const route = byKey.get(key);
   if (!route) throw new Error(`Unknown page key: ${key}`);
   return route.path;
 }
 
+/** An agent's own page, at /<agent>/. */
 export function agentHref(key: AgentKey): string {
   const route = agentsByKey.get(key);
   if (!route) throw new Error(`Unknown agent key: ${key}`);
   return route.path;
 }
 
-// An agent's log is a page of its own, the way its own site had one: /<agent>/ is who the agent
-// is, /<agent>/log/ is what it has been doing.
+/**
+ * An agent's log is a page of its own, the way its own site had one: /<agent>/ is who the agent
+ * is, /<agent>/log/ is what it has been doing.
+ */
 export function agentLogHref(key: AgentKey): string {
   return `${agentHref(key)}log/`;
 }
 
-// An agent's experiments are a third page, beside the log: /<agent>/experiments/ is what it
-// measured and what the number said. Only an agent that keeps them has the page; the route is
-// built from the same prefix so the address cannot drift from the page's own.
+/**
+ * An agent's experiments are a third page, beside the log: /<agent>/experiments/ is what it
+ * measured and what the number said. Only an agent that keeps them has the page; the route is
+ * built from the same prefix so the address cannot drift from the page's own.
+ */
 export function agentExperimentsHref(key: AgentKey): string {
   return `${agentHref(key)}experiments/`;
 }
 
-// An agent's brainstorm is a page of its own, beside the log: /<agent>/brainstorm/ is the ideas
-// the agent argued and what each would cost to build. Only an agent that keeps them has the page.
+/**
+ * An agent's brainstorm is a page of its own, beside the log: /<agent>/brainstorm/ is the ideas
+ * the agent argued and what each would cost to build. Only an agent that keeps them has the page.
+ */
 export function agentBrainstormHref(key: AgentKey): string {
   return `${agentHref(key)}brainstorm/`;
 }
 
-// A project's own page, the way each agent has one. The key is the project's slug, and the path
-// is its address on this site: a row on the front page opens /<project>/ instead of leaving for
-// the repository. A project's sub-pages, when it grows one, hang under this path the way an
-// agent's log hangs under /<agent>/.
+/**
+ * A project's own page, the way each agent has one. The key is the project's slug, and the path
+ * is its address on this site: a row on the front page opens /<project>/ instead of leaving for
+ * the repository. A project's sub-pages, when it grows one, hang under this path the way an
+ * agent's log hangs under /<agent>/.
+ */
 export type ProjectKey = "dispatch" | "pereda" | "keysmash";
 
+/** Every project key, in the order the work list prints them. */
 export const projectKeys = [
   "dispatch",
   "pereda",
   "keysmash",
 ] as const satisfies readonly ProjectKey[];
 
-export interface ProjectRoute {
+interface ProjectRoute {
   key: ProjectKey;
   path: string;
 }
 
-export const projectRoutes: readonly ProjectRoute[] = projectKeys.map(
-  (key) => ({
-    key,
-    path: `/${key}/`,
-  }),
-);
+const projectRoutes: readonly ProjectRoute[] = projectKeys.map((key) => ({
+  key,
+  path: `/${key}/`,
+}));
 
 const projectsByKey = new Map<ProjectKey, ProjectRoute>(
   projectRoutes.map((route) => [route.key, route]),
 );
 
+/** A project's own page, at /<project>/. */
 export function projectHref(key: ProjectKey): string {
   const route = projectsByKey.get(key);
   if (!route) throw new Error(`Unknown project key: ${key}`);
   return route.path;
 }
 
+/** Whether a slug names a project that has a page. */
 export function isProjectKey(value: string): value is ProjectKey {
   return (projectKeys as readonly string[]).includes(value);
 }

@@ -3,8 +3,10 @@
   import type { Agent } from "#lib/data/agents.js";
   import type { Dictionary } from "#lib/i18n/index.js";
 
-  // One agent on the home page: the portrait in its ring, the name, the role and the agent's
-  // own line. An agent that is live has a page, so the whole card is the link.
+  /**
+   * One agent on the home page: the portrait in its ring, the name, the role and the agent's
+   * own line. An agent that is live has a page, so the whole card is the link.
+   */
   let { d, agent }: { d: Dictionary; agent: Agent } = $props();
 
   const target = $derived(agent.status === "running" ? agent.path : null);
