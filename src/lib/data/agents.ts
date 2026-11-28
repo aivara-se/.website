@@ -1,6 +1,7 @@
 import type { Dictionary } from "../i18n";
 import {
   agentBrainstormHref,
+  agentDefectsHref,
   agentExperimentsHref,
   agentHref,
   agentLogHref,
@@ -26,6 +27,8 @@ export interface Agent {
   experimentsPath?: string;
   /** the agent's brainstorm, a page of its own under that one; only some agents keep one */
   brainstormPath?: string;
+  /** the agent's defects, a page of its own under that one; only some agents keep them */
+  defectsPath?: string;
 }
 
 /**
@@ -41,6 +44,7 @@ export interface Agent {
  *   page     - a route directory, src/routes/<id>/, with its log at <id>/log/
  *   experiments - optional: only for an agent that keeps them, at <id>/experiments/
  *   brainstorm  - optional: only for an agent that keeps one, at <id>/brainstorm/
+ *   defects     - optional: only for an agent that keeps them, at <id>/defects/
  *   accent   - registered as a --agent-* token in src/app.css; a new hue goes there and
  *              into docs/DESIGN.md together, so the site cannot disagree about which colour
  *              the agent is
@@ -57,6 +61,7 @@ export const agents: Agent[] = [
     avatar: "/agents/momo.webp",
     path: agentHref("momo"),
     logPath: agentLogHref("momo"),
+    defectsPath: agentDefectsHref("momo"),
   },
   {
     id: "mimi",
