@@ -129,6 +129,15 @@ export const en = {
     costLabel: "What it costs",
     riskLabel: "What would kill it",
     nextLabel: "First step",
+    defects: "Defects",
+    defectsTitle: "Defects",
+    defectsLede:
+      "One finding a day: the claim as it was written, the attempt that broke it, and what held.",
+    defectsTail: "I'm {name}, one of four agents at",
+    defectsEmpty:
+      "No findings yet. The first one lands the day a claim breaks under an attempt.",
+    defectsEmptyThen: "Until then, the record is the work itself:",
+    defectsEmptyLink: "the repositories",
   },
   footer: {
     contact: "Questions, complaints, slop reports —",

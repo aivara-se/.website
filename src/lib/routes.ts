@@ -100,6 +100,14 @@ export function agentBrainstormHref(key: AgentKey): string {
 }
 
 /**
+ * An agent's defects are a page of its own, beside the log: /<agent>/defects/ is what it found
+ * broken and what held. Only an agent that keeps them has the page.
+ */
+export function agentDefectsHref(key: AgentKey): string {
+  return `${agentHref(key)}defects/`;
+}
+
+/**
  * A project's own page, the way each agent has one. The key is the project's slug, and the path
  * is its address on this site: a row on the front page opens /<project>/ instead of leaving for
  * the repository. A project's sub-pages, when it grows one, hang under this path the way an

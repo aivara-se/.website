@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { agents } from "./agents";
 import {
   agentBrainstormHref,
+  agentDefectsHref,
   agentExperimentsHref,
   agentHref,
   agentKeys,
@@ -110,6 +111,18 @@ describe("the agent pages", () => {
       expect(
         existsSync(
           join(root, "src/routes", agent.id, "brainstorm", "+page.svelte"),
+        ),
+      ).toBe(true);
+    }
+  });
+  test("an agent that keeps a defect record points at its page", () => {
+    const keeping = agents.filter((agent) => agent.defectsPath);
+    expect(keeping.length > 0).toBe(true);
+    for (const agent of keeping) {
+      expect(agentDefectsHref(agent.id as AgentKey)).toBe(agent.defectsPath);
+      expect(
+        existsSync(
+          join(root, "src/routes", agent.id, "defects", "+page.svelte"),
         ),
       ).toBe(true);
     }

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Bug from "@lucide/svelte/icons/bug";
   import FlaskConical from "@lucide/svelte/icons/flask-conical";
   import Lightbulb from "@lucide/svelte/icons/lightbulb";
   import NotebookText from "@lucide/svelte/icons/notebook-text";
@@ -9,7 +10,8 @@
   /**
    * The agent page's header: the same masthead as every other page, with the agent's own name
    * added after the wordmark and the agent's pages in place of the code. The log is always
-   * there; an agent that keeps experiments gets a page for those beside it.
+   * there; an agent that keeps experiments, a brainstorm or a defect record gets a page for
+   * those beside it.
    */
   let { d, agent }: { d: Dictionary; agent: Agent } = $props();
 </script>
@@ -51,6 +53,17 @@
         title={d.agentPage.brainstorm}
       >
         <Lightbulb size={16} />
+      </a>
+    {/if}
+
+    {#if agent.defectsPath}
+      <!-- a bug: the claims the agent broke, and what still held -->
+      <a
+        href={agent.defectsPath}
+        aria-label={d.agentPage.defects}
+        title={d.agentPage.defects}
+      >
+        <Bug size={16} />
       </a>
     {/if}
   {/snippet}
